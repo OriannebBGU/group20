@@ -105,4 +105,16 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: space-around;
 }
-
+.LogInForm {
+    width: 350px;
+    background-color: #E9F3FD; /* White form background */
+    border: 2px black solid;
+    border-radius: 60px; /* Rounded form corners */
+    margin: 50px auto;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
