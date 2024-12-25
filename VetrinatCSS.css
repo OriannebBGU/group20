@@ -176,6 +176,7 @@ input[type="submit"]:hover {
     display: flex;
     justify-content: space-around;
 }
+
 .homePage #homePageText {
     display: flex;
     flex-direction: column;
@@ -203,4 +204,115 @@ input[type="submit"]:hover {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.profile .icon{
+    position: absolute;
+    left: 200px;
+    width: 40000px;
+    height: 40px;
+    /*object-fit: cover;*/
+    align-self: center;
+}
+
+.profile h1 {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: calc(3rem + 1vw);
+    height: 18vh;
+}
+
+.profile .welcome {
+    position: absolute;
+    right: 15px;
+    font-size: calc(1.5rem);
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #59aaf2;
+    position: relative;
+    padding: 10px;
+}
+
+.menuButton {
+    position: relative;
+    z-index: 10; /* שומר את הכפתור הראשי מעל כל האלמנטים */
+}
+
+.profileHeader button {
+    position: absolute;
+    right: 25px;
+    margin-top: 80px;
+    background-color: #88BDAE;
+    border-color: #59aaf2;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.animalButtons {
+    display: flex;
+    flex-direction: column; /* סידור אנכי */
+    position: absolute; /* המיקום של התפריט */
+    top: 60px; /* מתחת לכפתור הראשי */
+    right: 25px; /* צמוד לימין */
+    background-color: #f0f0f0; /* רקע */
+    padding: 10px;
+    border-radius: 5px; /* פינות מעוגלות */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* הצללה */
+    z-index: 5; /* לוודא שמופיע מתחת לכפתור הראשי */
+    /*visibility: hidden; !* התפריט מוסתר כברירת מחדל *!*/
+}
+
+.animalButtons.show {
+    visibility: visible; /* מציג את התפריט */
+}
+
+.animalButtons button {
+    margin: 5px 0; /* רווח אנכי בין הכפתורים */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+.profile h2 {
+    color: black;
+    font-size: calc(0.8rem + 1vw);
+    background-color: #B2D6CB;
+}
+
+.profileContent {
+    width: 80%;  /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
+    margin: 0 auto;  /* מרכז את המלבן */
+    padding: 20px;  /* מרווח פנימי */
+}
+
+.profile dl {
+    display: grid;
+    grid-template-columns: auto 1fr; /* שתי עמודות */
+    gap: 20px; /* רווח בין תאים */
+    margin: 20px;
+    grid-column-gap: 100px;
+    font-size: calc(0.5rem + 1vw);;
+}
+
+.profile dt {
+    font-weight: bold; /* מודגש */
+    text-align: start;
+}
+
+.profile dd {
+    margin: 0; /* מבטל רווחים */
+    color: #333; /* צבע תוכן */
+    text-align: start;
 }
