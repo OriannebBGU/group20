@@ -240,16 +240,6 @@ input[type="submit"]:hover {
     padding: 10px;
 }
 
-/*.profileHeader button.menuButton {*/
-/*    position: relative;*/
-/*    z-index: 10; !* Ensures the menu button stays on top *!*/
-/*}*/
-
-.menuButton {
-    position: relative;
-    z-index: 10; /* שומר את הכפתור הראשי מעל כל האלמנטים */
-}
-
 .profileHeader .menuButton {
     position: absolute;
     right: 25px;
@@ -312,4 +302,38 @@ input[type="submit"]:hover {
     margin: 0; /* מבטל רווחים */
     color: #333; /* צבע תוכן */
     text-align: start;
+}
+
+.Chelsy {
+    width: 15%; /* חצי מרוחב ההורה */
+    height: auto; /* שומר על הפרופורציות */
+    position: absolute; /* מאפשר למקם אותה באופן חופשי */
+    top: 40%; /* מיקום אנכי - כמה פיקסלים מלמעלה */
+    left: 15%; /* מיקום אופקי - כמה פיקסלים מהימין */
+}
+
+.editDetails {
+    position: absolute;
+    font-family: Calibri;
+    right: 10%;
+    background-color: #B2D6CB;
+    border-color: lightblue;
+    border-radius: 7px;
+    font-size: calc(1rem);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.history {
+    position: absolute;
+    font-family: Calibri;
+    font-weight: bold;
+    left: 33%;
+    top: 75%;
+    background-color: #B2D6CB;
+    border-color: lightblue;
+    border-radius: 7px;
+    font-size: calc(2rem);
+    padding-left: 15px;
+    padding-right: 15px;
 }
