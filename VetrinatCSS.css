@@ -240,17 +240,22 @@ input[type="submit"]:hover {
     padding: 10px;
 }
 
+/*.profileHeader button.menuButton {*/
+/*    position: relative;*/
+/*    z-index: 10; !* Ensures the menu button stays on top *!*/
+/*}*/
+
 .menuButton {
     position: relative;
     z-index: 10; /* שומר את הכפתור הראשי מעל כל האלמנטים */
 }
 
-.profileHeader button {
+.profileHeader .menuButton {
     position: absolute;
     right: 25px;
     margin-top: 80px;
     background-color: #88BDAE;
-    border-color: #59aaf2;
+    border-color: lightblue;
     border-radius: 10px;
     font-size: calc(1.5rem);
     padding-left: 15px;
@@ -259,30 +264,22 @@ input[type="submit"]:hover {
 
 .animalButtons {
     display: flex;
-    flex-direction: column; /* סידור אנכי */
-    position: absolute; /* המיקום של התפריט */
-    top: 60px; /* מתחת לכפתור הראשי */
-    right: 25px; /* צמוד לימין */
-    background-color: #f0f0f0; /* רקע */
-    padding: 10px;
-    border-radius: 5px; /* פינות מעוגלות */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* הצללה */
-    z-index: 5; /* לוודא שמופיע מתחת לכפתור הראשי */
-    /*visibility: hidden; !* התפריט מוסתר כברירת מחדל *!*/
-}
-
-.animalButtons.show {
-    visibility: visible; /* מציג את התפריט */
+    flex-direction: column; /* Arrange buttons in a column */
+    position: absolute; /* Allows precise placement */
+    top: 110px; /* Adjust based on your layout */
+    right: 170px; /* Align to the right edge */
 }
 
 .animalButtons button {
-    margin: 5px 0; /* רווח אנכי בין הכפתורים */
-    padding: 10px 20px;
-    border: none;
+    width: 120px; /* Set a consistent width */
+    text-align: start;
+    background-color: #88BDAE;
+    /*border: 1px solid #ccc;*/
     border-radius: 5px;
-    cursor: pointer;
-    background-color: #e0e0e0;
-    text-align: center;
+    border-color: lightblue;
+    font-size: 20px;
+    padding-right: 10px;
+    font-family: Calibri;
 }
 
 .profile h2 {
