@@ -94,16 +94,15 @@ input[type="submit"]:hover {
     /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
 
 }
-.homePage .homePageHeader {
+.homePageHeader {
     display: flex;
     align-items: center;
     background-color: #59aaf2;
     grid-column: 1/span 3;
     justify-content: center;
-    /*justify-content:*/
 }
 
-.homePage .icon{
+.icon{
     position: absolute;
     left: 200px;
     width: 40000px;
@@ -112,7 +111,7 @@ input[type="submit"]:hover {
     align-self: center;
 }
 
-.homePage h1 {
+h1 {
     text-align: center;
     color: white;
     font-size: calc(1.7rem + 1vw);
@@ -171,7 +170,7 @@ input[type="submit"]:hover {
     margin: 30px 10px 40px 10px;
 }
 
-.homePage .contactInfo {
+.contactInfo {
     grid-column: 1/span 3;
     display: flex;
     justify-content: space-around;
@@ -216,7 +215,6 @@ input[type="submit"]:hover {
 }
 
 .profile h1 {
-    color: white;
     display: flex;
     align-items: center;
     font-size: calc(3rem + 1vw);
@@ -337,3 +335,71 @@ input[type="submit"]:hover {
     padding-left: 15px;
     padding-right: 15px;
 }
+.infoPage {
+    background-color: white;
+}
+
+.infoPage h1 {
+    display: flex;
+    align-items: center;
+    font-size: calc(3rem + 1vw);
+    height: 18vh;
+}
+
+.infoBox ul {
+    padding: 0 40px; /* Add padding for bullets */
+    list-style-type: disc; /* Ensure bullets are displayed */
+}
+
+.infoBox li {
+    text-align: right; /* Align text properly */
+}
+
+.infoPage .contactInfo {
+    position: fixed; /* Fixes it to the viewport */
+    bottom: 0; /* Positions it at the bottom */
+    left: 0;
+    width: 100%; /* Makes it span the entire width of the screen */
+    padding: 10px 0; /* Optional, for spacing */
+    display: flex;
+    justify-content: space-around;
+}
+
+.infoPage .services {
+    display: flex; /* מסדר את הילדים (item) אחד ליד השני */
+    gap: 10px; /* רווח בין האלמנטים */
+    justify-content: center; /* ממרכז את האלמנטים */
+    align-items: center; /* ממרכז אותם אנכית */
+    margin: 20px; /* רווח מסביב למיכל */
+}
+
+.infoPage .service {
+    border: 3px solid #59aaf2; /* גבול מסביב */
+    padding: 10px; /* מרווח פנימי */
+    width: 25%;
+    height: 70px;
+    align-content: center;
+    margin-left: 5%;
+    border-radius: 10px; /* Rounded form corners */
+    font-weight: bold;
+    font-size: calc(0.8rem + 1vw);
+}
+.infoBoxes {
+    display: flex; /* מסדר את הילדים (item) אחד ליד השני */
+    gap: 10px; /* רווח בין האלמנטים */
+    justify-content: center; /* ממרכז את האלמנטים */
+    align-items: center; /* ממרכז אותם אנכית */
+    margin: 20px; /* רווח מסביב למיכל */
+}
+
+.infoBox {
+    background-color: #cce6ff;
+    font-size: calc(1.5rem);
+    width: 25%;
+    margin-left: 5%;
+    height: 350px;
+    border-radius: 30px; /* Rounded form corners */
+    align-content: center;
+    /*פה צריך להבין איך מזיזים את הטקסט טיפה שמאלה בכל ריבוע*/
+}
+
