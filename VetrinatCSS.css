@@ -10,6 +10,7 @@ body {
     padding: 0;
     direction: rtl; /* Right-to-left alignment */
     text-align: center;
+    height: 100vh;
 }
 /*Registration and Log in Style*/
 .RegistrationForm {
@@ -402,4 +403,176 @@ h1 {
     align-content: center;
     /*פה צריך להבין איך מזיזים את הטקסט טיפה שמאלה בכל ריבוע*/
 }
+
+/*treatment summary*/
+/* הגדרת תצוגת גריד למסגרת הכללית */
+.select_container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    grid-gap: 20px;
+    padding: 20px;
+    /*max-width: 1200px;*/
+    margin: 0 auto;
+    height: 100vh   ;
+    width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+}
+
+/* סגנון לטופס הטיפול */
+.treatment-summary-form {
+    padding: 20px;
+    direction: rtl;
+    grid-column: 1;
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    flex-grow: 1;
+    /*border: 2px solid #59aaf2;*/
+    /*border-radius: 10px;*/
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
+    /*background-color: #E9F3FD; !* רקע לבן *!*/
+}
+
+/* סידור של שם לקוח, חיית מחמד וסוג טיפול בשורה אופקית */
+.horizontal-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* רווח בין השדות */
+    /*flex-direction: row-reverse;*/
+    /*flex-direction: row;*/
+}
+
+/* עיצוב שדות הטופס */
+.treatment-summary-form .form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    text-align: right; /* כיוונון התוויות */
+}
+.treatment-summary-form .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.treatment-summary-form input,
+.treatment-summary-form select,
+.treatment-summary-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+/* עיצוב כפתורים */
+.treatment-summary-form
+.form-actions {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+}
+
+/*.treatment-summary-form */
+.form-actions button {
+    background-color: #88BDAE; /* כפתורים ירוקים */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+}
+
+.treatment-summary-form .form-actions button:hover {
+    background-color: #4ea597;
+}
+
+/* סגנון להיסטוריית טיפולים */
+.history-section {
+    padding: 20px;
+    grid-column: 2;
+    text-align: center ;
+    overflow-y: visible; /* גלילה אם התוכן גולש */
+    height: 100%;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.history-section h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* טבלה */
+.history-section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color:#cce6ff;
+}
+
+.history-section table th,
+.history-section table td {
+    border: 1.5px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.history-section table th {
+    border: none;
+}
+
+/* כפתור פתיחה */
+.open-record-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #88BDAE;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 35%;
+}
+
+.open-record-button:hover {
+    background-color: #4ea597;
+}
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* עמודה ראשונה רחבה לטופס, עמודה שנייה צרה להיסטוריה */
+    gap: 20px;
+    direction: ltr;
+    height: 100%;
+    align-items: start;
+}
+.grid-layout .treatment-summary-form {
+    width: 100%; /* התאמת רוחב */
+}
+.header {
+    background-color: #59aaf2; /* כחול עליון */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-family: Calibri, sans-serif;
+}
+/*@media (max-width: 768px) {*/
+/*    .select_container {*/
+/*        grid-template-columns: 1fr; !* עמודה אחת *!*/
+/*        grid-template-rows: auto auto; !* שורות *!*/
+/*        height: auto; !* גובה מותאם *!*/
+/*    }*/
+
+/*    .history-section,*/
+/*    .treatment-summary-form {*/
+/*        height: auto; !* גובה דינמי *!*/
+/*    }*/
+/*}*/
 
