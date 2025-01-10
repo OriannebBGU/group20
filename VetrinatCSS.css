@@ -238,7 +238,7 @@ h1 {
     padding: 10px;
 }
 
-.profileHeader .menuButton {
+.menuButton {
     position: absolute;
     right: 25px;
     margin-top: 80px;
