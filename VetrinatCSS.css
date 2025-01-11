@@ -222,7 +222,7 @@ h1 {
     height: 18vh;
 }
 
-.profile .welcome {
+.welcome {
     position: absolute;
     right: 15px;
     font-size: calc(1.5rem);
@@ -239,10 +239,22 @@ h1 {
     padding: 10px;
 }
 
-.menuButton {
+.homeButton {
     position: absolute;
     right: 25px;
     margin-top: 80px;
+    background-color: #88BDAE;
+    border-color: lightblue;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 25px;
+    padding-right: 15px;
+}
+
+.menuButton {
+    position: absolute;
+    right: 25px;
+    margin-top: 160px;
     background-color: #88BDAE;
     border-color: lightblue;
     border-radius: 10px;
@@ -251,11 +263,59 @@ h1 {
     padding-right: 15px;
 }
 
+.loginButton {
+    position: absolute;
+    right: 25px;
+    margin-top: 240px;
+    background-color: #88BDAE;
+    border-color: lightblue;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 35px;
+    padding-right: 15px;
+}
+
+.regisButton {
+    position: absolute;
+    right: 25px;
+    margin-top: 320px;
+    background-color: #88BDAE;
+    border-color: lightblue;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 53px;
+    padding-right: 15px;
+}
+
+.infoButton {
+    position: absolute;
+    right: 25px;
+    margin-top: 400px;
+    background-color: #88BDAE;
+    border-color: lightblue;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 55px;
+    padding-right: 15px;
+}
+
+.logoutButton {
+    position: absolute;
+    right: 25px;
+    margin-top: 480px;
+    background-color: #88BDAE;
+    border-color: lightblue;
+    border-radius: 10px;
+    font-size: calc(1.5rem);
+    padding-left: 36px;
+    padding-right: 15px;
+}
+
 .animalButtons {
-    display: flex;
+    display: none;
     flex-direction: column; /* Arrange buttons in a column */
     position: absolute; /* Allows precise placement */
-    top: 110px; /* Adjust based on your layout */
+    top: 170px; /* Adjust based on your layout */
     right: 170px; /* Align to the right edge */
 }
 
