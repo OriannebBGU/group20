@@ -1,15 +1,16 @@
 // Define initial user state
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+let showAnimalButton = localStorage.getItem('showAnimalButton') === 'true';
+const welcomeMessage = document.querySelector('.welcome');
+const menuButton = document.querySelector('.menuButton');
+const loginButton = document.querySelector('.loginButton');
+const regisButton = document.querySelector('.regisButton');
+const animalButtons = document.querySelector('.animalButtons');
+const infoButton = document.querySelector('.infoButton');
+const logoutButton = document.querySelector('.logoutButton');
 
 // Update the homepage based on login state
 function updateHomePage() {
-    const welcomeMessage = document.querySelector('.welcome');
-    const menuButton = document.querySelector('.menuButton');
-    const loginButton = document.querySelector('.loginButton');
-    const regisButton = document.querySelector('.regisButton');
-    const animalButtons = document.querySelector('.animalButtons');
-    const infoButton = document.querySelector('.infoButton');
-    const logoutButton = document.querySelector('.logoutButton');
 
     if (isLoggedIn) {
         if (welcomeMessage) welcomeMessage.style.display = 'block';
@@ -25,7 +26,12 @@ function updateHomePage() {
         loginButton.style.marginTop = '160px';
         regisButton.style.marginTop = '240px';
         infoButton.style.marginTop = '320px';
+    }
 
+    if (showAnimalButton) {
+        animalButtons.style.display = 'flex';
+    } else {
+        animalButtons.style.display = 'none';
     }
 }
 
@@ -39,6 +45,19 @@ function setupButtons() {
             window.location.href = 'homepage.html';
         };
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (!menuButton || !animalButtons) {
+            console.error('Menu button or button list not found in the DOM.');
+            return;
+        }
+
+      menuButton.addEventListener('click', () => {
+        animalButtons.style.display = animalButtons.style.display === 'none' || animalButtons.style.display === ''
+          ? 'block'
+          : 'none';
+      });
+    });
 
     // Info button
     const infoButton = document.querySelector('.infoButton');
@@ -63,19 +82,19 @@ function setupButtons() {
             window.location.href = 'LogIn.html';
         };
     }
-
+/*
     const menuButton = document.querySelector('.menuButton');
     if (menuButton) {
-        menuButton.onclick = () => {
-            console.log('Before click, animalButtons display:', animalButtons.style.display);
-            if (animalButtons.style.display === 'flex') {
-                animalButtons.style.display = 'none'; // Hide
+        menuButton.addEventListener('click', () => {
+            if (animalButtons.style.display === 'none' || animalButtons.style.display === '') {
+                animalButtons.style.display = 'flex';
+                localStorage.setItem('showAnimalButton', 'true');
             } else {
-                animalButtons.style.display = 'flex'; // Show and keep flex behavior
+                animalButtons.style.display = 'none';
+                localStorage.setItem('showAnimalButton', 'false');
             }
-            console.log('After click, animalButtons display:', animalButtons.style.display);
-        };
-    }
+        });
+    }*/
 
     const regisButton = document.querySelector('.regisButton');
     if (regisButton) {
