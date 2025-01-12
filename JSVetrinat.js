@@ -1,6 +1,6 @@
 // Define initial user state
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-let showAnimalButton = localStorage.getItem('showAnimalButton') === 'true';
+//let showAnimalButton = localStorage.getItem('showAnimalButton') === 'true';
 const welcomeMessage = document.querySelector('.welcome');
 const menuButton = document.querySelector('.menuButton');
 const loginButton = document.querySelector('.loginButton');
@@ -46,19 +46,6 @@ function setupButtons() {
         };
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        if (!menuButton || !animalButtons) {
-            console.error('Menu button or button list not found in the DOM.');
-            return;
-        }
-
-      menuButton.addEventListener('click', () => {
-        animalButtons.style.display = animalButtons.style.display === 'none' || animalButtons.style.display === ''
-          ? 'block'
-          : 'none';
-      });
-    });
-
     // Info button
     const infoButton = document.querySelector('.infoButton');
     if (infoButton) {
@@ -82,19 +69,6 @@ function setupButtons() {
             window.location.href = 'LogIn.html';
         };
     }
-/*
-    const menuButton = document.querySelector('.menuButton');
-    if (menuButton) {
-        menuButton.addEventListener('click', () => {
-            if (animalButtons.style.display === 'none' || animalButtons.style.display === '') {
-                animalButtons.style.display = 'flex';
-                localStorage.setItem('showAnimalButton', 'true');
-            } else {
-                animalButtons.style.display = 'none';
-                localStorage.setItem('showAnimalButton', 'false');
-            }
-        });
-    }*/
 
     const regisButton = document.querySelector('.regisButton');
     if (regisButton) {
@@ -182,4 +156,10 @@ document.querySelectorAll('input[type=radio]').forEach((radio=>{
     })
 }))
 
-//
+function toggleAnimal(){
+    if (animalButtons.style.display === 'flex') {
+        animalButtons.style.display = 'none';
+    } else {
+        animalButtons.style.display = 'flex';
+    }
+}
