@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHomePage();
 });
 
-//Initialize redio button
+//Initialize radio button
 document.querySelectorAll('input[type=radio]').forEach((radio=>{
     radio.addEventListener('click',function (event){
         if (this.dataset.wasChecked === "true"){

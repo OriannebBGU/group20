@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>סיכום טיפול</title>
+    <title>VetRinat</title>
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
 <body>
     <header class="header">
         <h1>סיכום טיפול</h1>
-        <img src="photos/icon.png" alt="icon" class="icon" style="width: 30px">
+        <img src="photos/icon.png" alt="icon" class="icon">
+<!--             style="width: 30px">-->
     </header>
 
     <main class="select_container">
@@ -17,19 +18,19 @@
                 <div class="horizontal-group">
                     <div class="form-group">
                         <label for="client-name">שם לקוח:</label>
-                        <input type="text" id="client-name" name="client-name" placeholder="שם הלקוח" required>
+                        <input type="text" id="client-name" name="client-name" placeholder="אוריין שקולניק" required>
                     </div>
 
                     <div class="form-group">
                         <label for="pet-name">שם חיית מחמד:</label>
-                        <input type="text" id="pet-name" name="pet-name" placeholder="שם חיית המחמד" required>
+                        <input type="text" id="pet-name" name="pet-name" placeholder="צ'לסי" required>
                     </div>
 
                     <div class="form-group">
                         <label for="treatment-type">סוג טיפול:</label>
                         <select id="treatment-type" name="treatment-type">
-                            <option value="vaccination">חיסון</option>
                             <option value="checkup">בדיקה שגרתית</option>
+                            <option value="vaccination">חיסון</option>
                             <option value="surgery">ניתוח</option>
                             <option value="other">אחר</option>
                         </select>

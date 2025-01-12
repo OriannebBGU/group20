@@ -96,11 +96,12 @@ input[type="submit"]:hover {
 
 }
 .homePageHeader {
+    background-color: #59aaf2;
+    font-family: Calibri, sans-serif;
     display: flex;
     align-items: center;
-    background-color: #59aaf2;
-    grid-column: 1/span 3;
     justify-content: center;
+    grid-column: 1/span 3;
 }
 
 .icon{
@@ -231,10 +232,11 @@ h1 {
 }
 
 .profileHeader {
+    background-color: #59aaf2;
+    font-family: Calibri, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #59aaf2;
     position: relative;
     padding: 10px;
 }
@@ -464,7 +466,7 @@ h1 {
     /*פה צריך להבין איך מזיזים את הטקסט טיפה שמאלה בכל ריבוע*/
 }
 
-/*treatment summary: FLEX*/
+/*Treatment Summary:  */
 /* הגדרת תצוגת פלקס למסגרת הכללית */
 .select_container {
     display: flex;
@@ -479,7 +481,6 @@ h1 {
     align-items: flex-start;
     justify-content: space-between;
 }
-
 /* סגנון לטופס הטיפול */
 .treatment-summary-form {
     flex: 2;
@@ -492,8 +493,7 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
-
-/* סידור של שם לקוח, חיית מחמד וסוג טיפול בשורה אופקית */
+/*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
     justify-content: space-between;
@@ -501,12 +501,10 @@ h1 {
     gap: 15px;
     align-items: flex-end;
 }
-
-/* עיצוב שדות הטופס */
+/* Format the fields */
 .treatment-summary-form .form-group {
     margin-bottom: 15px;
 }
-
 .treatment-summary-form .form-group label {
     display: block;
     font-weight: bold;
@@ -537,14 +535,12 @@ h1 {
     resize: none;
     box-sizing: border-box;
 }
-/* עיצוב כפתורים */
-
+/* format button */
 .form-actions {
     display: flex;
     justify-content: left;
     gap: 15px;
 }
-
 .form-actions button {
     background-color: #88BDAE; /* כפתורים ירוקים */
     color: white;
@@ -563,12 +559,10 @@ h1 {
     text-align: center;
     /*text-justify: auto;*/
 }
-
 .treatment-summary-form .form-actions button:hover {
     background-color: #4ea597;
 }
-
-/* סגנון להיסטוריית טיפולים */
+/* format history section */
 .history-section {
     flex: 1;
     /*background-color: #E9F3FD;*/
@@ -582,19 +576,16 @@ h1 {
     height: 80%;
     width: 100%;
 }
-
 .history-section h2 {
     text-align: center;
     margin-bottom: 15px;
 }
-
-/* טבלה */
+/* past treatment details */
 .history-section table {
     width: 100%;
     border-collapse: collapse;
     background-color:#cce6ff;
 }
-
 .history-section table th,
 .history-section table td {
     border: 1.5px solid black;
@@ -629,14 +620,47 @@ h1 {
 .select_container .treatment-summary-form {
     width: 100%; /* התאמת רוחב */
 }
+
 .header {
-    background-color: #59aaf2; /* כחול עליון */
-    padding: 20px;
-    text-align: center;
-    color: white;
-    font-size: 24px;
+    background-color: #59aaf2;
     font-family: Calibri, sans-serif;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    direction: rtl;
+    gap: 20px;
+    position: relative;
 }
+.header .icon {
+    width: 60px;
+    height: auto;
+    /*flex-shrink: 0;*/
+    /*margin: 0;*/
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+.header h1 {
+    font-size: 40px;
+    margin: 0 auto;
+    /*margin-left: 20px;*/
+    text-align: center;
+    /*flex-grow: 1;*/
+}
+.header button {
+    background-color: #88BDAE; /* כפתורים בצבע ירוק */
+    border: none;
+    /*color: white; !* טקסט בלבן *!*/
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
 
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
 /*@media (min-width: 481px) and */
