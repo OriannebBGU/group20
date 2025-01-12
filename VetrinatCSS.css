@@ -414,10 +414,12 @@ h1 {
     padding: 20px;
     /*max-width: 1200px;*/
     margin: 0 auto;
-    height: 100vh   ;
-    width: 100vw;
+    height: 95vh;
+    width: 95vw;
     max-width: 100vw;
     box-sizing: border-box;
+    direction: ltr;
+    align-items: start;
 }
 
 /* סגנון לטופס הטיפול */
@@ -429,6 +431,7 @@ h1 {
     overflow-y: auto;
     width: 100%;
     flex-grow: 1;
+    height:100vh ;
     /*border: 2px solid #59aaf2;*/
     /*border-radius: 10px;*/
     /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
@@ -544,15 +547,16 @@ h1 {
 .open-record-button:hover {
     background-color: #4ea597;
 }
-.grid-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* עמודה ראשונה רחבה לטופס, עמודה שנייה צרה להיסטוריה */
-    gap: 20px;
-    direction: ltr;
-    height: 100%;
-    align-items: start;
-}
-.grid-layout .treatment-summary-form {
+/*.grid-layout {*/
+/*    display: grid;*/
+/*    grid-template-columns: 3fr 2fr; !* עמודה ראשונה רחבה לטופס, עמודה שנייה צרה להיסטוריה *!*/
+/*    gap: 20px;*/
+/*    direction: ltr;*/
+/*    height: 100%;*/
+/*    width: 100%;*/
+/*    align-items: start;*/
+/*}*/
+.select_container .treatment-summary-form {
     width: 100%; /* התאמת רוחב */
 }
 .header {
@@ -575,4 +579,32 @@ h1 {
 /*        height: auto; !* גובה דינמי *!*/
 /*    }*/
 /*}*/
+/* למסכים קטנים (טלפונים) */
+
+/* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
+/*@media (min-width: 481px) and */
+@media (max-width: 768px) {
+body {
+    background-color: blue;
+}
+    .select_container { }
+}
+
+/*  למסכים גדולים (מחשבים שולחניים קטנים)/חצי מסך גדול  */
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        background-color: green;
+    }
+    .select_container { }
+
+}
+
+/* / מסך מחשב נייד שי למסכים רחבים (מחשבים שולחניים גדולים) */
+@media (min-width: 1025px) {
+    body{
+    background-color:  red;
+    }
+    .select_container { }
+
+}
 
