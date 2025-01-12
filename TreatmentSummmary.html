@@ -1,169 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" dir="rtl">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>סיכום טיפול</title>-->
-<!--    <link rel="stylesheet" href="VetrinatCSS.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--    <header class="header">-->
-<!--        <h1>סיכום טיפול</h1>-->
-<!--    </header>-->
-
-<!--    <main class="select_container">-->
-<!--        <div class="grid-layout">-->
-<!--            <form action="" method="post" class="treatment-summary-form">-->
-<!--                <div class="horizontal-group">-->
-<!--    <div class="form-group">-->
-<!--        <label for="client-name">שם לקוח:</label>-->
-<!--        <input type="text" id="client-name" name="client-name" placeholder="הכנס שם הלקוח" required>-->
-<!--    </div>-->
-
-<!--    <div class="form-group">-->
-<!--        <label for="pet-name">שם חיית מחמד:</label>-->
-<!--        <input type="text" id="pet-name" name="pet-name" placeholder="הכנס שם חיית המחמד" required>-->
-<!--    </div>-->
-
-<!--    <div class="form-group">-->
-<!--        <label for="treatment-type">סוג טיפול:</label>-->
-<!--        <select id="treatment-type" name="treatment-type">-->
-<!--            <option value="vaccination">חיסון</option>-->
-<!--            <option value="checkup">בדיקה שגרתית</option>-->
-<!--            <option value="surgery">ניתוח</option>-->
-<!--            <option value="other">אחר</option>-->
-<!--        </select>-->
-<!--    </div>-->
-<!--</div>-->
-
-<!--                <div class="form-group">-->
-<!--                    <label for="summary">סיכום טיפול:</label>-->
-<!--                    <textarea id="summary" name="summary" placeholder="הכנס סיכום טיפול..." rows="5" required></textarea>-->
-<!--                </div>-->
-
-<!--                <div class="form-actions">-->
-<!--                    <button type="submit" class="save-button">שמור</button>-->
-<!--                    <button type="button" class="sign-button">חתום</button>-->
-<!--                    <button type="button" class="edit-button">ערוך</button>-->
-<!--                </div>-->
-<!--            </form>-->
-
-<!--            <section class="history-section">-->
-<!--            <h2>היסטוריית טיפולים</h2>-->
-<!--            <table>-->
-<!--                <thead>-->
-<!--                    <tr>-->
-<!--                        <th>בחר</th>-->
-<!--                        <th>תאריך</th>-->
-<!--                        <th>סוג טיפול</th>-->
-<!--                        <th>הערות</th>-->
-<!--                    </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                    <tr>-->
-<!--                        <td><input type="checkbox" class="select-row"></td>-->
-<!--                        <td>05/05/23</td>-->
-<!--                        <td>בדיקה</td>-->
-<!--                        <td>הכול תקין</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><input type="checkbox" class="select-row"></td>-->
-<!--                        <td>06/05/23</td>-->
-<!--                        <td>חיסון</td>-->
-<!--                        <td>בוצע בהצלחה</td>-->
-<!--                    </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-<!--            <button type="button" class="open-record-button">פתיחה</button>-->
-<!--        </section>-->
-<!--        </div>-->
-<!--    </main>-->
-<!--</body>-->
-<!--</html>-->
-<!--&lt;!&ndash;היסטוריה משמאל טופס מימין&ndash;&gt;-->
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" dir="rtl">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<!--    <title>סיכום טיפול</title>-->
-<!--    <link rel="stylesheet" href="VetrinatCSS.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--    <header class="header">-->
-<!--        <h1>סיכום טיפול</h1>-->
-<!--    </header>-->
-
-<!--    <main class="select_container">-->
-<!--        <div class="grid-layout">-->
-<!--            <form action="" method="post" class="treatment-summary-form">-->
-<!--                <div class="horizontal-group">-->
-<!--                    <div class="form-group">-->
-<!--                        <label for="client-name">שם לקוח:</label>-->
-<!--                        <input type="text" id="client-name" name="client-name" placeholder="הכנס שם הלקוח" required>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="pet-name">שם חיית מחמד:</label>-->
-<!--                        <input type="text" id="pet-name" name="pet-name" placeholder="הכנס שם חיית המחמד" required>-->
-<!--                    </div>-->
-
-<!--                    <div class="form-group">-->
-<!--                        <label for="treatment-type">סוג טיפול:</label>-->
-<!--                        <select id="treatment-type" name="treatment-type">-->
-<!--                            <option value="vaccination">חיסון</option>-->
-<!--                            <option value="checkup">בדיקה שגרתית</option>-->
-<!--                            <option value="surgery">ניתוח</option>-->
-<!--                            <option value="other">אחר</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="form-group">-->
-<!--                    <label for="summary">סיכום טיפול:</label>-->
-<!--                    <textarea id="summary" name="summary" placeholder="הכנס סיכום טיפול..." rows="5" required></textarea>-->
-<!--                </div>-->
-
-<!--                <div class="form-actions">-->
-<!--                    <button type="submit" class="save-button">שמור</button>-->
-<!--                    <button type="button" class="sign-button">חתום</button>-->
-<!--                    <button type="button" class="edit-button">ערוך</button>-->
-<!--                </div>-->
-<!--            </form>-->
-<!--        </div>-->
-
-<!--        <section class="history-section">-->
-<!--            <h2>היסטוריית טיפולים</h2>-->
-<!--            <table>-->
-<!--                <thead>-->
-<!--                    <tr>-->
-<!--                        <th>בחר</th>-->
-<!--                        <th>תאריך</th>-->
-<!--                        <th>סוג טיפול</th>-->
-<!--                        <th>הערות</th>-->
-<!--                    </tr>-->
-<!--                </thead>-->
-<!--                <tbody>-->
-<!--                    <tr>-->
-<!--                        <td><input type="checkbox" class="select-row"></td>-->
-<!--                        <td>05/05/23</td>-->
-<!--                        <td>בדיקה</td>-->
-<!--                        <td>הכול תקין</td>-->
-<!--                    </tr>-->
-<!--                    <tr>-->
-<!--                        <td><input type="checkbox" class="select-row"></td>-->
-<!--                        <td>06/05/23</td>-->
-<!--                        <td>חיסון</td>-->
-<!--                        <td>בוצע בהצלחה</td>-->
-<!--                    </tr>-->
-<!--                </tbody>-->
-<!--            </table>-->
-<!--            <button type="button" class="open-record-button">פתיחה</button>-->
-<!--        </section>-->
-<!--    </main>-->
-<!--</body>-->
-<!--</html>-->
-<!--ניסיון נוסף-->
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
@@ -179,7 +13,6 @@
     </header>
 
     <main class="select_container">
-<!--        <div class="grid-layout">-->
             <form action="" method="post" class="treatment-summary-form">
                 <div class="horizontal-group">
                     <div class="form-group">
@@ -206,7 +39,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group" id="summaryRap">
                     <label for="summary">סיכום טיפול:</label>
                     <textarea id="summary" name="summary" placeholder="הכנס סיכום טיפול..." rows="5" required></textarea>
                 </div>
@@ -214,40 +47,36 @@
                 <div class="form-actions">
                     <button type="submit" class="save-button">שמור</button>
                     <button type="button" class="sign-button">חתום</button>
-<!--                    <button type="button" class="edit-button">ערוך</button>-->
                 </div>
             </form>
 
             <section class="history-section">
-                <h2>היסטוריית טיפולים</h2>
+                <h2>היסטוריה רפואית</h2>
                 <table>
                     <thead>
                         <tr>
-                            <th>בחר</th>
+                            <th></th>
                             <th>תאריך</th>
                             <th>סוג טיפול</th>
-                            <th>הערות</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><input type="checkbox" class="select-row"></td>
+                            <td><input type="radio" class="select-row" name="select-one"></td>
                             <td>05/05/23</td>
                             <td>בדיקה</td>
-                            <td>הכול תקין</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" class="select-row"></td>
+                            <td><input type="radio" class="select-row" name="select-one"></td>
                             <td>06/05/23</td>
                             <td>חיסון</td>
-                            <td>בוצע בהצלחה</td>
                         </tr>
                     </tbody>
                 </table>
                 <button type="button" class="open-record-button">פתיחה</button>
             </section>
-<!--        </div>-->
     </main>
+
 <script src="JSVetrinat.js"></script>
 </body>
 </html>

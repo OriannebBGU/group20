@@ -150,3 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
     setupButtons();
     updateHomePage();
 });
+
+//Initialize redio button
+document.querySelectorAll('input[type=radio]').forEach((radio=>{
+    radio.addEventListener('click',function (event){
+        if (this.dataset.wasChecked === "true"){
+            this.checked = false;
+            this.dataset.wasChecked = "false";
+        } else {
+            this.dataset.wasChecked = "true";
+        }
+    })
+}))
+
+//
