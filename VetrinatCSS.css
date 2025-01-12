@@ -96,11 +96,12 @@ input[type="submit"]:hover {
 
 }
 .homePageHeader {
+    background-color: #59aaf2;
+    font-family: Calibri, sans-serif;
     display: flex;
     align-items: center;
-    background-color: #59aaf2;
-    grid-column: 1/span 3;
     justify-content: center;
+    grid-column: 1/span 3;
 }
 
 .icon{
@@ -231,10 +232,11 @@ h1 {
 }
 
 .profileHeader {
+    background-color: #59aaf2;
+    font-family: Calibri, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #59aaf2;
     position: relative;
     padding: 10px;
 }
@@ -464,80 +466,81 @@ h1 {
     /*פה צריך להבין איך מזיזים את הטקסט טיפה שמאלה בכל ריבוע*/
 }
 
-/*treatment summary*/
-/* הגדרת תצוגת גריד למסגרת הכללית */
+/*Treatment Summary:  */
+/* הגדרת תצוגת פלקס למסגרת הכללית */
 .select_container {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    grid-gap: 20px;
-    padding: 20px;
-    /*max-width: 1200px;*/
+    display: flex;
+    flex-direction: row;
+    padding:15px;
     margin: 0 auto;
-    height: 100vh   ;
-    width: 100vw;
+    height: 95vh;
+    width: 95vw;
     max-width: 100vw;
     box-sizing: border-box;
+    direction: ltr;
+    align-items: flex-start;
+    justify-content: space-between;
 }
-
 /* סגנון לטופס הטיפול */
 .treatment-summary-form {
+    flex: 2;
     padding: 20px;
     direction: rtl;
-    grid-column: 1;
-    height: 100%;
-    overflow-y: auto;
+    height: 80%;
     width: 100%;
-    flex-grow: 1;
-    /*border: 2px solid #59aaf2;*/
-    /*border-radius: 10px;*/
-    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
-    /*background-color: #E9F3FD; !* רקע לבן *!*/
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
-/* סידור של שם לקוח, חיית מחמד וסוג טיפול בשורה אופקית */
+/*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
     justify-content: space-between;
-    gap: 15px; /* רווח בין השדות */
-    /*flex-direction: row-reverse;*/
-    /*flex-direction: row;*/
+    /*justify-content: center;*/
+    gap: 15px;
+    align-items: flex-end;
 }
-
-/* עיצוב שדות הטופס */
+/* Format the fields */
 .treatment-summary-form .form-group {
     margin-bottom: 15px;
-}
-.form-group label {
-    display: block;
-    text-align: right; /* כיוונון התוויות */
 }
 .treatment-summary-form .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: right;
 }
-
+.treatment-summary-form input,
+.treatment-summary-form select{
+    border-radius: 100px;
+}
+.treatment-summary-form textarea{
+    border-radius: 5px;
+    height:85% ;
+}
 .treatment-summary-form input,
 .treatment-summary-form select,
 .treatment-summary-form textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     box-sizing: border-box;
     text-align: right;
+    font-family: Calibri, sans-serif;
 }
-
-/* עיצוב כפתורים */
-.treatment-summary-form
+.treatment-summary-form #summaryRap{
+    height:auto ;
+    flex-grow: 1;
+    resize: none;
+    box-sizing: border-box;
+}
+/* format button */
 .form-actions {
     display: flex;
     justify-content: left;
     gap: 15px;
 }
-
-/*.treatment-summary-form */
 .form-actions button {
     background-color: #88BDAE; /* כפתורים ירוקים */
     color: white;
@@ -547,51 +550,53 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     margin: 0;
-}
+    max-height: 30px;
+    font-family: Calibri, sans-serif;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*text-justify: auto;*/
+}
 .treatment-summary-form .form-actions button:hover {
     background-color: #4ea597;
 }
-
-/* סגנון להיסטוריית טיפולים */
+/* format history section */
 .history-section {
+    flex: 1;
+    /*background-color: #E9F3FD;*/
     padding: 20px;
-    grid-column: 2;
-    text-align: center ;
-    overflow-y: visible; /* גלילה אם התוכן גולש */
-    height: 100%;
+    overflow-y: auto;
+    text-align: center;
     direction: rtl;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    /*justify-content: space-between;*/
+    height: 80%;
+    width: 100%;
 }
-
 .history-section h2 {
     text-align: center;
     margin-bottom: 15px;
 }
-
-/* טבלה */
+/* past treatment details */
 .history-section table {
     width: 100%;
     border-collapse: collapse;
     background-color:#cce6ff;
 }
-
 .history-section table th,
 .history-section table td {
     border: 1.5px solid black;
     padding: 10px;
     text-align: center;
 }
-
 .history-section table th {
     border: none;
 }
-
 /* כפתור פתיחה */
 .open-record-button {
-    margin-top: 15px;
     padding: 10px 20px;
     background-color: #88BDAE;
     color: white;
@@ -599,40 +604,100 @@ h1 {
     border-radius: 20px;
     cursor: pointer;
     width: 35%;
+    align-self: flex-end;
+    margin-top: auto;
+    max-height: 30px;
+    font-size: 16px;
+    font-family: Calibri, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
-
 .open-record-button:hover {
     background-color: #4ea597;
 }
-.grid-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr; /* עמודה ראשונה רחבה לטופס, עמודה שנייה צרה להיסטוריה */
-    gap: 20px;
-    direction: ltr;
-    height: 100%;
-    align-items: start;
-}
-.grid-layout .treatment-summary-form {
+.select_container .treatment-summary-form {
     width: 100%; /* התאמת רוחב */
 }
-.header {
-    background-color: #59aaf2; /* כחול עליון */
-    padding: 20px;
-    text-align: center;
-    color: white;
-    font-size: 24px;
-    font-family: Calibri, sans-serif;
-}
-/*@media (max-width: 768px) {*/
-/*    .select_container {*/
-/*        grid-template-columns: 1fr; !* עמודה אחת *!*/
-/*        grid-template-rows: auto auto; !* שורות *!*/
-/*        height: auto; !* גובה מותאם *!*/
-/*    }*/
 
-/*    .history-section,*/
-/*    .treatment-summary-form {*/
-/*        height: auto; !* גובה דינמי *!*/
+.header {
+    background-color: #59aaf2;
+    font-family: Calibri, sans-serif;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    direction: rtl;
+    gap: 20px;
+    position: relative;
+}
+.header .icon {
+    width: 60px;
+    height: auto;
+    /*flex-shrink: 0;*/
+    /*margin: 0;*/
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+.header h1 {
+    font-size: 40px;
+    margin: 0 auto;
+    /*margin-left: 20px;*/
+    text-align: center;
+    /*flex-grow: 1;*/
+}
+.header button {
+    background-color: #88BDAE; /* כפתורים בצבע ירוק */
+    border: none;
+    /*color: white; !* טקסט בלבן *!*/
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
+/*@media (min-width: 481px) and */
+@media (max-width: 900px) {
+    body {
+        box-sizing: border-box;
+    }
+    .select_container {
+        flex-direction: column;
+        gap: 15px;
+        padding-right: 15px;
+        /*margin-right: 25px;*/
+        margin-inline: 27px;
+    }
+    .treatment-summary-form{
+        width: 100%;
+    }
+    .history-section{
+        width: 100%;
+    }
+}
+
+/*!*  למסכים גדולים (מחשבים שולחניים קטנים)/חצי מסך גדול  *!*/
+/*@media (min-width: 769px) and (max-width: 1024px) {*/
+/*    body {*/
+/*        background-color: green;*/
 /*    }*/
+/*    .select_container { }*/
+
+/*}*/
+
+/*!* / מסך מחשב נייד שי למסכים רחבים (מחשבים שולחניים גדולים) *!*/
+/*@media (min-width: 1025px) {*/
+/*    body{*/
+/*    background-color:  red;*/
+/*    }*/
+/*    .select_container { }*/
+
 /*}*/
 
