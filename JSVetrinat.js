@@ -72,17 +72,13 @@ function setupButtons() {
 
     // Animal buttons
     const animalButtons = document.querySelectorAll('.animalButtons button');
-    if (animalButtons.length >= 3) {
         animalButtons[0].onclick = () => {
             window.location.href = 'Profile.html';
         };
         animalButtons[1].onclick = () => {
-            window.location.href = 'Profile.html';
-        };
-        animalButtons[2].onclick = () => {
             window.location.href = 'RegistrationPet.html';
         };
-    }
+
 
     // History button
     const historyButton = document.querySelector('.history');
