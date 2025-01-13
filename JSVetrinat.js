@@ -1,15 +1,16 @@
 // Define initial user state
 let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+//let showAnimalButton = localStorage.getItem('showAnimalButton') === 'true';
+const welcomeMessage = document.querySelector('.welcome');
+const menuButton = document.querySelector('.menuButton');
+const loginButton = document.querySelector('.loginButton');
+const regisButton = document.querySelector('.regisButton');
+const animalButtons = document.querySelector('.animalButtons');
+const infoButton = document.querySelector('.infoButton');
+const logoutButton = document.querySelector('.logoutButton');
 
 // Update the homepage based on login state
 function updateHomePage() {
-    const welcomeMessage = document.querySelector('.welcome');
-    const menuButton = document.querySelector('.menuButton');
-    const loginButton = document.querySelector('.loginButton');
-    const regisButton = document.querySelector('.regisButton');
-    const animalButtons = document.querySelector('.animalButtons');
-    const infoButton = document.querySelector('.infoButton');
-    const logoutButton = document.querySelector('.logoutButton');
 
     if (isLoggedIn) {
         if (welcomeMessage) welcomeMessage.style.display = 'block';
@@ -25,7 +26,12 @@ function updateHomePage() {
         loginButton.style.marginTop = '160px';
         regisButton.style.marginTop = '240px';
         infoButton.style.marginTop = '320px';
+    }
 
+    if (showAnimalButton) {
+        animalButtons.style.display = 'flex';
+    } else {
+        animalButtons.style.display = 'none';
     }
 }
 
@@ -61,19 +67,6 @@ function setupButtons() {
         loginButton.onclick = () => {
             localStorage.setItem('isLoggedIn', 'true');
             window.location.href = 'LogIn.html';
-        };
-    }
-
-    const menuButton = document.querySelector('.menuButton');
-    if (menuButton) {
-        menuButton.onclick = () => {
-            console.log('Before click, animalButtons display:', animalButtons.style.display);
-            if (animalButtons.style.display === 'flex') {
-                animalButtons.style.display = 'none'; // Hide
-            } else {
-                animalButtons.style.display = 'flex'; // Show and keep flex behavior
-            }
-            console.log('After click, animalButtons display:', animalButtons.style.display);
         };
     }
 
@@ -163,4 +156,10 @@ document.querySelectorAll('input[type=radio]').forEach((radio=>{
     })
 }))
 
-//
+function toggleAnimal(){
+    if (animalButtons.style.display === 'flex') {
+        animalButtons.style.display = 'none';
+    } else {
+        animalButtons.style.display = 'flex';
+    }
+}
