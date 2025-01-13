@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Initialize radio button
 document.querySelectorAll('input[type=radio]').forEach((radio=>{
-    radio.addEventListener('click',function (event){
+    radio.addEventListener('click', function (){
         if (this.dataset.wasChecked === "true"){
             this.checked = false;
             this.dataset.wasChecked = "false";
