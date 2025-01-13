@@ -1,4 +1,5 @@
 /* General styling */
+
 *{
     margin: 0;
     padding: 0;
@@ -496,14 +497,53 @@ h1 {
 /*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
+    /*flex-direction: column;*/
     justify-content: space-between;
     /*justify-content: center;*/
     gap: 15px;
     align-items: flex-end;
 }
-/* Format the fields */
+/*.horizontal-group .patient-only,*/
+/*.horizontal-group .doctor-only {*/
+/*        display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    gap: 15px;*/
+/*    background-color: blue;*/
+/*    flex: 1;*/
+/*}*/
+.horizontal-group .patient-only .form-group,
+.horizontal-group .doctor-only .form-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: yellow;
+    flex: 1;
+}
+/*.horizontal-group .form-group{*/
+/*    !*background-color: #333333;*!*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    gap: 15px;*/
+
+/*!*    flex-direction: column;*!*/
+/*!*    !*!*justify-content: center;*!*!*!*/
+/*!*    !*align-items: flex-end;*!*!*/
+/*}*/
+/*.horizontal-group .form-group input*/
+/*.horizontal-group .form-group select{*/
+/*    flex: 1;*/
+/*    padding: 5px;*/
+/*}*/
+
 .treatment-summary-form .form-group {
     margin-bottom: 15px;
+    flex: 1;
 }
 .treatment-summary-form .form-group label {
     display: block;
@@ -652,44 +692,45 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     /*margin-left: 20px;*/
-    /*flex-grow: 1;*/
+    flex-grow: 1;
 }
 .header h2{
     font-size: 15px;
 }
-/*.header button {*/
-/*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
-/*    border: none;*/
-/*    !*color: white; !* טקסט בלבן *!*!*/
-/*    font-size: 14px;*/
-/*    padding: 10px 20px;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*}*/
-.header-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.header-buttons .header-bnt{
-    background-color: #88BDAE;
+.header button {
+    background-color: #88BDAE; /* כפתורים בצבע ירוק */
     border: none;
-    color: white;
-    font-size: 15px;
-    font-family: Calibri, sans-serif;
+    /*color: white; !* טקסט בלבן *!*/
+    font-size: 14px;
     padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer ;
-    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.header-buttons .header-bnt{
-    background-color: #76A898;
-}
-
-
-/*.infoPage .header{*/
-
+/*.header-buttons{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
 /*}*/
+/*.header-buttons .header-bnt{*/
+/*    background-color: #88BDAE;*/
+/*    border: none;*/
+/*    color: white;*/
+/*    font-size: 15px;*/
+/*    font-family: Calibri, sans-serif;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 20px;*/
+/*    cursor: pointer ;*/
+/*    text-align: center;*/
+/*}*/
+/*.header-buttons .header-bnt{*/
+/*    background-color: #76A898;*/
+/*}*/
+
+/*//TreatmentSummary: view by user*/
+
+
+
+
 
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
 @media (max-width: 900px) {
@@ -710,7 +751,7 @@ h1 {
         width: 100%;
     }
 }
-
+/*@media נוספים שאפשר לעשות אם צריך  */
 /*!*  למסכים גדולים (מחשבים שולחניים קטנים)/חצי מסך גדול  *!*/
 /*@media (min-width: 769px) and (max-width: 1024px) {*/
 /*    body {*/

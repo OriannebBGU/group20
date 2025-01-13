@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHomePage();
 });
 
-//Initialize radio button
+//TreatmentSummary: Initialize radio button
 document.querySelectorAll('input[type=radio]').forEach((radio=>{
     radio.addEventListener('click', function (){
         if (this.dataset.wasChecked === "true"){
@@ -163,3 +163,92 @@ function toggleAnimal(){
         animalButtons.style.display = 'flex';
     }
 }
+
+
+
+
+
+
+//TreatmentSummary: view by user
+// הגדרת סוג משתמש: 'patient' או 'doctor'
+function setUserType(userType) {
+    localStorage.setItem('userType', userType);
+    updateViewBasedOnUser();
+}
+
+// עדכון העמוד על פי סוג המשתמש
+function updateViewBasedOnUser() {
+    const userType = localStorage.getItem('userType');
+    if (userType === 'patient') {
+        // התאמות עבור פציינט
+        document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'block');
+        // document.body.style.backgroundColor = 'green'; // צבע רקע מותאם לפציינט
+        console.log('User is a patient_in updateViewBasedOnUser function');
+
+    } else if (userType === 'doctor') {
+        // התאמות עבור רופא
+        document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'none');
+        document.body.style.backgroundColor = 'blue'; // צבע רקע מותאם לרופא
+        console.log('User is a doctor_in updateViewBasedOnUser function');
+    }
+}
+// הוספת אירועי לחיצה לקביעת סוג המשתמש
+document.addEventListener('DOMContentLoaded', () => {
+    const patientButton = document.querySelector('#patientButton');
+    const doctorButton = document.querySelector('#doctorButton');
+    if (patientButton) {
+        console.log('in EventListener PATIENT if');
+        patientButton.addEventListener('click', () => setUserType('patient'));
+    }
+    if (doctorButton) {
+        console.log('in EventListener DOCTOR if');
+        doctorButton.addEventListener('click', () => setUserType('doctor'));
+    }
+    // התאמת העמוד בעת טעינה
+    updateViewBasedOnUser();
+});
+
+
+
+//!!בדיקת מעבר ביןמשתמשים בהיסטוריית טיפולים!!:
+
+// function setUserType(userType) {
+//     localStorage.setItem('userType', userType); // שמירת סוג המשתמש ב-localStorage
+//     updateViewBasedOnUser(); // עדכון התצוגה
+// }
+
+// function updateViewBasedOnUser() {
+//     const userType = localStorage.getItem('userType'); // שליפת סוג המשתמש
+//
+//     if (userType === 'patient') {
+//         document.body.classList.add('patient'); // הוספת מחלקת עיצוב לפציינט
+//         document.body.classList.remove('doctor'); // הסרת מחלקת עיצוב לרופא
+//         console.log('User is a patient');
+//     } else if (userType === 'doctor') {
+//         document.body.classList.add('doctor'); // הוספת מחלקת עיצוב לרופא
+//         document.body.classList.remove('patient'); // הסרת מחלקת עיצוב לפציינט
+//         console.log('User is a doctor');
+//     } else {
+//         console.log('No user type set');
+//     }
+// }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     // הוספת מאזינים לכפתורי הבדיקה
+//     const patientButton = document.querySelector('#patientButton');
+//     const doctorButton = document.querySelector('#doctorButton');
+//
+//     if (patientButton) {
+//         patientButton.addEventListener('click', () => setUserType('patient'));
+//     }
+//
+//     if (doctorButton) {
+//         doctorButton.addEventListener('click', () => setUserType('doctor'));
+//     }
+//
+//     // // עדכון הנראות בעת טעינת העמוד
+//     // updateViewBasedOnUser();
+// });
+//
