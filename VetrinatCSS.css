@@ -624,10 +624,11 @@ h1 {
 .header {
     background-color: #59aaf2;
     font-family: Calibri, sans-serif;
-    padding: 20px;
+    padding: 40px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    /*justify-content: flex-start;*/
+    justify-content: space-between;
     color: white;
     direction: rtl;
     gap: 20px;
@@ -644,26 +645,53 @@ h1 {
     transform: translateY(-50%);
 }
 .header h1 {
-    font-size: 40px;
+    font-size: 30px;
     margin: 0 auto;
+    /*text-align: center;*/
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
     /*margin-left: 20px;*/
-    text-align: center;
     /*flex-grow: 1;*/
 }
-.header button {
-    background-color: #88BDAE; /* כפתורים בצבע ירוק */
+.header h2{
+    font-size: 15px;
+}
+/*.header button {*/
+/*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
+/*    border: none;*/
+/*    !*color: white; !* טקסט בלבן *!*!*/
+/*    font-size: 14px;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+.header-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.header-buttons .header-bnt{
+    background-color: #88BDAE;
     border: none;
-    /*color: white; !* טקסט בלבן *!*/
-    font-size: 14px;
+    color: white;
+    font-size: 15px;
+    font-family: Calibri, sans-serif;
     padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 20px;
+    cursor: pointer ;
+    text-align: center;
+}
+.header-buttons .header-bnt{
+    background-color: #76A898;
 }
 
 
+/*.infoPage .header{*/
+
+/*}*/
 
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
-/*@media (min-width: 481px) and */
 @media (max-width: 900px) {
     body {
         box-sizing: border-box;
