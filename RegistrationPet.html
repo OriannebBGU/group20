@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
 <body>
-<form action="" method="get" class="RegistrationForm">
+<form action="homepage.html" method="get" class="RegistrationPetForm">
     <h1>צור משתמש</h1>
     <h2>פרטי חיית מחמד</h2><br>
     <div class="RegistrationLine">
@@ -26,8 +26,8 @@
         <input type="text" name="gender" placeholder="זכר/נקבה">
     </div>
     <div class="RegistrationLine">
-        <label for="age">גיל</label>
-        <input type="number" name="age" placeholder="גיל">
+        <label for="age">תאריך לידה</label>
+        <input type="date" name="age" placeholder="גיל">
     </div>
     <div class="RegistrationLine">
         <label for="weight">משקל</label>
@@ -39,6 +39,6 @@
 <!--    </a>-->
 </form>
 
-<script src="JSVetrinat.js"></script>
+<script src="JSVetrinat.js" defer></script>
 </body>
 </html>

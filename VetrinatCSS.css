@@ -24,6 +24,16 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
 }
 
+.RegistrationPetForm {
+    width: 350px;
+    background-color: #E9F3FD; /* White form background */
+    border: 2px black solid;
+    border-radius: 60px; /* Rounded form corners */
+    margin: 50px auto;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+}
+
 h1, h2 {
     margin: 10px 0;
     font-weight: bold;
@@ -751,7 +761,18 @@ h1 {
         width: 100%;
     }
 }
+
 /*@media נוספים שאפשר לעשות אם צריך  */
+
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
 /*!*  למסכים גדולים (מחשבים שולחניים קטנים)/חצי מסך גדול  *!*/
 /*@media (min-width: 769px) and (max-width: 1024px) {*/
 /*    body {*/
