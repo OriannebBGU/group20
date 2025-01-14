@@ -94,11 +94,7 @@ input[type="submit"]:hover {
     background-color: #4ea597; /* Slightly darker teal */
 }
 
-/*!* Logo styling (optional if you add an image) *!*/
-/*.logo {*/
-/*    margin-top: 10px;*/
-/*}*/
-.homePage {
+.home-page {
     display: grid;
     width: 100vw; /* 100% מרוחב המסך */
     height: 100vh; /* 100% מגובה המסך */
@@ -106,7 +102,7 @@ input[type="submit"]:hover {
     grid-template-rows: 20% 30% 5% 25% 15% 5%;
     /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
 }
-.homePage header
+.home-page header
 /*.homePageHeader */
 {
     /*background-color: #59aaf2;*/
@@ -118,8 +114,7 @@ input[type="submit"]:hover {
     grid-column: 1/span 3;
 }
 
-יכאעי
-.icon{
+.icon {
     position: absolute;
     left: 200px;
     width: 40000px;
@@ -134,46 +129,46 @@ h1 {
     font-size: calc(1.7rem + 1vw);
 }
 
-.homePage #dog2 {
+.home-page #dog2 {
     grid-row: 3/span 2;
     align-self: center;
 
 }
-.homePage #cat2 {
+.home-page #cat2 {
     grid-row: 3/span 2;
     grid-column: 3 /span 1;
     align-self: center;
 }
 
-.homePage #cat1 {
+.home-page #cat1 {
     align-self: center;
 }
 
-.homePage #dog1 {
+.home-page #dog1 {
     align-self: center;
 }
 
-.homePage #activityHours {
+.home-page #activityHours {
     grid-column: 1/span 3;
 }
 
-.homePage #activityHours h3 {
+.home-page #activityHours h3 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
 }
 
-.homePage #activityHours {
+.home-page #activityHours {
     font-size: calc(0.65rem + 1vw);
 }
 
-.homePage h2 {
+.home-page h2 {
     font-weight: bold;
     font-size: calc(1.2rem + 1vw);
     align-self: start;
     color: black;
 }
 
-.homePage .services {
+.home-page .services {
     grid-column: 2/span 1;
     display: flex;
     justify-content: space-evenly;
@@ -193,7 +188,7 @@ h1 {
     justify-content: space-around;
 }
 
-.homePage #homePageText {
+.home-page #homePageText {
     display: flex;
     flex-direction: column;
     justify-self: end;
@@ -222,21 +217,21 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.profile .icon{
-    position: absolute;
-    left: 200px;
-    width: 40000px;
-    height: 40px;
-    /*object-fit: cover;*/
-    align-self: center;
-}
+/*.profile-page .icon{*/
+/*    position: absolute;*/
+/*    left: 200px;*/
+/*    width: 40000px;*/
+/*    height: 40px;*/
+/*    !*object-fit: cover;*!*/
+/*    align-self: center;*/
+/*}*/
 
-.profile h1 {
-    display: flex;
-    align-items: center;
-    font-size: calc(3rem + 1vw);
-    height: 18vh;
-}
+/*.profile-page h1 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: calc(3rem + 1vw);*/
+/*    height: 18vh;*/
+/*}*/
 
 .welcome {
     position: absolute;
@@ -349,7 +344,7 @@ h1 {
     font-family: Calibri, sans-serif;
 }
 
-.profile h2 {
+.profile-page h2 {
     color: black;
     font-size: calc(0.8rem + 1vw);
     background-color: #B2D6CB;
@@ -361,7 +356,7 @@ h1 {
     padding: 20px;  /* מרווח פנימי */
 }
 
-.profile dl {
+.profile-page dl {
     display: grid;
     grid-template-columns: auto 1fr; /* שתי עמודות */
     gap: 20px; /* רווח בין תאים */
@@ -370,12 +365,12 @@ h1 {
     font-size: calc(0.5rem + 1vw);;
 }
 
-.profile dt {
+.profile-page dt {
     font-weight: bold; /* מודגש */
     text-align: start;
 }
 
-.profile dd {
+.profile-page dd {
     margin: 0; /* מבטל רווחים */
     color: #333; /* צבע תוכן */
     text-align: start;
@@ -400,7 +395,7 @@ h1 {
     padding-left: 15px;
     padding-right: 15px;
 }
-
+/*צריך לתקן את המיקום ביחס לשמאל למטה של המך כי במסך נמוך זה לא ממוקם טוב*/
 .history {
     position: absolute;
     font-family: Calibri, sans-serif;
@@ -674,13 +669,13 @@ header .icon {
     transform: translateY(-50%);
 }
 header h1 {
-    font-size: 30px;
+    font-size: calc(3rem + 1vw);
+    /*font-size: 30px;*/
     margin: 0 auto;
     /*text-align: center;*/
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    /*margin-left: 20px;*/
     flex-grow: 1;
 }
 header h2{

@@ -5,48 +5,52 @@
     <title>VetRinat</title>
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
-<body>
-   <div class="profile">
-       <div class="profileHeader">
-          <button class="homeButton">עמוד הבית</button>
-           <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
-           <h1>אזור אישי - צ'לסי</h1>
-           <button class="infoButton">טיפולים</button>
-           <button class="logoutButton">התנתקות</button>
-           <a>
-               <img src="photos/icon.png" alt="icon" class="icon" style="width: 30px">
-           </a>
-            <div class="animalButtons"> <!--style="display: none;"-->
-                <button onclick="">צ'לסי</button>
-<!--                <button onclick="">צ'ופי</button>-->
-                <button onclick="">הוספה...</button>
-            </div>
-       </div>
-       <div class="profileContent">
-           <h2>
-               אין תורים עתידיים :)
-           </h2>
-           <dl>
-               <dt>שם</dt>
-               <dd>צ'לסי</dd>
-               <dt>סוג</dt>
-               <dd>חתול</dd>
-               <dt>מין</dt>
-               <dd>נקבה</dd>
-               <dt>תאריך לידה</dt>
-               <dd>01/07/21</dd>
-               <dt>גיל</dt>
-               <dd>3.5</dd>
-               <dt>משקל</dt>
-               <dd>5.6</dd>
-               <dt>גזע</dt>
-               <dd>רגיל</dd>
-           </dl>
-           <img src="photos/Chelsy baby.jpg" alt="Chelsy" class="Chelsy">
-           <button class="editDetails">ערוך פרטים ></button>
-           <button class="history">היסטוריה רפואית ></button>
-       </div>
-   </div>
+<body class="profile-page">
+<header class="profile-page">
+    <button class="homeButton">עמוד הבית</button>
+    <!--?-->
+    <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
+    <!--?-->
+    <h1>אזור אישי - צ'לסי</h1>
+    <button class="infoButton">טיפולים</button>
+    <button class="logoutButton">התנתקות</button>
+    <img src="photos/icon.png" alt="icon" class="icon">
+    <div class="animalButtons"> <!--style="display: none;"-->
+        <button onclick="">צ'לסי</button>
+        <!--                <button onclick="">צ'ופי</button>-->
+        <button onclick="">הוספה...</button>
+    </div>
+</header>
+
+<div class="profileContent">
+    <h2>
+        אין תורים עתידיים :)
+    </h2>
+    <dl>
+        <dt>שם</dt>
+        <dd>צ'לסי</dd>
+        <dt>סוג</dt>
+        <dd>חתול</dd>
+        <dt>מין</dt>
+        <dd>נקבה</dd>
+        <dt>תאריך לידה</dt>
+        <dd>01/07/21</dd>
+        <dt>גיל</dt>
+        <dd>3.5</dd>
+        <dt>משקל</dt>
+        <dd>5.6</dd>
+        <dt>גזע</dt>
+        <dd>רגיל</dd>
+    </dl>
+    <!--    <img src="photos/Chelsy baby.jpg" alt="Chelsy" class="Chelsy">-->
+    <!--    <button class="editDetails">ערוך פרטים ></button>-->
+    <!--    <button class="history">היסטוריה רפואית ></button>-->
+</div>
+<img src="photos/Chelsy baby.jpg" alt="Chelsy" class="Chelsy">
+<button class="editDetails">ערוך פרטים ></button>
+<button class="history">היסטוריה רפואית ></button>
+<!--</div>-->
+
 <script src="JSVetrinat.js"></script>
 </body>
 </html>
