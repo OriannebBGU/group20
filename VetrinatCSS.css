@@ -409,16 +409,16 @@ h1 {
     padding-left: 15px;
     padding-right: 15px;
 }
-.infoPage {
+.info-page {
     background-color: white;
 }
 
-.infoPage h1 {
-    display: flex;
-    align-items: center;
-    font-size: calc(3rem + 1vw);
-    height: 18vh;
-}
+/*.info-page h1 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: calc(3rem + 1vw);*/
+/*    height: 18vh;*/
+/*}*/
 
 .infoBox ul {
     padding: 0 40px; /* Add padding for bullets */
@@ -429,7 +429,7 @@ h1 {
     text-align: right; /* Align text properly */
 }
 
-.infoPage .contactInfo {
+.info-page .contactInfo {
     position: fixed; /* Fixes it to the viewport */
     bottom: 0; /* Positions it at the bottom */
     left: 0;
@@ -439,7 +439,7 @@ h1 {
     justify-content: space-around;
 }
 
-.infoPage .services {
+.info-page .services {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
     gap: 10px; /* רווח בין האלמנטים */
     justify-content: center; /* ממרכז את האלמנטים */
@@ -447,7 +447,7 @@ h1 {
     margin: 20px; /* רווח מסביב למיכל */
 }
 
-.infoPage .service {
+.info-page .service {
     border: 3px solid #59aaf2; /* גבול מסביב */
     padding: 10px; /* מרווח פנימי */
     width: 25%;
@@ -572,14 +572,14 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     margin: 0;
-    max-height: 30px;
+    /*max-height: 30px;*/
     font-family: Calibri, sans-serif;
 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /*text-justify: auto;*/
+    text-justify: auto;
 }
 .treatment-summary-form .form-actions button:hover {
     background-color: #4ea597;
@@ -669,8 +669,8 @@ header .icon {
     transform: translateY(-50%);
 }
 header h1 {
-    font-size: calc(3rem + 1vw);
-    /*font-size: 30px;*/
+    /*font-size: calc(3rem + 1vw);*/
+    font-size: 4vw;
     margin: 0 auto;
     /*text-align: center;*/
     position: relative;
@@ -692,6 +692,8 @@ header button {
     position: relative;
     z-index: 10;
 }
+
+
 /*.header-buttons{*/
 /*    display: flex;*/
 /*    flex-direction: column;*/
