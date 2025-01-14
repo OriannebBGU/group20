@@ -266,6 +266,7 @@ function toggleAnimal() {
 // set as 'patient' or 'doctor'
 function setUserType(userType) {
     localStorage.setItem('userType', userType);
+    updateViewBasedOnUser(localStorage.getItem('userType'));
 }
 
 // Initialize the page
