@@ -59,7 +59,8 @@ h2 {
     color: #333333;
 }
 
-.RegistrationLine input {
+.RegistrationLine input,
+.RegistrationLine select{
     width: 60%;
     padding: 8px;
     border: 1px solid #cccccc; /* Light gray border */
