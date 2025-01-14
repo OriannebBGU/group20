@@ -715,6 +715,8 @@ h1 {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 /*.header-buttons{*/
 /*    display: flex;*/
