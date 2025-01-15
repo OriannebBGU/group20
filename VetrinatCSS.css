@@ -250,9 +250,8 @@ h1 {
 .welcome {
     position: absolute;
     right: 15px;
-    font-size: calc(1.5rem);
+    font-size: calc(1.3rem);
     padding: 5px 10px;
-    font-weight: bold;
 }
 
 /*כמחכבגסצחמס*/
