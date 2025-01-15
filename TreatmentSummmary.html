@@ -8,9 +8,22 @@
 </head>
 <body class="treatment-summary-page">
 <header class="treatment-summary-page">
-    <button id="patientButton" class="header-buttons header-bnt">Switch to Patient View</button>
-    <button id="doctorButton" class="header-buttons header-bnt">Switch to Doctor View</button>
+    <div class="headerButtons">
+        <button class="homeButton">עמוד הבית</button>
+        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
+        <button class="infoButton">טיפולים</button>
+        <button class="logoutButton">התנתקות</button>
+    </div>
+    <div class="userTypeButtons">
+        <button id="patientButton" class="header-buttons header-bnt">Switch to Patient View</button>
+        <button id="doctorButton" class="header-buttons header-bnt">Switch to Doctor View</button>
+    </div>
     <h1>סיכום טיפול</h1>
+    <div class="animalButtons">
+        <button onclick="">צ'לסי</button>
+        <!--        <button onclick="">צ'ופי</button>-->
+        <button onclick="">הוספה...</button>
+    </div>
     <img src="photos/icon.png" alt="icon" class="icon">
 </header>
 
