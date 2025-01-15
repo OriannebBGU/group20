@@ -196,8 +196,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const Pform = document.querySelector('.RegistrationPetForm');
     const PpetName = Pform.querySelector('input[name="petName"]');
-    const Ptype = Pform.querySelector('input[name="type"]');
-    const Pgender = Pform.querySelector('input[name="gender"]');
+    const Ptype = Pform.querySelector('select[name="type"]');
+    const Pgender = Pform.querySelector('select[name="gender"]');
 
     Pform.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         existingErrors.forEach(error => error.remove());
 
         let isValid = true;
-        if (!PpetName.value.trim() || !Ptype.value.trim() || !Pgender.value.trim()) {
+        if (!PpetName.value.trim() || Ptype.value === 'unpicked' || Pgender.value === 'unpicked') {
             showError(PpetName, 'חובה למלא שם, סוג ומין.');
             isValid = false;
             return;
@@ -215,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isValid = false;
         }
         if (isValid) {
+            console.log('Form is valid and will be submitted.');
             localStorage.setItem('isLoggedIn', 'true');
             Pform.submit();
         }
