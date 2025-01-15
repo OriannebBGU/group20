@@ -1,8 +1,10 @@
 /* General styling */
-*{
+
+* {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: Calibri, sans-serif;
     background-color: #cce6ff; /* Light blue background */
@@ -12,6 +14,7 @@ body {
     text-align: center;
     height: 100vh;
 }
+
 /*Registration and Log in Style*/
 .RegistrationForm {
     width: 350px;
@@ -58,7 +61,8 @@ h2 {
     color: #333333;
 }
 
-.RegistrationLine input {
+.RegistrationLine input,
+.RegistrationLine select {
     width: 60%;
     padding: 8px;
     border: 1px solid #cccccc; /* Light gray border */
@@ -92,29 +96,38 @@ input[type="submit"]:hover {
     background-color: #4ea597; /* Slightly darker teal */
 }
 
-/*!* Logo styling (optional if you add an image) *!*/
-/*.logo {*/
-/*    margin-top: 10px;*/
-/*}*/
-.homePage {
+.home-page {
     display: grid;
     width: 100vw; /* 100% מרוחב המסך */
     height: 100vh; /* 100% מגובה המסך */
     grid-template-columns: 15% 70% 15%;
     grid-template-rows: 20% 30% 5% 25% 15% 5%;
     /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
-
 }
-.homePageHeader {
-    background-color: #59aaf2;
-    font-family: Calibri, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.home-page header
+    /*.homePageHeader */
+{
+    /*background-color: #59aaf2;*/
+    /*font-family: Calibri, sans-serif;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+
     grid-column: 1/span 3;
 }
 
-.icon{
+/*.homePageHeader*/
+/*{*/
+/*    background-color: #59aaf2;*/
+/*    font-family: Calibri, sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+
+/*    grid-column: 1/span 3;*/
+/*}*/
+.icon {
     position: absolute;
     left: 200px;
     width: 40000px;
@@ -129,46 +142,47 @@ h1 {
     font-size: calc(1.7rem + 1vw);
 }
 
-.homePage #dog2 {
+.home-page #dog2 {
     grid-row: 3/span 2;
     align-self: center;
 
 }
-.homePage #cat2 {
+
+.home-page #cat2 {
     grid-row: 3/span 2;
     grid-column: 3 /span 1;
     align-self: center;
 }
 
-.homePage #cat1 {
+.home-page #cat1 {
     align-self: center;
 }
 
-.homePage #dog1 {
+.home-page #dog1 {
     align-self: center;
 }
 
-.homePage #activityHours {
+.home-page #activityHours {
     grid-column: 1/span 3;
 }
 
-.homePage #activityHours h3 {
+.home-page #activityHours h3 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
 }
 
-.homePage #activityHours {
+.home-page #activityHours {
     font-size: calc(0.65rem + 1vw);
 }
 
-.homePage h2 {
+.home-page h2 {
     font-weight: bold;
     font-size: calc(1.2rem + 1vw);
     align-self: start;
     color: black;
 }
 
-.homePage .services {
+.home-page .services {
     grid-column: 2/span 1;
     display: flex;
     justify-content: space-evenly;
@@ -188,7 +202,7 @@ h1 {
     justify-content: space-around;
 }
 
-.homePage #homePageText {
+.home-page #homePageText {
     display: flex;
     flex-direction: column;
     justify-self: end;
@@ -217,21 +231,21 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.profile .icon{
-    position: absolute;
-    left: 200px;
-    width: 40000px;
-    height: 40px;
-    /*object-fit: cover;*/
-    align-self: center;
-}
+/*.profile-page .icon{*/
+/*    position: absolute;*/
+/*    left: 200px;*/
+/*    width: 40000px;*/
+/*    height: 40px;*/
+/*    !*object-fit: cover;*!*/
+/*    align-self: center;*/
+/*}*/
 
-.profile h1 {
-    display: flex;
-    align-items: center;
-    font-size: calc(3rem + 1vw);
-    height: 18vh;
-}
+/*.profile-page h1 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: calc(3rem + 1vw);*/
+/*    height: 18vh;*/
+/*}*/
 
 .welcome {
     position: absolute;
@@ -241,87 +255,89 @@ h1 {
     font-weight: bold;
 }
 
-.profileHeader {
-    background-color: #59aaf2;
-    font-family: Calibri, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 10px;
-}
+/*כמחכבגסצחמס*/
+/*.profileHeader {*/
+/*    !*background-color: #59aaf2;*!*/
+/*    !*font-family: Calibri, sans-serif;*!*/
+/*    !*display: flex;*!*/
+/*    !*align-items: center;*!*/
+/*    !*justify-content: center;*!*/
 
-.homeButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 80px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 25px;
-    padding-right: 15px;
-}
+/*    !*position: relative;*!*/
+/*    padding: 10px;*/
+/*}*/
 
-.menuButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 160px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 15px;
-    padding-right: 15px;
-}
+/*.homeButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 80px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 25px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.loginButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 240px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 35px;
-    padding-right: 15px;
-}
+/*.menuButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 160px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 15px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.regisButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 320px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 53px;
-    padding-right: 15px;
-}
+/*.loginButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 240px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 35px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.infoButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 400px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 55px;
-    padding-right: 15px;
-}
+/*.regisButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 320px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 53px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.logoutButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 480px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 36px;
-    padding-right: 15px;
-}
+/*.infoButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 400px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 55px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
+
+/*.logoutButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 480px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 36px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
 .animalButtons {
     display: none;
@@ -340,22 +356,22 @@ h1 {
     border-color: lightblue;
     font-size: 20px;
     padding-right: 10px;
-    font-family: Calibri;
+    font-family: Calibri, sans-serif;
 }
 
-.profile h2 {
+.profile-page h2 {
     color: black;
     font-size: calc(0.8rem + 1vw);
     background-color: #B2D6CB;
 }
 
 .profileContent {
-    width: 80%;  /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
-    margin: 0 auto;  /* מרכז את המלבן */
-    padding: 20px;  /* מרווח פנימי */
+    width: 80%; /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
+    margin: 0 auto; /* מרכז את המלבן */
+    padding: 20px; /* מרווח פנימי */
 }
 
-.profile dl {
+.profile-page dl {
     display: grid;
     grid-template-columns: auto 1fr; /* שתי עמודות */
     gap: 20px; /* רווח בין תאים */
@@ -364,12 +380,12 @@ h1 {
     font-size: calc(0.5rem + 1vw);;
 }
 
-.profile dt {
+.profile-page dt {
     font-weight: bold; /* מודגש */
     text-align: start;
 }
 
-.profile dd {
+.profile-page dd {
     margin: 0; /* מבטל רווחים */
     color: #333; /* צבע תוכן */
     text-align: start;
@@ -385,7 +401,7 @@ h1 {
 
 .editDetails {
     position: absolute;
-    font-family: Calibri;
+    font-family: Calibri, sans-serif;
     right: 10%;
     background-color: #B2D6CB;
     border-color: lightblue;
@@ -395,9 +411,10 @@ h1 {
     padding-right: 15px;
 }
 
+/*צריך לתקן את המיקום ביחס לשמאל למטה של המך כי במסך נמוך זה לא ממוקם טוב*/
 .history {
     position: absolute;
-    font-family: Calibri;
+    font-family: Calibri, sans-serif;
     font-weight: bold;
     left: 33%;
     top: 75%;
@@ -408,16 +425,17 @@ h1 {
     padding-left: 15px;
     padding-right: 15px;
 }
-.infoPage {
+
+.info-page {
     background-color: white;
 }
 
-.infoPage h1 {
-    display: flex;
-    align-items: center;
-    font-size: calc(3rem + 1vw);
-    height: 18vh;
-}
+/*.info-page h1 {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    font-size: calc(3rem + 1vw);*/
+/*    height: 18vh;*/
+/*}*/
 
 .infoBox ul {
     padding: 0 40px; /* Add padding for bullets */
@@ -428,7 +446,7 @@ h1 {
     text-align: right; /* Align text properly */
 }
 
-.infoPage .contactInfo {
+.info-page .contactInfo {
     position: fixed; /* Fixes it to the viewport */
     bottom: 0; /* Positions it at the bottom */
     left: 0;
@@ -438,7 +456,7 @@ h1 {
     justify-content: space-around;
 }
 
-.infoPage .services {
+.info-page .services {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
     gap: 10px; /* רווח בין האלמנטים */
     justify-content: center; /* ממרכז את האלמנטים */
@@ -446,7 +464,7 @@ h1 {
     margin: 20px; /* רווח מסביב למיכל */
 }
 
-.infoPage .service {
+.info-page .service {
     border: 3px solid #59aaf2; /* גבול מסביב */
     padding: 10px; /* מרווח פנימי */
     width: 25%;
@@ -457,6 +475,7 @@ h1 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
 }
+
 .infoBoxes {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
     gap: 10px; /* רווח בין האלמנטים */
@@ -481,7 +500,7 @@ h1 {
 .select_container {
     display: flex;
     flex-direction: row;
-    padding:15px;
+    padding: 15px;
     margin: 0 auto;
     height: 95vh;
     width: 95vw;
@@ -491,6 +510,7 @@ h1 {
     align-items: flex-start;
     justify-content: space-between;
 }
+
 /* סגנון לטופס הטיפול */
 .treatment-summary-form {
     flex: 2;
@@ -503,32 +523,50 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
 /*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
+    /*flex-direction: column;*/
     justify-content: space-between;
     /*justify-content: center;*/
     gap: 15px;
     align-items: flex-end;
 }
-/* Format the fields */
+
+.horizontal-group .patient-only .form-group,
+.horizontal-group .doctor-only .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background-color: yellow;
+    flex: 1;
+}
+
 .treatment-summary-form .form-group {
     margin-bottom: 15px;
+    flex: 1;
 }
+
 .treatment-summary-form .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: right;
 }
+
 .treatment-summary-form input,
-.treatment-summary-form select{
+.treatment-summary-form select {
     border-radius: 100px;
 }
-.treatment-summary-form textarea{
+
+.treatment-summary-form textarea {
     border-radius: 5px;
-    height:85% ;
+    height: 85%;
 }
+
 .treatment-summary-form input,
 .treatment-summary-form select,
 .treatment-summary-form textarea {
@@ -539,18 +577,21 @@ h1 {
     text-align: right;
     font-family: Calibri, sans-serif;
 }
-.treatment-summary-form #summaryRap{
-    height:auto ;
+
+.treatment-summary-form #summaryRap {
+    height: auto;
     flex-grow: 1;
     resize: none;
     box-sizing: border-box;
 }
+
 /* format button */
 .form-actions {
     display: flex;
     justify-content: left;
     gap: 15px;
 }
+
 .form-actions button {
     background-color: #88BDAE; /* כפתורים ירוקים */
     color: white;
@@ -560,18 +601,20 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     margin: 0;
-    max-height: 30px;
+    /*max-height: 30px;*/
     font-family: Calibri, sans-serif;
 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /*text-justify: auto;*/
+    text-justify: auto;
 }
+
 .treatment-summary-form .form-actions button:hover {
     background-color: #4ea597;
 }
+
 /* format history section */
 .history-section {
     flex: 1;
@@ -586,25 +629,30 @@ h1 {
     height: 80%;
     width: 100%;
 }
+
 .history-section h2 {
     text-align: center;
     margin-bottom: 15px;
 }
+
 /* past treatment details */
 .history-section table {
     width: 100%;
     border-collapse: collapse;
-    background-color:#cce6ff;
+    background-color: #cce6ff;
 }
+
 .history-section table th,
 .history-section table td {
     border: 1.5px solid black;
     padding: 10px;
     text-align: center;
 }
+
 .history-section table th {
     border: none;
 }
+
 /* כפתור פתיחה */
 .open-record-button {
     padding: 10px 20px;
@@ -624,27 +672,33 @@ h1 {
     justify-content: center;
     text-align: center;
 }
+
 .open-record-button:hover {
     background-color: #4ea597;
 }
+
 .select_container .treatment-summary-form {
     width: 100%; /* התאמת רוחב */
 }
 
-.header {
+header {
     background-color: #59aaf2;
     font-family: Calibri, sans-serif;
     padding: 40px;
     display: flex;
     align-items: center;
     /*justify-content: flex-start;*/
-    justify-content: space-between;
+    /*justify-content: space-between;*/
+    justify-content: center;
+
+
     color: white;
     direction: rtl;
     gap: 20px;
     position: relative;
 }
-.header .icon {
+
+header .icon {
     width: 60px;
     height: auto;
     /*flex-shrink: 0;*/
@@ -654,58 +708,108 @@ h1 {
     left: 20px;
     transform: translateY(-50%);
 }
-.header h1 {
-    font-size: 30px;
+
+header h1 {
+    /*font-size: calc(3rem + 1vw);*/
+    font-size: 4vw;
     margin: 0 auto;
     /*text-align: center;*/
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    /*margin-left: 20px;*/
-    /*flex-grow: 1;*/
+    flex-grow: 1;
 }
-.header h2{
+
+header h2 {
     font-size: 15px;
 }
-/*.header button {*/
+
+header button {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*position: absolute;*/
+    background-color: #88BDAE;
+    /*background-color: black; */
+    border: none;
+    /*border-color: lightblue;*/
+    color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    /*font-size: 14px;*/
+    padding: 5px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    /*position: relative;*/
+    z-index: 10;
+    /*padding-left: 25px;*/
+    /*padding-right: 15px;*/
+    justify-content: center;
+    width: 8em;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+/*.headerButtons button {*/
 /*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
 /*    border: none;*/
-/*    !*color: white; !* טקסט בלבן *!*!*/
-/*    font-size: 14px;*/
+/*    !*border-color: lightblue;*!*/
+/*    !*color: white; *!*/
+/*    font-family: Calibri, sans-serif;*/
+/*    font-size: 1em;*/
+/*    !*font-size: 14px;*!*/
 /*    padding: 10px 20px;*/
-/*    border-radius: 5px;*/
+/*    border-radius: 25px;*/
 /*    cursor: pointer;*/
+/*    !*position: relative;*!*/
+/*    z-index: 10;*/
+/*    !*padding-left: 25px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*    justify-content: center;*/
+/*    !*align-items: flex-start;*!*/
 /*}*/
-.header-buttons{
+
+.headerButtons {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Arrange buttons in a column */
+    align-items: flex-end;
+    justify-content: flex-start;
     gap: 10px;
-}
-.header-buttons .header-bnt{
-    background-color: #88BDAE;
-    border: none;
-    color: white;
-    font-size: 15px;
-    font-family: Calibri, sans-serif;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer ;
-    text-align: center;
-}
-.header-buttons .header-bnt{
-    background-color: #76A898;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    /*align-content: start;*/
 }
 
 
-/*.infoPage .header{*/
-
+/*.header-buttons{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
 /*}*/
+/*.header-buttons .header-bnt{*/
+/*    background-color: #88BDAE;*/
+/*    border: none;*/
+/*    color: white;*/
+/*    font-size: 15px;*/
+/*    font-family: Calibri, sans-serif;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 20px;*/
+/*    cursor: pointer ;*/
+/*    text-align: center;*/
+/*}*/
+/*.header-buttons .header-bnt{*/
+/*    background-color: #76A898;*/
+/*}*/
+
+/*//TreatmentSummary: view by user*/
+
 
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
 @media (max-width: 900px) {
     body {
         box-sizing: border-box;
     }
+
     .select_container {
         flex-direction: column;
         gap: 15px;
@@ -713,13 +817,18 @@ h1 {
         /*margin-right: 25px;*/
         margin-inline: 27px;
     }
-    .treatment-summary-form{
+
+    .treatment-summary-form {
         width: 100%;
     }
-    .history-section{
+
+    .history-section {
         width: 100%;
     }
 }
+
+/*@media נוספים שאפשר לעשות אם צריך  */
+
 
 .error-message {
     color: red;

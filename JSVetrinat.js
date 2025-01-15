@@ -15,16 +15,16 @@ function updateHomePage() {
         if (welcomeMessage) welcomeMessage.style.display = 'block';
         if (regisButton) regisButton.style.display = 'none';
         if (loginButton) loginButton.style.display = 'none';
-        if (infoButton) infoButton.style.marginTop = '240px';
-        if (logoutButton) logoutButton.style.marginTop = '320px';
+        // if (infoButton) infoButton.style.marginTop = '240px';
+        // if (logoutButton) logoutButton.style.marginTop = '320px';
     } else {
         if (welcomeMessage) welcomeMessage.style.display = 'none';
         if (menuButton) menuButton.style.display = 'none';
         if (logoutButton) logoutButton.style.display = 'none';
         if (animalButtons) animalButtons.style.display = 'none';
-        if (loginButton) loginButton.style.marginTop = '160px';
-        if (regisButton) regisButton.style.marginTop = '240px';
-        if (infoButton) infoButton.style.marginTop = '320px';
+        // if (loginButton) loginButton.style.marginTop = '160px';
+        // if (regisButton) regisButton.style.marginTop = '240px';
+        // if (infoButton) infoButton.style.marginTop = '320px';
     }
 }
 
@@ -72,12 +72,12 @@ function setupButtons() {
 
     // Animal buttons
     const animalButtons = document.querySelectorAll('.animalButtons button');
-        animalButtons[0].onclick = () => {
-            window.location.href = 'Profile.html';
-        };
-        animalButtons[1].onclick = () => {
-            window.location.href = 'RegistrationPet.html';
-        };
+    animalButtons[0].onclick = () => {
+        window.location.href = 'Profile.html';
+    };
+    animalButtons[1].onclick = () => {
+        window.location.href = 'RegistrationPet.html';
+    };
 
 
     // History button
@@ -240,10 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHomePage();
 });
 
-//Initialize radio button
-document.querySelectorAll('input[type=radio]').forEach((radio=>{
-    radio.addEventListener('click', function (){
-        if (this.dataset.wasChecked === "true"){
+//TreatmentSummary: Initialize radio button
+document.querySelectorAll('input[type=radio]').forEach((radio => {
+    radio.addEventListener('click', function () {
+        if (this.dataset.wasChecked === "true") {
             this.checked = false;
             this.dataset.wasChecked = "false";
         } else {
@@ -252,11 +252,48 @@ document.querySelectorAll('input[type=radio]').forEach((radio=>{
     })
 }))
 
-function toggleAnimal(){
+//משהו שצריך הסבר
+function toggleAnimal() {
     if (animalButtons.style.display === 'flex') {
         animalButtons.style.display = 'none';
     } else {
         animalButtons.style.display = 'flex';
     }
 }
+
+
+//TreatmentSummary: view by user:
+// set as 'patient' or 'doctor'
+function setUserType(userType) {
+    localStorage.setItem('userType', userType);
+    updateViewBasedOnUser(localStorage.getItem('userType'));
+}
+
+// Initialize the page
+updateViewBasedOnUser(); //
+
+// update page view according to user
+function updateViewBasedOnUser() {
+    const userType = localStorage.getItem('userType');
+    if (userType === 'patient') {// התאמות עבור פציינט
+        document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'block');
+    } else if (userType === 'doctor') {// התאמות עבור רופא
+        document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'none');
+    }
+}
+
+// EventListener for button actions
+document.addEventListener('DOMContentLoaded', () => {
+    const patientButton = document.querySelector('#patientButton');
+    const doctorButton = document.querySelector('#doctorButton');
+    if (patientButton) {
+        patientButton.addEventListener('click', () => setUserType('patient'));
+    }
+    if (doctorButton) {
+        doctorButton.addEventListener('click', () => setUserType('doctor'));
+    }
+});
+
 
