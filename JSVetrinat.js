@@ -275,6 +275,9 @@ function setUserType(userType) {
     updateViewBasedOnUser(localStorage.getItem('userType'));
 }
 
+//set default view to user view
+localStorage.setItem('userType', 'patient');
+
 // Initialize the page
 updateViewBasedOnUser(); //
 
