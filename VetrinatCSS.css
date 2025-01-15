@@ -711,6 +711,20 @@ header .icon {
     transform: translateY(-50%);
 }
 
+@keyframes rotate-icon {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+/* Apply the animation on click */
+header .icon:hover {
+    animation: rotate-icon 1s ease-in-out;
+}
+
 header h1 {
     /*font-size: calc(3rem + 1vw);*/
     font-size: 4vw;
