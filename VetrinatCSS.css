@@ -105,28 +105,10 @@ input[type="submit"]:hover {
     /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
 }
 
-.home-page header
-    /*.homePageHeader */
-{
-    /*background-color: #59aaf2;*/
-    /*font-family: Calibri, sans-serif;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-
+.home-page header {
     grid-column: 1/span 3;
 }
 
-/*.homePageHeader*/
-/*{*/
-/*    background-color: #59aaf2;*/
-/*    font-family: Calibri, sans-serif;*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-
-/*    grid-column: 1/span 3;*/
-/*}*/
 .icon {
     position: absolute;
     left: 200px;
@@ -253,112 +235,11 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-/*.profile-page .icon{*/
-/*    position: absolute;*/
-/*    left: 200px;*/
-/*    width: 40000px;*/
-/*    height: 40px;*/
-/*    !*object-fit: cover;*!*/
-/*    align-self: center;*/
-/*}*/
-
-/*.profile-page h1 {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    font-size: calc(3rem + 1vw);*/
-/*    height: 18vh;*/
-/*}*/
-
-
-/*כמחכבגסצחמס*/
-/*.profileHeader {*/
-/*    !*background-color: #59aaf2;*!*/
-/*    !*font-family: Calibri, sans-serif;*!*/
-/*    !*display: flex;*!*/
-/*    !*align-items: center;*!*/
-/*    !*justify-content: center;*!*/
-
-/*    !*position: relative;*!*/
-/*    padding: 10px;*/
-/*}*/
-
-/*.homeButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 80px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 25px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
-/*.menuButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 160px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 15px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
-/*.loginButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 240px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 35px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
-/*.regisButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 320px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 53px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
-/*.infoButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 400px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 55px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
-/*.logoutButton {*/
-/*    position: absolute;*/
-/*    right: 25px;*/
-/*    margin-top: 480px;*/
-/*    !*background-color: #88BDAE;*!*/
-/*    !*border-color: lightblue;*!*/
-/*    !*border-radius: 10px;*!*/
-/*    !*font-size: calc(1.5rem);*!*/
-/*    !*padding-left: 36px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*}*/
-
 .animalButtons {
     display: none;
     flex-direction: column; /* Arrange buttons in a column */
     position: absolute; /* Allows precise placement */
-    top: 70px; /* Adjust based on your layout */
+    top: 65px; /* Adjust based on your layout */
     right: 150px; /* Align to the right edge */
 }
 
@@ -373,7 +254,6 @@ h1 {
     font-family: Calibri, sans-serif;
     width: 8em;
     font-size: 1em;
-
 }
 
 .profile-page h2 {
@@ -445,14 +325,9 @@ h1 {
 
 .info-page {
     background-color: white;
+    height: 99vh;
+    width: 99.9vw;
 }
-
-/*.info-page h1 {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*    font-size: calc(3rem + 1vw);*/
-/*    height: 18vh;*/
-/*}*/
 
 .infoBox ul {
     padding: 0 40px; /* Add padding for bullets */
@@ -464,52 +339,51 @@ h1 {
 }
 
 .info-page .contactInfo {
-    position: fixed; /* Fixes it to the viewport */
+    /*position: sticky;*/
     bottom: 0; /* Positions it at the bottom */
-    left: 0;
+    /*left: 0;*/
     width: 100%; /* Makes it span the entire width of the screen */
-    padding: 10px 0; /* Optional, for spacing */
+    /*padding: 10px 0; !* Optional, for spacing *!*/
     display: flex;
     justify-content: space-around;
 }
 
 .info-page .services {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
-    gap: 10px; /* רווח בין האלמנטים */
-    justify-content: center; /* ממרכז את האלמנטים */
+    justify-content: space-between; /* ממרכז את האלמנטים */
     align-items: center; /* ממרכז אותם אנכית */
-    margin: 20px; /* רווח מסביב למיכל */
+    margin: 20px 25px; /* רווח מסביב למיכל */
 }
 
 .info-page .service {
     border: 3px solid #59aaf2; /* גבול מסביב */
-    padding: 10px; /* מרווח פנימי */
+    padding: 0.5em; /* מרווח פנימי */
     width: 25%;
-    height: 70px;
+    height: 4em;
     align-content: center;
-    margin-left: 5%;
     border-radius: 10px; /* Rounded form corners */
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
+    word-break: break-word; /* שבירת מילים כדי להתאים לגבולות המשבצת */
 }
 
 .infoBoxes {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
-    gap: 10px; /* רווח בין האלמנטים */
-    justify-content: center; /* ממרכז את האלמנטים */
-    align-items: center; /* ממרכז אותם אנכית */
-    margin: 20px; /* רווח מסביב למיכל */
+    justify-content: space-between; /* ממרכז את האלמנטים */
+    align-items: flex-start; /* ממרכז אותם אנכית */
+    margin: 20px 30px; /* רווח מסביב למיכל */
 }
 
 .infoBox {
     background-color: #cce6ff;
     font-size: calc(1.5rem);
     width: 25%;
-    margin-left: 5%;
-    height: 350px;
+    /*margin-left: 5%;*/
+    /*height: 350px;*/
+    height: auto;
     border-radius: 30px; /* Rounded form corners */
     align-content: center;
-    /*פה צריך להבין איך מזיזים את הטקסט טיפה שמאלה בכל ריבוע*/
+    min-height: 350px;
 }
 
 /*Treatment Summary:  */
@@ -618,7 +492,6 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     margin: 0;
-    /*max-height: 30px;*/
     font-family: Calibri, sans-serif;
 
     display: flex;
@@ -704,11 +577,7 @@ header {
     padding: 40px;
     display: flex;
     align-items: center;
-    /*justify-content: flex-start;*/
-    /*justify-content: space-between;*/
     justify-content: center;
-
-
     color: white;
     direction: rtl;
     gap: 20px;
@@ -718,8 +587,6 @@ header {
 header .icon {
     width: 60px;
     height: auto;
-    /*flex-shrink: 0;*/
-    /*margin: 0;*/
     position: absolute;
     top: 50%;
     left: 20px;
@@ -741,10 +608,8 @@ header .icon:hover {
 }
 
 header h1 {
-    /*font-size: calc(3rem + 1vw);*/
     font-size: 4vw;
     margin: 0 auto;
-    /*text-align: center;*/
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -787,24 +652,6 @@ header button {
     background-color: #5CA48F;
 }
 
-/*.headerButtons button {*/
-/*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
-/*    border: none;*/
-/*    !*border-color: lightblue;*!*/
-/*    !*color: white; *!*/
-/*    font-family: Calibri, sans-serif;*/
-/*    font-size: 1em;*/
-/*    !*font-size: 14px;*!*/
-/*    padding: 10px 20px;*/
-/*    border-radius: 25px;*/
-/*    cursor: pointer;*/
-/*    !*position: relative;*!*/
-/*    z-index: 10;*/
-/*    !*padding-left: 25px;*!*/
-/*    !*padding-right: 15px;*!*/
-/*    justify-content: center;*/
-/*    !*align-items: flex-start;*!*/
-/*}*/
 
 .headerButtons {
     display: flex;
@@ -813,9 +660,8 @@ header button {
     justify-content: flex-start;
     gap: 10px;
     position: absolute;
-    top: 30px;
+    top: 25px;
     right: 10px;
-    /*align-content: start;*/
 }
 
 .error-message {
@@ -828,14 +674,12 @@ header button {
 @media (max-width: 768px) {
     body {
         box-sizing: border-box;
-        /*background-color: maroon;*/
     }
 
     .select_container {
         flex-direction: column;
         gap: 15px;
         padding-right: 15px;
-        /*margin-right: 25px;*/
         margin-inline: 27px;
     }
 
@@ -854,6 +698,49 @@ header button {
         margin: 0.45em 1em 0.5em 1em;
     }
 
+    .info-page {
+        background-color: maroon;
+
+    }
+
+    .info-page .infoBoxes {
+        align-items: flex-start;
+
+    }
+
+    .info-page .infoBox {
+        font-size: calc(0.7rem + 1vw);
+        /*font-size: 1.1em;*/
+        width: 30%;
+        height: auto;
+        padding: 0.6em 0;
+        min-height: 500px;
+        align-content: start;
+    }
+
+}
+
+@media (max-height: 600px ) {
+    .regisButton {
+        display: none;
+    }
+
+    .infoButton {
+        display: none;
+
+    }
+
+    .logoutButton {
+        display: none;
+
+    }
+}
+@media (min-height: 600px) {
+    .info-page .contactInfo {
+        position: absolute;
+        margin: 15px 0;
+        /*background-color: green;*/
+    }
 
 }
 
