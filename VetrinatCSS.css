@@ -1,9 +1,10 @@
 /* General styling */
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: Calibri, sans-serif;
     background-color: #cce6ff; /* Light blue background */
@@ -13,6 +14,7 @@ body {
     text-align: center;
     height: 100vh;
 }
+
 /*Registration and Log in Style*/
 .RegistrationForm {
     width: 350px;
@@ -60,7 +62,7 @@ h2 {
 }
 
 .RegistrationLine input,
-.RegistrationLine select{
+.RegistrationLine select {
     width: 60%;
     padding: 8px;
     border: 1px solid #cccccc; /* Light gray border */
@@ -102,8 +104,9 @@ input[type="submit"]:hover {
     grid-template-rows: 20% 30% 5% 25% 15% 5%;
     /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
 }
+
 .home-page header
-/*.homePageHeader */
+    /*.homePageHeader */
 {
     /*background-color: #59aaf2;*/
     /*font-family: Calibri, sans-serif;*/
@@ -114,6 +117,16 @@ input[type="submit"]:hover {
     grid-column: 1/span 3;
 }
 
+/*.homePageHeader*/
+/*{*/
+/*    background-color: #59aaf2;*/
+/*    font-family: Calibri, sans-serif;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+
+/*    grid-column: 1/span 3;*/
+/*}*/
 .icon {
     position: absolute;
     left: 200px;
@@ -134,6 +147,7 @@ h1 {
     align-self: center;
 
 }
+
 .home-page #cat2 {
     grid-row: 3/span 2;
     grid-column: 3 /span 1;
@@ -240,89 +254,90 @@ h1 {
     padding: 5px 10px;
     font-weight: bold;
 }
-כמחכבגסצחמס
-.profileHeader {
-    /*background-color: #59aaf2;*/
-    /*font-family: Calibri, sans-serif;*/
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
 
-    /*position: relative;*/
-    padding: 10px;
-}
+/*כמחכבגסצחמס*/
+/*.profileHeader {*/
+/*    !*background-color: #59aaf2;*!*/
+/*    !*font-family: Calibri, sans-serif;*!*/
+/*    !*display: flex;*!*/
+/*    !*align-items: center;*!*/
+/*    !*justify-content: center;*!*/
 
-.homeButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 80px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 25px;
-    padding-right: 15px;
-}
+/*    !*position: relative;*!*/
+/*    padding: 10px;*/
+/*}*/
 
-.menuButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 160px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 15px;
-    padding-right: 15px;
-}
+/*.homeButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 80px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 25px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.loginButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 240px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 35px;
-    padding-right: 15px;
-}
+/*.menuButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 160px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 15px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.regisButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 320px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 53px;
-    padding-right: 15px;
-}
+/*.loginButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 240px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 35px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.infoButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 400px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 55px;
-    padding-right: 15px;
-}
+/*.regisButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 320px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 53px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
-.logoutButton {
-    position: absolute;
-    right: 25px;
-    margin-top: 480px;
-    background-color: #88BDAE;
-    border-color: lightblue;
-    border-radius: 10px;
-    font-size: calc(1.5rem);
-    padding-left: 36px;
-    padding-right: 15px;
-}
+/*.infoButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 400px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 55px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
+
+/*.logoutButton {*/
+/*    position: absolute;*/
+/*    right: 25px;*/
+/*    margin-top: 480px;*/
+/*    !*background-color: #88BDAE;*!*/
+/*    !*border-color: lightblue;*!*/
+/*    !*border-radius: 10px;*!*/
+/*    !*font-size: calc(1.5rem);*!*/
+/*    !*padding-left: 36px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*}*/
 
 .animalButtons {
     display: none;
@@ -351,9 +366,9 @@ h1 {
 }
 
 .profileContent {
-    width: 80%;  /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
-    margin: 0 auto;  /* מרכז את המלבן */
-    padding: 20px;  /* מרווח פנימי */
+    width: 80%; /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
+    margin: 0 auto; /* מרכז את המלבן */
+    padding: 20px; /* מרווח פנימי */
 }
 
 .profile-page dl {
@@ -395,6 +410,7 @@ h1 {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 /*צריך לתקן את המיקום ביחס לשמאל למטה של המך כי במסך נמוך זה לא ממוקם טוב*/
 .history {
     position: absolute;
@@ -409,6 +425,7 @@ h1 {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .info-page {
     background-color: white;
 }
@@ -458,6 +475,7 @@ h1 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
 }
+
 .infoBoxes {
     display: flex; /* מסדר את הילדים (item) אחד ליד השני */
     gap: 10px; /* רווח בין האלמנטים */
@@ -482,7 +500,7 @@ h1 {
 .select_container {
     display: flex;
     flex-direction: row;
-    padding:15px;
+    padding: 15px;
     margin: 0 auto;
     height: 95vh;
     width: 95vw;
@@ -492,6 +510,7 @@ h1 {
     align-items: flex-start;
     justify-content: space-between;
 }
+
 /* סגנון לטופס הטיפול */
 .treatment-summary-form {
     flex: 2;
@@ -504,6 +523,7 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
 /*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
@@ -513,8 +533,9 @@ h1 {
     gap: 15px;
     align-items: flex-end;
 }
+
 .horizontal-group .patient-only .form-group,
-.horizontal-group .doctor-only .form-group{
+.horizontal-group .doctor-only .form-group {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -523,24 +544,29 @@ h1 {
     background-color: yellow;
     flex: 1;
 }
+
 .treatment-summary-form .form-group {
     margin-bottom: 15px;
     flex: 1;
 }
+
 .treatment-summary-form .form-group label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     text-align: right;
 }
+
 .treatment-summary-form input,
-.treatment-summary-form select{
+.treatment-summary-form select {
     border-radius: 100px;
 }
-.treatment-summary-form textarea{
+
+.treatment-summary-form textarea {
     border-radius: 5px;
-    height:85% ;
+    height: 85%;
 }
+
 .treatment-summary-form input,
 .treatment-summary-form select,
 .treatment-summary-form textarea {
@@ -551,18 +577,21 @@ h1 {
     text-align: right;
     font-family: Calibri, sans-serif;
 }
-.treatment-summary-form #summaryRap{
-    height:auto ;
+
+.treatment-summary-form #summaryRap {
+    height: auto;
     flex-grow: 1;
     resize: none;
     box-sizing: border-box;
 }
+
 /* format button */
 .form-actions {
     display: flex;
     justify-content: left;
     gap: 15px;
 }
+
 .form-actions button {
     background-color: #88BDAE; /* כפתורים ירוקים */
     color: white;
@@ -581,9 +610,11 @@ h1 {
     text-align: center;
     text-justify: auto;
 }
+
 .treatment-summary-form .form-actions button:hover {
     background-color: #4ea597;
 }
+
 /* format history section */
 .history-section {
     flex: 1;
@@ -598,25 +629,30 @@ h1 {
     height: 80%;
     width: 100%;
 }
+
 .history-section h2 {
     text-align: center;
     margin-bottom: 15px;
 }
+
 /* past treatment details */
 .history-section table {
     width: 100%;
     border-collapse: collapse;
-    background-color:#cce6ff;
+    background-color: #cce6ff;
 }
+
 .history-section table th,
 .history-section table td {
     border: 1.5px solid black;
     padding: 10px;
     text-align: center;
 }
+
 .history-section table th {
     border: none;
 }
+
 /* כפתור פתיחה */
 .open-record-button {
     padding: 10px 20px;
@@ -636,9 +672,11 @@ h1 {
     justify-content: center;
     text-align: center;
 }
+
 .open-record-button:hover {
     background-color: #4ea597;
 }
+
 .select_container .treatment-summary-form {
     width: 100%; /* התאמת רוחב */
 }
@@ -653,11 +691,13 @@ header {
     /*justify-content: space-between;*/
     justify-content: center;
 
+
     color: white;
     direction: rtl;
     gap: 20px;
     position: relative;
 }
+
 header .icon {
     width: 60px;
     height: auto;
@@ -668,6 +708,7 @@ header .icon {
     left: 20px;
     transform: translateY(-50%);
 }
+
 header h1 {
     /*font-size: calc(3rem + 1vw);*/
     font-size: 4vw;
@@ -678,19 +719,65 @@ header h1 {
     transform: translateX(-50%);
     flex-grow: 1;
 }
-header h2{
+
+header h2 {
     font-size: 15px;
 }
+
 header button {
-    background-color: #88BDAE; /* כפתורים בצבע ירוק */
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*position: absolute;*/
+    background-color: #88BDAE;
+    /*background-color: black; */
     border: none;
-    /*color: white; !* טקסט בלבן *!*/
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 5px;
+    /*border-color: lightblue;*/
+    color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    /*font-size: 14px;*/
+    padding: 5px 20px;
+    border-radius: 25px;
     cursor: pointer;
-    position: relative;
+    /*position: relative;*/
     z-index: 10;
+    /*padding-left: 25px;*/
+    /*padding-right: 15px;*/
+    justify-content: center;
+    width: 8em;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+/*.headerButtons button {*/
+/*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
+/*    border: none;*/
+/*    !*border-color: lightblue;*!*/
+/*    !*color: white; *!*/
+/*    font-family: Calibri, sans-serif;*/
+/*    font-size: 1em;*/
+/*    !*font-size: 14px;*!*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 25px;*/
+/*    cursor: pointer;*/
+/*    !*position: relative;*!*/
+/*    z-index: 10;*/
+/*    !*padding-left: 25px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*    justify-content: center;*/
+/*    !*align-items: flex-start;*!*/
+/*}*/
+
+.headerButtons {
+    display: flex;
+    flex-direction: column; /* Arrange buttons in a column */
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 10px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    /*align-content: start;*/
 }
 
 
@@ -717,14 +804,12 @@ header button {
 /*//TreatmentSummary: view by user*/
 
 
-
-
-
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
 @media (max-width: 900px) {
     body {
         box-sizing: border-box;
     }
+
     .select_container {
         flex-direction: column;
         gap: 15px;
@@ -732,10 +817,12 @@ header button {
         /*margin-right: 25px;*/
         margin-inline: 27px;
     }
-    .treatment-summary-form{
+
+    .treatment-summary-form {
         width: 100%;
     }
-    .history-section{
+
+    .history-section {
         width: 100%;
     }
 }
@@ -748,7 +835,6 @@ header button {
     font-size: 14px;
     margin-top: 5px;
 }
-
 
 
 /*!*  למסכים גדולים (מחשבים שולחניים קטנים)/חצי מסך גדול  *!*/

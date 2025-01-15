@@ -15,16 +15,16 @@ function updateHomePage() {
         if (welcomeMessage) welcomeMessage.style.display = 'block';
         if (regisButton) regisButton.style.display = 'none';
         if (loginButton) loginButton.style.display = 'none';
-        if (infoButton) infoButton.style.marginTop = '240px';
-        if (logoutButton) logoutButton.style.marginTop = '320px';
+        // if (infoButton) infoButton.style.marginTop = '240px';
+        // if (logoutButton) logoutButton.style.marginTop = '320px';
     } else {
         if (welcomeMessage) welcomeMessage.style.display = 'none';
         if (menuButton) menuButton.style.display = 'none';
         if (logoutButton) logoutButton.style.display = 'none';
         if (animalButtons) animalButtons.style.display = 'none';
-        if (loginButton) loginButton.style.marginTop = '160px';
-        if (regisButton) regisButton.style.marginTop = '240px';
-        if (infoButton) infoButton.style.marginTop = '320px';
+        // if (loginButton) loginButton.style.marginTop = '160px';
+        // if (regisButton) regisButton.style.marginTop = '240px';
+        // if (infoButton) infoButton.style.marginTop = '320px';
     }
 }
 
