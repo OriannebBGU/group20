@@ -179,6 +179,9 @@ h1 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
     margin: 30px 10px 40px 10px;
+    text-decoration: none;
+    color: inherit;
+
 }
 
 .home-page .service {
@@ -239,7 +242,7 @@ h1 {
     display: none;
     flex-direction: column; /* Arrange buttons in a column */
     position: absolute; /* Allows precise placement */
-    top: 65px; /* Adjust based on your layout */
+    top: 60px; /* Adjust based on your layout */
     right: 150px; /* Align to the right edge */
 }
 
@@ -313,8 +316,6 @@ h1 {
     position: absolute;
     font-family: Calibri, sans-serif;
     font-weight: bold;
-    left: 33%;
-    top: 75%;
     background-color: #B2D6CB;
     border-color: lightblue;
     border-radius: 7px;
@@ -554,6 +555,7 @@ h1 {
     width: 35%;
     align-self: flex-end;
     margin-top: auto;
+    margin-bottom: 1em;
     max-height: 30px;
     font-size: 16px;
     font-family: Calibri, sans-serif;
@@ -582,6 +584,7 @@ header {
     direction: rtl;
     gap: 20px;
     position: relative;
+    min-height: 2.5em;
 }
 
 header .icon {
@@ -658,7 +661,7 @@ header button {
     flex-direction: column; /* Arrange buttons in a column */
     align-items: flex-end;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 5px;
     position: absolute;
     top: 25px;
     right: 10px;
@@ -672,6 +675,7 @@ header button {
 
 /* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
 @media (max-width: 768px) {
+
     body {
         box-sizing: border-box;
     }
@@ -689,6 +693,9 @@ header button {
 
     .history-section {
         width: 100%;
+        /*height: 100%;*/
+        padding: 0;
+
     }
 
     .home-page .services {
@@ -696,10 +703,6 @@ header button {
         justify-content: center;
         align-items: center;
         margin: 0.45em 1em 0.5em 1em;
-    }
-
-    .info-page {
-        background-color: maroon;
 
     }
 
@@ -710,7 +713,6 @@ header button {
 
     .info-page .infoBox {
         font-size: calc(0.7rem + 1vw);
-        /*font-size: 1.1em;*/
         width: 30%;
         height: auto;
         padding: 0.6em 0;
@@ -720,28 +722,36 @@ header button {
 
 }
 
-@media (max-height: 600px ) {
-    .regisButton {
-        display: none;
-    }
-
-    .infoButton {
-        display: none;
-
-    }
+@media (max-height: 650px ) {
 
     .logoutButton {
         display: none;
+    }
+
+    .history {
+        bottom: 0.25em;
+        left: 0.5em;
 
     }
+
+
 }
+
 @media (min-height: 600px) {
+
     .info-page .contactInfo {
         position: absolute;
         margin: 15px 0;
-        /*background-color: green;*/
     }
 
+    .history {
+        bottom: 1em;
+        left: 1em;
+    }
+
+    .headerButtons{
+ gap: 8px;
+}
 }
 
 
