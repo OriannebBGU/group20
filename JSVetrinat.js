@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const PpetName = Pform.querySelector('input[name="petName"]');
     const Ptype = Pform.querySelector('select[name="type"]');
     const Pgender = Pform.querySelector('select[name="gender"]');
+    const photoInput = Pform.querySelector('input[name="photo"]');
 
     Pform.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -214,8 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
             showError(PpetName, 'שם חייב להכיל 2 תווים ומעלה.');
             isValid = false;
         }
+        if (photoInput.files.length > 0 && !photoInput.files[0].type.startsWith('image/')) {
+            showError(photoInput, 'יש להעלות קובץ תמונה בלבד.');
+            isValid = false;
+        }
         if (isValid) {
-            console.log('Form is valid and will be submitted.');
             localStorage.setItem('isLoggedIn', 'true');
             Pform.submit();
         }
