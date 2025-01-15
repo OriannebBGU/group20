@@ -6,23 +6,29 @@
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
 <body class="home-page">
-<!--<div class="homePage">-->
-<header class="homePageHeader">
+
+<header >
+    <div class="headerButtons">
+        <button class="homeButton">עמוד הבית</button>
+        <button class="loginButton">התחברות</button>
+        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
+        <button class="regisButton">הרשמה</button>
+        <button class="infoButton">טיפולים</button>
+        <button class="logoutButton">התנתקות</button>
+    </div>
+
     <h1>ברוכים הבאים למרפאה הוטרינרית<br> של ד"ר רינת אוהבת-חיות!</h1>
-    <p class="welcome"> טוב לראות אותך שוב, אוריין!</p>
-    <button class="homeButton">עמוד הבית</button>
-    <button class="loginButton">התחברות</button>
-    <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
-    <button class="regisButton">הרשמה</button>
-    <button class="infoButton">טיפולים</button>
-    <button class="logoutButton">התנתקות</button>
+
     <div class="animalButtons">
         <button onclick="">צ'לסי</button>
-        <!--            <button onclick="">צ'ופי</button>-->
+        <button onclick="">צ'ופי</button>
         <button onclick="">הוספה...</button>
     </div>
+
     <img src="photos/icon.png" alt="icon" class="icon">
+
 </header>
+
 <a id="dog1">
     <img src="photos/dog1.png" alt="" style="">
 </a>
