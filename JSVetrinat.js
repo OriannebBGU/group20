@@ -84,6 +84,7 @@ function setupButtons() {
     const historyButton = document.querySelector('.history');
     if (historyButton) {
         historyButton.onclick = () => {
+            localStorage.setItem('isLoggedIn', 'true');
             window.location.href = 'TreatmentSummmary.html';
         };
     }
@@ -236,7 +237,7 @@ function showError(input, message) {
         error.className = 'error-message';
         error.textContent = message;
         errorContainer.appendChild(error);
-    }, 100); // Delay of 500 milliseconds
+    }, 100); // Delay of 100 milliseconds
 }
 
 // Initialize the page
@@ -273,6 +274,9 @@ function setUserType(userType) {
     localStorage.setItem('userType', userType);
     updateViewBasedOnUser(localStorage.getItem('userType'));
 }
+
+//set default view to user view
+localStorage.setItem('userType', 'patient');
 
 // Initialize the page
 updateViewBasedOnUser(); //

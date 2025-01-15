@@ -761,32 +761,50 @@ header h1 {
 }
 
 header button {
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*position: absolute;*/
     background-color: #88BDAE;
-    /*background-color: black; */
-    /*border: none;*/
-    /*border-color: lightblue;*/
     color: white;
     font-family: Calibri, sans-serif;
     font-size: 1em;
-    /*font-size: 14px;*/
     padding: 2px 10px;
-    /*border-radius: 25px;*/
     border-radius: 10px;
     cursor: pointer;
-    /*position: relative;*/
     z-index: 10;
-    /*padding-left: 25px;*/
-    /*padding-right: 15px;*/
     justify-content: center;
     width: 8em;
     margin: 0;
     box-sizing: border-box;
     border-color: lightblue;
-
 }
+
+.userTypeButtons {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    left: -150px;
+}
+
+.userTypeButtons button {
+    background-color: #5CA48F;
+}
+
+/*.headerButtons button {*/
+/*    background-color: #88BDAE; !* כפתורים בצבע ירוק *!*/
+/*    border: none;*/
+/*    !*border-color: lightblue;*!*/
+/*    !*color: white; *!*/
+/*    font-family: Calibri, sans-serif;*/
+/*    font-size: 1em;*/
+/*    !*font-size: 14px;*!*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 25px;*/
+/*    cursor: pointer;*/
+/*    !*position: relative;*!*/
+/*    z-index: 10;*/
+/*    !*padding-left: 25px;*!*/
+/*    !*padding-right: 15px;*!*/
+/*    justify-content: center;*/
+/*    !*align-items: flex-start;*!*/
+/*}*/
 
 .headerButtons {
     display: flex;
