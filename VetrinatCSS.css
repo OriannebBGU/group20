@@ -1,5 +1,4 @@
 /* General styling */
-
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +14,30 @@ body {
     height: 100vh;
 }
 
-/*Registration and Log in Style*/
+h1 {
+    text-align: center;
+    color: white;
+    font-size: calc(1.7rem + 1vw);
+}
+
+h2 {
+    font-size: 20px;
+    color: #555555; /* Slightly lighter gray */
+}
+
+h1, h2 {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333333; /* Darker text for headings */
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/*Registration and LogIn styling:*/
 .RegistrationForm {
     width: 350px;
     background-color: #E9F3FD; /* White form background */
@@ -36,18 +58,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
 }
 
-h1, h2 {
-    margin: 10px 0;
-    font-weight: bold;
-    color: #333333; /* Darker text for headings */
-}
-
-h2 {
-    font-size: 20px;
-    color: #555555; /* Slightly lighter gray */
-}
-
-/* Input fields */
 .RegistrationLine {
     display: flex;
     justify-content: space-between;
@@ -78,7 +88,6 @@ h2 {
     font-size: 14px;
 }
 
-/* Submit button */
 input[type="submit"] {
     background-color: #5cbba9; /* Teal button color */
     color: white;
@@ -96,6 +105,21 @@ input[type="submit"]:hover {
     background-color: #4ea597; /* Slightly darker teal */
 }
 
+.LogInForm {
+    width: 350px;
+    background-color: #E9F3FD; /* White form background */
+    border: 2px black solid;
+    border-radius: 60px; /* Rounded form corners */
+    margin: 50px auto;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*Homepage styling*/
 .home-page {
     display: grid;
     height: 99vh;
@@ -107,21 +131,6 @@ input[type="submit"]:hover {
 
 .home-page header {
     grid-column: 1/span 3;
-}
-
-.icon {
-    position: absolute;
-    left: 200px;
-    width: 40000px;
-    height: 40px;
-    /*object-fit: cover;*/
-    align-self: center;
-}
-
-h1 {
-    text-align: center;
-    color: white;
-    font-size: calc(1.7rem + 1vw);
 }
 
 .home-page img {
@@ -194,12 +203,6 @@ h1 {
     width: calc(1rem + 1vw);
 }
 
-.contactInfo {
-    grid-column: 1/span 3;
-    display: flex;
-    justify-content: space-around;
-}
-
 .home-page #homePageText {
     display: flex;
     flex-direction: column;
@@ -224,41 +227,15 @@ h1 {
     font-size: 1em;
 }
 
-.LogInForm {
-    width: 350px;
-    background-color: #E9F3FD; /* White form background */
-    border: 2px black solid;
-    border-radius: 60px; /* Rounded form corners */
-    margin: 50px auto;
-    padding: 20px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/*homepage & contactInfo styling*/
+.contactInfo {
+    grid-column: 1/span 3;
+    display: flex;
+    justify-content: space-around;
 }
 
-.animalButtons {
-    display: none;
-    flex-direction: column; /* Arrange buttons in a column */
-    position: absolute; /* Allows precise placement */
-    top: 60px; /* Adjust based on your layout */
-    right: 150px; /* Align to the right edge */
-}
 
-.animalButtons button {
-    /*width: 120px; !* Set a consistent width *!*/
-    text-align: start;
-    background-color: #88BDAE;
-    /*border: 1px solid #ccc;*/
-    border-radius: 10px;
-    border-color: lightblue;
-    padding-right: 5px;
-    font-family: Calibri, sans-serif;
-    width: 8em;
-    font-size: 1em;
-}
-
+/*profile styling: */
 .profile-page h2 {
     color: black;
     font-size: calc(0.8rem + 1vw);
@@ -311,7 +288,6 @@ h1 {
     padding-right: 15px;
 }
 
-/*צריך לתקן את המיקום ביחס לשמאל למטה של המך כי במסך נמוך זה לא ממוקם טוב*/
 .history {
     position: absolute;
     font-family: Calibri, sans-serif;
@@ -324,6 +300,7 @@ h1 {
     padding-right: 15px;
 }
 
+/*Info styling: */
 .info-page {
     background-color: white;
     height: 99vh;
@@ -387,8 +364,7 @@ h1 {
     min-height: 350px;
 }
 
-/*Treatment Summary:  */
-/* הגדרת תצוגת פלקס למסגרת הכללית */
+/*TreatmentSummary styling:   */
 .select_container {
     display: flex;
     flex-direction: row;
@@ -403,7 +379,6 @@ h1 {
     justify-content: space-between;
 }
 
-/* סגנון לטופס הטיפול */
 .treatment-summary-form {
     flex: 2;
     padding: 20px;
@@ -416,7 +391,6 @@ h1 {
     justify-content: space-between;
 }
 
-/*Arrange the fields horizontally */
 .horizontal-group {
     display: flex;
     /*flex-direction: column;*/
@@ -477,7 +451,6 @@ h1 {
     box-sizing: border-box;
 }
 
-/* format button */
 .form-actions {
     display: flex;
     justify-content: left;
@@ -506,7 +479,6 @@ h1 {
     background-color: #4ea597;
 }
 
-/* format history section */
 .history-section {
     flex: 1;
     /*background-color: #E9F3FD;*/
@@ -526,7 +498,6 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* past treatment details */
 .history-section table {
     width: 100%;
     border-collapse: collapse;
@@ -544,7 +515,6 @@ h1 {
     border: none;
 }
 
-/* כפתור פתיחה */
 .open-record-button {
     padding: 10px 20px;
     background-color: #88BDAE;
@@ -573,6 +543,18 @@ h1 {
     width: 100%; /* התאמת רוחב */
 }
 
+.userTypeButtons {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    left: -150px;
+}
+
+.userTypeButtons button {
+    background-color: #5CA48F;
+}
+
+/*Header styling: */
 header {
     background-color: #59aaf2;
     font-family: Calibri, sans-serif;
@@ -585,6 +567,63 @@ header {
     gap: 20px;
     position: relative;
     min-height: 2.5em;
+}
+
+header h1 {
+    font-size: 4vw;
+    margin: 0 auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-grow: 1;
+}
+
+header button {
+    background-color: #88BDAE;
+    color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 1em;
+    padding: 2px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 10;
+    justify-content: center;
+    width: 8em;
+    margin: 0;
+    box-sizing: border-box;
+    border-color: lightblue;
+}
+
+.headerButtons {
+    display: flex;
+    flex-direction: column; /* Arrange buttons in a column */
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 5px;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+}
+
+.animalButtons {
+    display: none;
+    flex-direction: column; /* Arrange buttons in a column */
+    position: absolute; /* Allows precise placement */
+    top: 60px; /* Adjust based on your layout */
+    right: 150px; /* Align to the right edge */
+}
+
+.animalButtons button {
+    /*width: 120px; !* Set a consistent width *!*/
+    text-align: start;
+    background-color: #88BDAE;
+    /*border: 1px solid #ccc;*/
+    border-radius: 10px;
+    border-color: lightblue;
+    padding-right: 5px;
+    font-family: Calibri, sans-serif;
+    width: 8em;
+    font-size: 1em;
 }
 
 header .icon {
@@ -605,81 +644,19 @@ header .icon {
     }
 }
 
-/* Apply the animation on click */
 header .icon:hover {
     animation: rotate-icon 1s ease-in-out;
 }
 
-header h1 {
-    font-size: 4vw;
-    margin: 0 auto;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    flex-grow: 1;
-}
-
-.intro h3 {
-    font-size: 1em;
-    background-color: #59aaf2;
-    padding: 0;
-    margin: 0;
-    top: 5px;
-    right: 10px;
-}
-
-header button {
-    background-color: #88BDAE;
-    color: white;
-    font-family: Calibri, sans-serif;
-    font-size: 1em;
-    padding: 2px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 10;
-    justify-content: center;
-    width: 8em;
-    margin: 0;
-    box-sizing: border-box;
-    border-color: lightblue;
-}
-
-.userTypeButtons {
-    display: flex;
-    gap: 20px;
-    position: relative;
-    left: -150px;
-}
-
-.userTypeButtons button {
-    background-color: #5CA48F;
-}
-
-
-.headerButtons {
-    display: flex;
-    flex-direction: column; /* Arrange buttons in a column */
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 5px;
-    position: absolute;
-    top: 25px;
-    right: 10px;
-}
-
-.error-message {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* למסכים בינוניים (טאבלטים)/ הקטנת מסך עד הסוף חצי מסך מחשב נייד שי   */
+/*Style according to screen size:   */
 @media (max-width: 768px) {
-
+    /*general: */
     body {
         box-sizing: border-box;
+        background-color: #333333;
     }
 
+    /*TreatmentSummary:  */
     .select_container {
         flex-direction: column;
         gap: 15px;
@@ -698,6 +675,12 @@ header button {
 
     }
 
+    .userTypeButtons {
+        flex-direction: column;
+    }
+
+
+    /*Homepage: */
     .home-page .services {
         flex-direction: column;
         justify-content: center;
@@ -706,6 +689,7 @@ header button {
 
     }
 
+    /*info: */
     .info-page .infoBoxes {
         align-items: flex-start;
 
@@ -719,39 +703,39 @@ header button {
         min-height: 500px;
         align-content: start;
     }
-
 }
 
 @media (max-height: 650px ) {
-
+    /*header: */
     .logoutButton {
         display: none;
     }
 
+    /*profile: */
     .history {
         bottom: 0.25em;
         left: 0.5em;
 
     }
-
-
 }
 
-@media (min-height: 600px) {
-
+@media (min-height: 650px) {
+    /*info: */
     .info-page .contactInfo {
         position: absolute;
         margin: 15px 0;
     }
 
+    /*profile: */
     .history {
         bottom: 1em;
         left: 1em;
     }
 
-    .headerButtons{
- gap: 8px;
-}
+    /*header: */
+    .headerButtons {
+        gap: 8px;
+    }
 }
 
 
