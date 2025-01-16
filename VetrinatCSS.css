@@ -6,10 +6,10 @@
 
 body {
     font-family: Calibri, sans-serif;
-    background-color: #cce6ff; /* Light blue background */
+    background-color: #cce6ff;
     margin: 0;
     padding: 0;
-    direction: rtl; /* Right-to-left alignment */
+    direction: rtl;
     text-align: center;
     height: 100vh;
 }
@@ -22,13 +22,13 @@ h1 {
 
 h2 {
     font-size: 20px;
-    color: #555555; /* Slightly lighter gray */
+    color: #555555;
 }
 
 h1, h2 {
     margin: 10px 0;
     font-weight: bold;
-    color: #333333; /* Darker text for headings */
+    color: #333333;
 }
 
 .error-message {
@@ -40,22 +40,22 @@ h1, h2 {
 /*Registration and LogIn styling:*/
 .RegistrationForm {
     width: 350px;
-    background-color: #E9F3FD; /* White form background */
+    background-color: #E9F3FD;
     border: 2px black solid;
-    border-radius: 60px; /* Rounded form corners */
+    border-radius: 60px;
     margin: 50px auto;
     padding: 20px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .RegistrationPetForm {
     width: 350px;
-    background-color: #E9F3FD; /* White form background */
+    background-color: #E9F3FD;
     border: 2px black solid;
-    border-radius: 60px; /* Rounded form corners */
+    border-radius: 60px;
     margin: 50px auto;
     padding: 20px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .RegistrationLine {
@@ -75,8 +75,8 @@ h1, h2 {
 .RegistrationLine select {
     width: 60%;
     padding: 8px;
-    border: 1px solid #cccccc; /* Light gray border */
-    border-radius: 15px; /* Rounded input fields */
+    border: 1px solid #cccccc;
+    border-radius: 15px;
     outline: none;
     font-size: 14px;
     font-family: Calibri, sans-serif;
@@ -84,12 +84,12 @@ h1, h2 {
 }
 
 .RegistrationLine input::placeholder {
-    color: #aaaaaa; /* Placeholder color */
+    color: #aaaaaa;
     font-size: 14px;
 }
 
 input[type="submit"] {
-    background-color: #5cbba9; /* Teal button color */
+    background-color: #5cbba9;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -98,21 +98,21 @@ input[type="submit"] {
     border-radius: 20px;
     cursor: pointer;
     margin-top: 30px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Button shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 input[type="submit"]:hover {
-    background-color: #4ea597; /* Slightly darker teal */
+    background-color: #4ea597;
 }
 
 .LogInForm {
     width: 350px;
-    background-color: #E9F3FD; /* White form background */
+    background-color: #E9F3FD;
     border: 2px black solid;
-    border-radius: 60px; /* Rounded form corners */
+    border-radius: 60px;
     margin: 50px auto;
     padding: 20px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Form shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -126,7 +126,6 @@ input[type="submit"]:hover {
     width: 99.9vw;
     grid-template-columns: 15% 70% 15%;
     grid-template-rows: 20% 30% 5% 25% 15% 5%;
-    /*grid-template-columns: repeat(auto-fit, 15% 70% 15%);*/
 }
 
 .home-page header {
@@ -148,8 +147,6 @@ input[type="submit"]:hover {
     grid-row: 3/span 2;
     grid-column: 3 /span 1;
     align-self: center;
-    /*width: 10em;*/
-    /*border:2px  solid #333333;*/
 }
 
 .home-page #cat1 {
@@ -184,7 +181,7 @@ input[type="submit"]:hover {
     justify-content: space-evenly;
     align-items: center;
     border: 3px solid #59aaf2;
-    border-radius: 30px; /* Rounded form corners */
+    border-radius: 30px;
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
     margin: 30px 10px 40px 10px;
@@ -195,8 +192,6 @@ input[type="submit"]:hover {
 
 .home-page .service {
     height: auto;
-    /*padding: ;*/
-
 }
 
 .home-page .service img {
@@ -208,21 +203,18 @@ input[type="submit"]:hover {
     flex-direction: column;
     justify-self: end;
     text-align: center;
-    /*font-size:1.2em ;*/
-    font-size: calc(0.8rem + 1vw); /* גודל דינמי שמכסה את המשבצת */
-    line-height: 1.1; /* התאמת גובה השורות כך שיתאים למשבצת */
-    word-break: break-word; /* שבירת מילים כדי להתאים לגבולות המשבצת */
-    height: 100%; /* דואג שהטקסט יתאים לגובה המשבצת */
-    width: 100%; /* דואג שהטקסט יתאים לרוחב המשבצת */
+    font-size: calc(0.8rem + 1vw);
+    line-height: 1.1;
+    word-break: break-word;
+    height: 100%;
+    width: 100%;
     justify-content: space-evenly;
-    /*margin-top: 50px;*/
     align-items: center;
 }
 
 .welcome {
     position: absolute;
     right: 15px;
-    /*font-size: calc(1.3rem);*/
     padding: 5px 10px;
     font-size: 1em;
 }
@@ -243,37 +235,37 @@ input[type="submit"]:hover {
 }
 
 .profileContent {
-    width: 80%; /* המרחק הכללי מהקצוות יהיה 80% מהרוחב הכולל */
-    margin: 0 auto; /* מרכז את המלבן */
-    padding: 20px; /* מרווח פנימי */
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .profile-page dl {
     display: grid;
-    grid-template-columns: auto 1fr; /* שתי עמודות */
-    gap: 20px; /* רווח בין תאים */
+    grid-template-columns: auto 1fr;
+    gap: 20px;
     margin: 20px;
     grid-column-gap: 100px;
     font-size: calc(0.5rem + 1vw);;
 }
 
 .profile-page dt {
-    font-weight: bold; /* מודגש */
+    font-weight: bold;
     text-align: start;
 }
 
 .profile-page dd {
-    margin: 0; /* מבטל רווחים */
-    color: #333; /* צבע תוכן */
+    margin: 0;
+    color: #333;
     text-align: start;
 }
 
 .Chelsy {
-    width: 15%; /* חצי מרוחב ההורה */
-    height: auto; /* שומר על הפרופורציות */
-    position: absolute; /* מאפשר למקם אותה באופן חופשי */
-    top: 40%; /* מיקום אנכי - כמה פיקסלים מלמעלה */
-    left: 15%; /* מיקום אופקי - כמה פיקסלים מהימין */
+    width: 15%;
+    height: auto;
+    position: absolute;
+    top: 40%;
+    left: 15%;
 }
 
 .editDetails {
@@ -308,58 +300,53 @@ input[type="submit"]:hover {
 }
 
 .infoBox ul {
-    padding: 0 40px; /* Add padding for bullets */
-    list-style-type: disc; /* Ensure bullets are displayed */
+    padding: 0 40px;
+    list-style-type: disc;
 }
 
 .infoBox li {
-    text-align: right; /* Align text properly */
+    text-align: right;
 }
 
 .info-page .contactInfo {
-    /*position: sticky;*/
-    bottom: 0; /* Positions it at the bottom */
-    /*left: 0;*/
-    width: 100%; /* Makes it span the entire width of the screen */
-    /*padding: 10px 0; !* Optional, for spacing *!*/
+    bottom: 0;
+    width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
 .info-page .services {
-    display: flex; /* מסדר את הילדים (item) אחד ליד השני */
-    justify-content: space-between; /* ממרכז את האלמנטים */
-    align-items: center; /* ממרכז אותם אנכית */
-    margin: 20px 25px; /* רווח מסביב למיכל */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 25px;
 }
 
 .info-page .service {
-    border: 3px solid #59aaf2; /* גבול מסביב */
-    padding: 0.5em; /* מרווח פנימי */
+    border: 3px solid #59aaf2;
+    padding: 0.5em;
     width: 25%;
     height: 4em;
     align-content: center;
-    border-radius: 10px; /* Rounded form corners */
+    border-radius: 10px;
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
-    word-break: break-word; /* שבירת מילים כדי להתאים לגבולות המשבצת */
+    word-break: break-word;
 }
 
 .infoBoxes {
-    display: flex; /* מסדר את הילדים (item) אחד ליד השני */
-    justify-content: space-between; /* ממרכז את האלמנטים */
-    align-items: flex-start; /* ממרכז אותם אנכית */
-    margin: 20px 30px; /* רווח מסביב למיכל */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 30px;
 }
 
 .infoBox {
     background-color: #cce6ff;
     font-size: calc(1.5rem);
     width: 25%;
-    /*margin-left: 5%;*/
-    /*height: 350px;*/
     height: auto;
-    border-radius: 30px; /* Rounded form corners */
+    border-radius: 30px;
     align-content: center;
     min-height: 350px;
 }
@@ -393,9 +380,7 @@ input[type="submit"]:hover {
 
 .horizontal-group {
     display: flex;
-    /*flex-direction: column;*/
     justify-content: space-between;
-    /*justify-content: center;*/
     gap: 15px;
     align-items: flex-end;
 }
@@ -458,7 +443,7 @@ input[type="submit"]:hover {
 }
 
 .form-actions button {
-    background-color: #88BDAE; /* כפתורים ירוקים */
+    background-color: #88BDAE;
     color: white;
     border: none;
     border-radius: 20px;
@@ -481,14 +466,12 @@ input[type="submit"]:hover {
 
 .history-section {
     flex: 1;
-    /*background-color: #E9F3FD;*/
     padding: 20px;
     overflow-y: auto;
     text-align: center;
     direction: rtl;
     display: flex;
     flex-direction: column;
-    /*justify-content: space-between;*/
     height: 80%;
     width: 100%;
 }
@@ -540,7 +523,7 @@ input[type="submit"]:hover {
 }
 
 .select_container .treatment-summary-form {
-    width: 100%; /* התאמת רוחב */
+    width: 100%;
 }
 
 .userTypeButtons {
@@ -576,6 +559,7 @@ header h1 {
     left: 50%;
     transform: translateX(-50%);
     flex-grow: 1;
+    color: white;
 }
 
 header button {
@@ -596,7 +580,7 @@ header button {
 
 .headerButtons {
     display: flex;
-    flex-direction: column; /* Arrange buttons in a column */
+    flex-direction: column;
     align-items: flex-end;
     justify-content: flex-start;
     gap: 5px;
@@ -607,17 +591,15 @@ header button {
 
 .animalButtons {
     display: none;
-    flex-direction: column; /* Arrange buttons in a column */
-    position: absolute; /* Allows precise placement */
-    top: 60px; /* Adjust based on your layout */
-    right: 150px; /* Align to the right edge */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 150px;
 }
 
 .animalButtons button {
-    /*width: 120px; !* Set a consistent width *!*/
     text-align: start;
     background-color: #88BDAE;
-    /*border: 1px solid #ccc;*/
     border-radius: 10px;
     border-color: lightblue;
     padding-right: 5px;
@@ -653,7 +635,6 @@ header .icon:hover {
     /*general: */
     body {
         box-sizing: border-box;
-        background-color: #333333;
     }
 
     /*TreatmentSummary:  */
@@ -670,7 +651,6 @@ header .icon:hover {
 
     .history-section {
         width: 100%;
-        /*height: 100%;*/
         padding: 0;
 
     }

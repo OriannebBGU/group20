@@ -68,32 +68,29 @@
             <div class="horizontal-group">
                 <div class="form-group">
                     <label for="client-name">שם לקוח:</label>
-                    <input type="text" class="client-name" name="client-name" placeholder="אוריין שקולניק" readonly>
+                    <input type="text" id="p-client-name" class="client-name" name="client-name"  readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="pet-name">שם חיית מחמד:</label>
-                    <input type="text" class="pet-name" name="pet-name" placeholder="צ'לסי" readonly>
+                    <input type="text" id="P-pet-name" class="pet-name" name="pet-name" readonly>
                 </div>
 
                 <div class="form-group">
                     <label for="treatment-type">סוג טיפול:</label>
-                    <input type="text" class="treatment-type" name="pet-name" placeholder="בדיקה" readonly>
+                    <input type="text" id="P-treatment-type" class="treatment-type" name="pet-name"  readonly>
                 </div>
             </div>
         </div>
 
         <div class="form-group" id="summaryRap">
             <label for="summary">סיכום טיפול:</label>
-            <textarea class="summary doctor-only" id="summary" name="summary" placeholder="הכנס סיכום טיפול..." rows="5"
-                      required></textarea>
-            <textarea class="summary patient-only" name="summary" placeholder="הינה סיכום הטיפול של..." rows="5"
-                      readonly></textarea>
+            <textarea class="summary" id="summary" name="summary" placeholder="הכנס סיכום טיפול..."
+                      rows="5" required></textarea>
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="save-button doctor-only">שמור</button>
-            <button type="button" class="sign-button doctor-only">חתום</button>
+            <button type="submit" class="save-button doctor-only">שמור וחתום</button>
         </div>
     </form>
 
@@ -109,13 +106,13 @@
             </thead>
             <tbody>
             <tr>
-                <td><input type="radio" class="select-row" name="select-one"></td>
-                <td>05/05/23</td>
+                <td><input type="radio" class="select-row" name="select-treatment"></td>
+                <td>05.5.23</td>
                 <td>בדיקה</td>
             </tr>
             <tr>
-                <td><input type="radio" class="select-row" name="select-one"></td>
-                <td>06/05/23</td>
+                <td><input type="radio" class="select-row" name="select-treatment"></td>
+                <td>06.5.23</td>
                 <td>חיסון</td>
             </tr>
             </tbody>
