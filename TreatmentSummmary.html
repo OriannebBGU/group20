@@ -6,7 +6,9 @@
     <title>VetRinat</title>
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
+
 <body class="treatment-summary-page">
+
 <header class="treatment-summary-page">
     <div class="headerButtons">
         <button class="homeButton">עמוד הבית</button>
@@ -14,16 +16,19 @@
         <button class="infoButton">טיפולים</button>
         <button class="logoutButton">התנתקות</button>
     </div>
+
     <div class="userTypeButtons">
         <button id="patientButton" class="header-buttons header-bnt">Switch to Patient View</button>
         <button id="doctorButton" class="header-buttons header-bnt">Switch to Doctor View</button>
     </div>
+
     <h1>סיכום טיפול</h1>
+
     <div class="animalButtons">
         <button onclick="">צ'לסי</button>
-        <!--        <button onclick="">צ'ופי</button>-->
         <button onclick="">הוספה...</button>
     </div>
+
     <img src="photos/icon.png" alt="icon" class="icon">
 </header>
 
@@ -36,11 +41,13 @@
                     <input type="text" class="client-name" id="client-name" name="client-name" placeholder="בחר בעלים"
                            required>
                 </div>
+
                 <div class="form-group">
                     <label for="pet-name">שם חיית מחמד:</label>
                     <input type="text" class="pet-name" id="pet-name" name="pet-name" placeholder="בחר חיית מחמד"
                            required>
                 </div>
+
                 <div class="form-group">
                     <label for="treatment-type">סוג טיפול:</label>
                     <select class="treatment-type" id="treatment-type" name="treatment-type">
@@ -50,6 +57,7 @@
                         <option value="other">אחר</option>
                     </select>
                 </div>
+
                 <div class="form-group form-actions">
                     <button type="submit" class="edit-button">ערוך</button>
                 </div>
@@ -62,10 +70,12 @@
                     <label for="client-name">שם לקוח:</label>
                     <input type="text" class="client-name" name="client-name" placeholder="אוריין שקולניק" readonly>
                 </div>
+
                 <div class="form-group">
                     <label for="pet-name">שם חיית מחמד:</label>
                     <input type="text" class="pet-name" name="pet-name" placeholder="צ'לסי" readonly>
                 </div>
+
                 <div class="form-group">
                     <label for="treatment-type">סוג טיפול:</label>
                     <input type="text" class="treatment-type" name="pet-name" placeholder="בדיקה" readonly>
@@ -110,6 +120,7 @@
             </tr>
             </tbody>
         </table>
+
         <button type="button" class="open-record-button">פתיחה</button>
     </section>
 </main>

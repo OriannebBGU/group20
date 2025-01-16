@@ -5,26 +5,32 @@
     <title>VetRinat</title>
     <link rel="stylesheet" href="VetrinatCSS.css">
 </head>
+
 <body>
+
 <form action="homepage.html" method="get" class="RegistrationPetForm">
     <h1>צור משתמש</h1>
     <h2>פרטי חיית מחמד</h2><br>
+
     <div class="RegistrationLine">
         <label for="petName">שם</label>
         <input type="text" id="petName" name="petName" placeholder="הכנס שם חיית מחמד">
     </div>
+
     <div class="RegistrationLine">
         <label for="type">סוג</label>
         <select class="type" id="type" name="type">
-            <option value="unpicked"> </option>
+            <option value="unpicked"></option>
             <option value="cat">חתול</option>
             <option value="dog">כלב</option>
         </select>
     </div>
+
     <div class="RegistrationLine">
         <label for="breed">גזע</label>
         <input type="text" id="breed" name="breed" placeholder="">
     </div>
+
     <div class="RegistrationLine">
         <label for="gender">מין</label>
         <select class="gender" id="gender" name="gender">
@@ -33,20 +39,23 @@
             <option value="female">נקבה</option>
         </select>
     </div>
+
     <div class="RegistrationLine">
         <label for="age">תאריך לידה</label>
         <input type="date" id="age" name="age" placeholder="גיל">
     </div>
+
     <div class="RegistrationLine">
         <label for="weight">משקל</label>
         <input type="number" id="weight" name="weight" placeholder="">
     </div>
+
     <div class="RegistrationLine">
         <label for="photo">העלאת תמונה</label>
-        <input type="file" name="photo" accept="image/*">
+        <input type="file" id="photo" name="photo" accept="image/*">
     </div>
+
     <input type="submit" name="" value="בצע הרשמה"><br><br>
-    <!--        <img src="icon.png" alt="" style="">-->
 </form>
 
 <script src="JSVetrinat.js" defer></script>
