@@ -95,3 +95,11 @@ In P3, this form will read straight from the database and ensure that the user e
   - A general validation that name, type and gender are filled.
   - Pet name - validates that the input is at least 2 characters long.
   - Photo input - validates that the file uploaded is of type photo.
+
+
+---
+### Submitted by:
+- אוריין שקולניק
+- שי צפתי
+
+
