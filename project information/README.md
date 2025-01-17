@@ -35,7 +35,9 @@ VetRinat is a platform designed to assist Dr. Rinat PetLover customers in managi
     - Upcoming appointment message ("אין תורים עתידיים")
   - Shown treatment history
 - Doctor view and Patient view buttons in Treatment History page will not exist in P3 - they were only created for the purposes of P2, to show the course staff how will each view look.
-  - Similarly, the existing functions that allow adding and modifying treatments under Doctor View are placeholders for the functions that will be implemented in P3.  
+  - Similarly, the existing functions that allow adding and modifying treatments under Doctor View are placeholders for the functions that will be implemented in P3.
+- Every new user receives customer's permissions by default. Defining a user as staff is done manually in the database.
+- Adding an upcoming appointment for a pet will be done straight through the database in P3.
 
 ---
 
