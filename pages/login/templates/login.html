@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>VetRinat</title>
+    <link rel="stylesheet" href="{{url_for('login.static' , filename='CSS/login.css' )}}">
+</head>
+
+<body>
+
+<form action="homepage.html" method="get" class="LogInForm">
+    <h1>כניסה לחשבון</h1><br>
+
+    <div class="RegistrationLine">
+        <label for="email">דואר אלקטרוני</label>
+        <input type="text" id="email" name="email" placeholder="הכנס דואר אלקטרוני">
+    </div>
+
+    <div class="RegistrationLine">
+        <label for="password">סיסמה</label>
+        <input type="password" id="password" name="password" placeholder="הכנס סיסמה">
+    </div>
+
+    <br>
+    <input type="submit" name="connect" value="התחבר/י"><br><br>
+</form>
+
+<script src="{{url_for('login.static' , filename='js/login.js' )}}" defer></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri, sans-serif;
+    background-color: #cce6ff;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    text-align: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: calc(1.7rem + 1vw);
+}
+
+h2 {
+    font-size: 20px;
+    color: #555555;
+}
+
+h1, h2 {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333333;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
+/*Style according to screen size:   */
+@media (max-width: 768px) {
+    /*general: */
+    body {
+        box-sizing: border-box;
+    }
+}

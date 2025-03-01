@@ -1,0 +1,86 @@
+
+/*Info styling: */
+.info-page {
+    background-color: white;
+    height: 99vh;
+    width: 99.9vw;
+}
+
+.infoBox ul {
+    padding: 0 40px;
+    list-style-type: disc;
+}
+
+.infoBox li {
+    text-align: right;
+}
+
+.info-page .contactInfo {
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.info-page .services {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 25px;
+}
+
+.info-page .service {
+    border: 3px solid #59aaf2;
+    padding: 0.5em;
+    width: 25%;
+    height: 4em;
+    align-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: calc(0.8rem + 1vw);
+    word-break: break-word;
+}
+
+.infoBoxes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px 30px;
+}
+
+.infoBox {
+    background-color: #cce6ff;
+    font-size: calc(1.5rem);
+    width: 25%;
+    height: auto;
+    border-radius: 30px;
+    align-content: center;
+    min-height: 350px;
+}
+
+
+/*Style according to screen size:   */
+@media (max-width: 768px) {
+    /*info: */
+    .info-page .infoBoxes {
+        align-items: flex-start;
+
+    }
+
+    .info-page .infoBox {
+        font-size: calc(0.7rem + 1vw);
+        width: 30%;
+        height: auto;
+        padding: 0.6em 0;
+        min-height: 500px;
+        align-content: start;
+    }
+}
+
+@media (min-height: 650px) {
+    /*info: */
+    .info-page .contactInfo {
+        position: absolute;
+        margin: 15px 0;
+    }
+}

@@ -1,0 +1,39 @@
+.RegistrationPetForm {
+    width: 350px;
+    background-color: #E9F3FD;
+    border: 2px black solid;
+    border-radius: 60px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.RegistrationLine {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    align-items: center;
+}
+
+.RegistrationLine label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.RegistrationLine input,
+.RegistrationLine select {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 15px;
+    outline: none;
+    font-size: 14px;
+    font-family: Calibri, sans-serif;
+    box-sizing: border-box;
+}
+
+.RegistrationLine input::placeholder {
+    color: #aaaaaa;
+    font-size: 14px;
+}

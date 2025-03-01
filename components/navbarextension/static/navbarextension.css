@@ -1,0 +1,18 @@
+.animalButtons {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 150px;
+}
+
+.animalButtons button {
+    text-align: start;
+    background-color: #88BDAE;
+    border-radius: 10px;
+    border-color: lightblue;
+    padding-right: 5px;
+    font-family: Calibri, sans-serif;
+    width: 8em;
+    font-size: 1em;
+}
