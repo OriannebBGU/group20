@@ -33,4 +33,7 @@ from pages.treatmentsummary.treatmentsummary import treatmentsummary
 app.register_blueprint(treatmentsummary)
 
 
+## Footer
+# from components.footer.footer import footer
+# app.register_blueprint(footer)
 

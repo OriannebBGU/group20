@@ -1,7 +1,0 @@
-/*homepage & contactInfo styling*/
-/*contactInfo is the formating of the footer!*/
-.contactInfo {
-    grid-column: 1/span 3;
-    display: flex;
-    justify-content: space-around;
-}

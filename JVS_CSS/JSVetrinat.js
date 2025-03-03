@@ -60,7 +60,7 @@
 //     const infoButton = document.querySelector('.infoButton');
 //     if (infoButton) {
 //         infoButton.onclick = () => {
-//             window.location.href = 'Info.html';
+//             window.location.href = 'info.html';
 //         };
 //     }
 //

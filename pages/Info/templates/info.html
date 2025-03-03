@@ -25,22 +25,22 @@
         <button onclick="">הוספה...</button>
     </div>
 
-    <img src="photos/icon.png" alt="icon" class="icon">
+    <img src="{{ url_for('info.static',filename='media/img/icon.png')}}" alt="icon" class="icon">
 </header>
 
 <div class="services">
     <div class="service">
-        <img src="photos/services1.png" alt="" style="width: 30px">
+        <img src="{{url_for('info.static', filename='media/img/services1.png') }}" alt="" style="width: 30px">
         בדיקות רפואיות שגרתיות ואבחון
     </div>
 
     <div class="service">
-        <img src="photos/services2.png" alt="" style="width: 30px">
+        <img src="{{ url_for('info.static',filename='media/img/services2.png')}}" alt="" style="width: 30px">
         שירותי חירום וטיפול במצבים דחופים
     </div>
 
     <div class="service">
-        <img src="photos/services4.png" alt="" style="width: 30px">
+        <img src="{{ url_for('info.static',filename='media/img/services3.png')}}" alt="" style="width: 30px">
         טיפוח ובריאות כללית
     </div>
 </div>

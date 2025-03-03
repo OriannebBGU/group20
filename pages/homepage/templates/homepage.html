@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>VetRinat</title>
     <link rel="stylesheet" href="{{ url_for('homepage.static',filename='CSS/homepage.css')}}">
-{#    <link rel="stylesheet" href="pages/homepage/static/CSS/homepage.css">#}
 </head>
 
 <body class="home-page">
@@ -26,12 +25,12 @@
         <button onclick="">הוספה...</button>
     </div>
 
-    <img src="photos/icon.png" alt="" class="icon">
+{#    <img src="photos/icon.png" alt="" class="icon">#}
 </header>
 
 <div class="welcome">טוב לראות אותך שוב, אוריין!</div>
 
-<img src="photos/dog1.png" id="dog1" alt="">
+<img src="{{ url_for('homepage.static',filename='media/img/dog1.png') }}" id="dog1" alt="">
 
 <p id="homePageText">
     <strong>אצלנו, בריאות החיות שלכם היא מעל הכול. המרפאה שלנו מציעה שילוב ייחודי של מקצועיות רפואית, יחס אישי וחמימות
@@ -40,29 +39,29 @@
     ומתקדם לכל חיה. המרפאה מצוידת במכשור חדיש ומתקדם, המאפשר אבחון מדויק וטיפול מהיר ויעיל.
 </p>
 
-<img src="photos/cat1.png" id="cat1" alt="">
-<img src="photos/dog3.png" id="dog2" alt="">
+<img src="{{ url_for('homepage.static', filename='media/img/cat1.png') }}" id="cat1" alt="">
+<img src="{{url_for('homepage.static', filename='media/img/dog3.png') }}" id="dog2" alt="">
 
 <h2>שירותי המרפאה</h2>
 
 <a href="Info.html" class="services">
     <div class="service">
-        <img src="photos/services1.png" alt="">
+        <img src="{{url_for('homepage.static', filename='media/img/services1.png') }}" alt="">
         בדיקות רפואיות שגרתיות ואבחון
     </div>
 
     <div class="service">
-        <img src="photos/services2.png" alt="">
+        <img src="{{url_for('homepage.static', filename='media/img/services2.png') }}" alt="">
         שירותי חירום וטיפול במצבים דחופים
     </div>
 
     <div class="service">
-        <img src="photos/services3.png" alt="">
+        <img src="{{url_for('homepage.static', filename='media/img/services3.png') }}" alt="">
         חיסונים וטיפולים מונעים
     </div>
 </a>
 
-<img src="photos/cat2.png" id="cat2" alt="">
+<img src="{{ url_for('homepage.static', filename='media/img/cat2.png') }}" id="cat2" alt="">
 
 <div id="activityHours">
     <h3>שעות פעילות המרפאה:</h3>
