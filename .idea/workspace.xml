@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b8721a3-b337-4b5f-9dc8-a1aeb269ba6d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db_connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_connector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +81,7 @@
       <recent name="C:\Users\אוריין\Desktop\שנה ג\ווב\group20" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.db_connector">
+  <component name="RunManager" selected="Python.analyzeDB">
     <configuration name="analyzeDB" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="group20" />
       <option name="ENV_FILES" value="" />
@@ -195,9 +192,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.db_connector" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.analyzeDB" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.db_connector" />
         <item itemvalue="Python.db" />
       </list>
     </recent_temporary>
@@ -226,7 +223,7 @@
       <workItem from="1736523177899" duration="21591000" />
       <workItem from="1736704628505" duration="27013000" />
       <workItem from="1736931500973" duration="31144000" />
-      <workItem from="1741102249079" duration="14120000" />
+      <workItem from="1741102249079" duration="14517000" />
     </task>
     <servers />
   </component>
@@ -256,7 +253,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/group20$db_connector.coverage" NAME="db_connector Coverage Results" MODIFIED="1741124429976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/group20$db.coverage" NAME="db Coverage Results" MODIFIED="1741114851885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/group20$analyzeDB.coverage" NAME="analyzeDB Coverage Results" MODIFIED="1741114855845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/group20$test.coverage" NAME="test Coverage Results" MODIFIED="1741124348424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$analyzeDB.coverage" NAME="analyzeDB Coverage Results" MODIFIED="1741124711482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$test.coverage" NAME="test Coverage Results" MODIFIED="1741124705930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
