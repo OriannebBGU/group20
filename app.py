@@ -1,4 +1,5 @@
 from flask import Flask
+from db import db  # Import the db connection
 
 ###### App setup
 app = Flask(__name__)
