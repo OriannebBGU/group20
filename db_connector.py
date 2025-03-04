@@ -3,7 +3,9 @@ import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from datetime import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
 # Get your MongoDB URI from .env file
 uri = os.environ.get('DB_URI')
 
@@ -22,11 +24,11 @@ appointments_col = vetrinat_DB['appointments']
 # ----------------- INSERT SAMPLE DATA ----------------- #
 def insert_first_users():
     customers_data = [
-        {"firstName": "אוריין", "lastName": "שכלניק", "Email": "orianne@post.bgu.ac.il", "Password": "וטרינת123",
+        {"firstName": "אוריין", "lastName": "שקולניק", "Email": "orianne@post.bgu.ac.il", "Password": "Vetrinat123",
          "PhoneNumber": "0544315107", "Role": 1},
-        {"firstName": "שי", "lastName": "צפתי", "Email": "Shay@example.com", "Password": "סודי123",
+        {"firstName": "שי", "lastName": "צפתי", "Email": "Shay@example.com", "Password": "Secret123",
          "PhoneNumber": "0521234567", "Role": 1},
-        {"firstName": "רינת", "lastName": "חובבת חיות", "Email": "rinat@vetrinat.com", "Password": "סיסמא456",
+        {"firstName": "רינת", "lastName": "אוהבת-חיות", "Email": "rinat@vetrinat.com", "Password": "Password456",
          "PhoneNumber": "0539876543", "Role": 2}
     ]
     customers_col.insert_many(customers_data)
