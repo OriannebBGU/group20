@@ -1,29 +1,8 @@
 {% extends 'base.html' %}
 
-{##}
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en" dir="rtl">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
-{#    <title>VetRinat</title>#}
-{# {% block page_head_title %} VetRinat {% endblock %}#}
-{#{% set page_head_title = 'treatments' %}#}
-
 {% block page_head_css %}
 <link rel="stylesheet" href="{{ url_for('treatmentsummary.static' , filename='CSS/treatmentsummary.css' ) }}">
 {% endblock %}
-{#</head>#}
-{#{% block page_body_content %}#}
-{#<body class="treatment-summary-page">#}
-{#    <header class="treatment-summary-page">#}
-{#    <div class="headerButtons">#}
-{#        <button class="homeButton">עמוד הבית</button>#}
-{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
-{#        <button class="infoButton">טיפולים</button>#}
-{#        <button class="logoutButton">התנתקות</button>#}
-{#    </div>#}
 
 {#!!לא למחוק#}
 {#<div class="userTypeButtons">#}
@@ -34,14 +13,6 @@
 {% block page_body_header_content__headline %}
     <h1>סיכום טיפול</h1>
 {% endblock %}
-
-{#    <div class="animalButtons">#}
-{#        <button onclick="">צ'לסי</button>#}
-{#        <button onclick="">הוספה...</button>#}
-{#    </div>#}
-{##}
-{#    <img src="photos/icon.png" alt="icon" class="icon">#}
-{#</header>#}
 
 {% block page_body_main %}
     <main class="select_container">
@@ -142,7 +113,5 @@
     <script src="{{ url_for('treatmentsummary.static' , filename='js/treatmentsummary.js' ) }}" defer></script>
 {% endblock %}
 
-{#</body>#}
-{#</html>#}
 
 
