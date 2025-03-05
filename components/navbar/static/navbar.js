@@ -9,7 +9,6 @@ const regisButton = document.querySelector('.regisButton');
 const animalButtons = document.querySelector('.animalButtons');
 const infoButton = document.querySelector('.infoButton');
 const logoutButton = document.querySelector('.logoutButton');
-
 // Update the homepage based on login state
 function updateHomePage() {
 
