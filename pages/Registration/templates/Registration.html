@@ -1,50 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>VetRinat</title>
-    <link rel="stylesheet" href="{{url_for('registration.static' , filename='CSS/registration.css')}}">
-</head>
+{% extends 'base.html' %}
 
-<body>
+{#{% set page_head_title = '' %}#}
 
-<form action="RegistrationPet.html" method="get" class="RegistrationForm">
-    <h1>צור משתמש</h1>
-    <h2>פרטים אישיים</h2><br>
+{#<!DOCTYPE html>#}
+{#<html lang="en" dir="rtl">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>VetRinat</title>#}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('registration.static' , filename='CSS/registration.css') }}">
+{% endblock %}
+{#</head>#}
 
-    <div class="RegistrationLine">
-        <label for="firstName">שם פרטי</label>
-        <input type="text" id="firstName" name="firstName" placeholder="הכנס שם פרטי">
-    </div>
+{#<body>#}
+{% block page_body_main %}
+    <form action="{{ url_for('registration.registration_func') }}" method="get" class="RegistrationForm">
+        <h1>צור משתמש</h1>
+        <h2>פרטים אישיים</h2><br>
 
-    <div class="RegistrationLine">
-        <label for="lastName">שם משפחה</label>
-        <input type="text" id="lastName" name="lastName" placeholder="הכנס שם משפחה">
-    </div>
+        <div class="RegistrationLine">
+            <label for="firstName">שם פרטי</label>
+            <input type="text" id="firstName" name="firstName" placeholder="הכנס שם פרטי">
+        </div>
 
-    <div class="RegistrationLine">
-        <label for="email">דואר אלקטרוני</label>
-        <input type="text" id="email" name="email" placeholder="הכנס דואר אלקטרוני">
-    </div>
+        <div class="RegistrationLine">
+            <label for="lastName">שם משפחה</label>
+            <input type="text" id="lastName" name="lastName" placeholder="הכנס שם משפחה">
+        </div>
 
-    <div class="RegistrationLine">
-        <label for="password">סיסמה</label>
-        <input type="password" id="password" name="password" placeholder="הכנס סיסמה">
-    </div>
+        <div class="RegistrationLine">
+            <label for="email">דואר אלקטרוני</label>
+            <input type="text" id="email" name="email" placeholder="הכנס דואר אלקטרוני">
+        </div>
 
-    <div class="RegistrationLine">
-        <label for="Vpassword">וידוא סיסמה</label>
-        <input type="password" id="Vpassword" name="Vpassword" placeholder="הכנס שוב סיסמה">
-    </div>
+        <div class="RegistrationLine">
+            <label for="password">סיסמה</label>
+            <input type="password" id="password" name="password" placeholder="הכנס סיסמה">
+        </div>
 
-    <div class="RegistrationLine">
-        <label for="phoneNumber">טלפון</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="הכנס מספר טלפון">
-    </div>
+        <div class="RegistrationLine">
+            <label for="Vpassword">וידוא סיסמה</label>
+            <input type="password" id="Vpassword" name="Vpassword" placeholder="הכנס שוב סיסמה">
+        </div>
 
-    <input type="submit" name="" value="המשך"><br><br>
-</form>
+        <div class="RegistrationLine">
+            <label for="phoneNumber">טלפון</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="הכנס מספר טלפון">
+        </div>
 
-<script src="{{url_for('registration.static' , filename='js/registration.js')}}" defer></script>
-</body>
-</html>
+        <input type="submit" name="" value="המשך"><br><br>
+    </form>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('registration.static' , filename='js/registration.js') }}" defer></script>
+{% endblock %}
+
+{#</body>#}
+{#</html>#}

@@ -1,30 +1,46 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>VetRinat</title>
-    <link rel="stylesheet" href="{{url_for('login.static' , filename='CSS/login.css' )}}">
-</head>
+{% extends 'base.html' %}
 
-<body>
+{#{% set page_head_title = 'Login' %}#}
 
-<form action="homepage.html" method="get" class="LogInForm">
-    <h1>כניסה לחשבון</h1><br>
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en" dir="rtl">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>VetRinat</title>#}
 
-    <div class="RegistrationLine">
-        <label for="email">דואר אלקטרוני</label>
-        <input type="text" id="email" name="email" placeholder="הכנס דואר אלקטרוני">
-    </div>
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('login.static' , filename='CSS/login.css' ) }}">
+{% endblock %}
+{#</head>#}
 
-    <div class="RegistrationLine">
-        <label for="password">סיסמה</label>
-        <input type="password" id="password" name="password" placeholder="הכנס סיסמה">
-    </div>
+{#<body>#}
 
-    <br>
-    <input type="submit" name="connect" value="התחבר/י"><br><br>
-</form>
+{% block page_body_header %} {% endblock %}
+{#{% block page_body_header_content__navbar %}  {% endblock %}#}
+{#{% block page_body_header_content__headline %}  {% endblock %}#}
+{% block page_body_main %}
+    <form action="{{ url_for('homepage.homepage_func') }}" method="get" class="LogInForm">
+        <h1>כניסה לחשבון</h1><br>
 
-<script src="{{url_for('login.static' , filename='js/login.js' )}}" defer></script>
-</body>
-</html>
+        <div class="RegistrationLine">
+            <label for="email">דואר אלקטרוני</label>
+            <input type="text" id="email" name="email" placeholder="הכנס דואר אלקטרוני">
+        </div>
+
+        <div class="RegistrationLine">
+            <label for="password">סיסמה</label>
+            <input type="password" id="password" name="password" placeholder="הכנס סיסמה">
+        </div>
+
+        <br>
+        <input type="submit" name="connect" value="התחבר/י"><br><br>
+    </form>
+{% endblock %}
+
+{% block page_body_js %}
+    <script src="{{ url_for('login.static' , filename='js/login.js' ) }}" defer></script>
+{% endblock %}
+
+{#</body>#}
+{#</html>#}

@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 
-# info blueprint definition
-info = Blueprint(
+# footer blueprint definition
+footer = Blueprint(
     'footer',
     __name__,
     static_folder='static',

@@ -1,33 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>VetRinat</title>
-    <link rel="stylesheet" href="{{ url_for('homepage.static',filename='CSS/homepage.css')}}">
-</head>
+{% extends 'base.html' %}
+
+{#{% set page_head_title = 'Homepage' %}#}
+
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en" dir="rtl">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>VetRinat</title>#}
+    {% block page_head_css %}
+        <link rel="stylesheet" href="{{ url_for('homepage.static',filename='CSS/homepage.css') }}">
+    {% endblock %}
+
+{#</head>#}
 
 <body class="home-page">
 
-<header>
-    <div class="headerButtons">
-        <button class="homeButton">עמוד הבית</button>
-        <button class="loginButton">התחברות</button>
-        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
-        <button class="regisButton">הרשמה</button>
-        <button class="infoButton">טיפולים</button>
-        <button class="logoutButton">התנתקות</button>
-    </div>
-
+{#<header>#}
+{#    <div class="headerButtons">#}
+{#        <button class="homeButton">עמוד הבית</button>#}
+{#        <button class="loginButton">התחברות</button>#}
+{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
+{#        <button class="regisButton">הרשמה</button>#}
+{#        <button class="infoButton">טיפולים</button>#}
+{#        <button class="logoutButton">התנתקות</button>#}
+{#    </div>#}
+{% block page_body_header_content__headline %}
     <h1>ברוכים הבאים למרפאה הוטרינרית<br> של ד"ר רינת אוהבת-חיות!</h1>
-
-    <div class="animalButtons">
-        <button onclick="">צ'לסי</button>
-        <button onclick="">הוספה...</button>
-    </div>
-
-{#    <img src="photos/icon.png" alt="" class="icon">#}
-</header>
-
+{% endblock %}
+{#    <div class="animalButtons">#}
+{#        <button onclick="">צ'לסי</button>#}
+{#        <button onclick="">הוספה...</button>#}
+{#    </div>#}
+{##}
+    {#    <img src="photos/icon.png" alt="" class="icon">#}
+{#</header>#}
+{% block page_body_main %}
 <div class="welcome">טוב לראות אותך שוב, אוריין!</div>
 
 <img src="{{ url_for('homepage.static',filename='media/img/dog1.png') }}" id="dog1" alt="">
@@ -40,23 +48,23 @@
 </p>
 
 <img src="{{ url_for('homepage.static', filename='media/img/cat1.png') }}" id="cat1" alt="">
-<img src="{{url_for('homepage.static', filename='media/img/dog3.png') }}" id="dog2" alt="">
+<img src="{{ url_for('homepage.static', filename='media/img/dog3.png') }}" id="dog2" alt="">
 
 <h2>שירותי המרפאה</h2>
 
 <a href="Info.html" class="services">
     <div class="service">
-        <img src="{{url_for('homepage.static', filename='media/img/services1.png') }}" alt="">
+        <img src="{{ url_for('homepage.static', filename='media/img/services1.png') }}" alt="">
         בדיקות רפואיות שגרתיות ואבחון
     </div>
 
     <div class="service">
-        <img src="{{url_for('homepage.static', filename='media/img/services2.png') }}" alt="">
+        <img src="{{ url_for('homepage.static', filename='media/img/services2.png') }}" alt="">
         שירותי חירום וטיפול במצבים דחופים
     </div>
 
     <div class="service">
-        <img src="{{url_for('homepage.static', filename='media/img/services3.png') }}" alt="">
+        <img src="{{ url_for('homepage.static', filename='media/img/services3.png') }}" alt="">
         חיסונים וטיפולים מונעים
     </div>
 </a>
@@ -68,25 +76,28 @@
     ימי ראשון עד חמישי 8:30-15:30.<br>
     ימי שישי וערבי חג בתיאום מראש.
 </div>
+{% endblock %}
 
-<div class="contactInfo">
-    <div class="info">
-        <img src="photos/whatsapp.png" alt="" style="width: 20px">
-        טלפון זמין בין הימים א'-ה' בשעות 8:30 ל15:30 - 07-5343065
-    </div>
+{##}
+{#<div class="contactInfo">#}
+{#    <div class="info">#}
+{#        <img src="photos/whatsapp.png" alt="" style="width: 20px">#}
+{#        טלפון זמין בין הימים א'-ה' בשעות 8:30 ל15:30 - 07-5343065#}
+{#    </div>#}
+{##}
+{#    <div class="info">#}
+{#        <img src="photos/email.png" alt="" style="width: 20px">#}
+{#        מייל לפניות נוספות VetRinat@gmail.com#}
+{#    </div>#}
+{##}
+{#    <div class="info">#}
+{#        <img src="photos/address.png" alt="" style="width: 20px">#}
+{#        כתובת המרפאה: שמעוני 9, באר שבע, ישראל#}
+{#    </div>#}
+{#</div>#}
 
-    <div class="info">
-        <img src="photos/email.png" alt="" style="width: 20px">
-        מייל לפניות נוספות VetRinat@gmail.com
-    </div>
-
-    <div class="info">
-        <img src="photos/address.png" alt="" style="width: 20px">
-        כתובת המרפאה: שמעוני 9, באר שבע, ישראל
-    </div>
-</div>
-
-
-<script src="{{ url_for('homepage.static',filename='js/homepage.js')}}" defer></script>
-</body>
-</html>
+{% block page_body_js %}
+<script src="{{ url_for('homepage.static',filename='js/homepage.js') }}" defer></script>
+{% endblock %}
+{#</body>#}
+{#</html>#}

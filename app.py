@@ -32,8 +32,11 @@ app.register_blueprint(registrationpet)
 from pages.treatmentsummary.treatmentsummary import treatmentsummary
 app.register_blueprint(treatmentsummary)
 
+##navbar
+from components.navbar.navbar import navbar
+app.register_blueprint(navbar)
 
 ## Footer
-# from components.footer.footer import footer
-# app.register_blueprint(footer)
+from components.footer.footer import footer
+app.register_blueprint(footer)
 

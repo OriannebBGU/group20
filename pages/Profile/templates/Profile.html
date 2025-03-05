@@ -1,61 +1,73 @@
-<!DOCTYPE html>
-<html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>VetRinat</title>
-    <link rel="stylesheet" href="{{url_for('profile.static' , filename='CSS/profile.css' ) }}">
-</head>
+{% extends 'base.html' %}
 
-<body class="profile-page">
+{#{% set page_head_title = 'My profile' %}#}
 
-<header>
-    <div class="headerButtons">
-        <button class="homeButton">עמוד הבית</button>
-        <button class="loginButton">התחברות</button>
-        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>
-        <button class="regisButton">הרשמה</button>
-        <button class="infoButton">טיפולים</button>
-        <button class="logoutButton">התנתקות</button>
-    </div>
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en" dir="rtl">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>VetRinat</title>#}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('profile.static' , filename='CSS/profile.css' ) }}">
+{% endblock %}
+{#</head>#}
 
+{#<body class="profile-page">#}
+
+{#<header>#}
+{#    <div class="headerButtons">#}
+{#        <button class="homeButton">עמוד הבית</button>#}
+{#        <button class="loginButton">התחברות</button>#}
+{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
+{#        <button class="regisButton">הרשמה</button>#}
+{#        <button class="infoButton">טיפולים</button>#}
+{#        <button class="logoutButton">התנתקות</button>#}
+{#    </div>#}
+{% block page_body_header_content__headline %}
     <h1>אזור אישי - צ'לסי</h1>
+{% endblock %}
 
-    <div class="animalButtons">
-        <button onclick="">צ'לסי</button>
-        <button onclick="">הוספה...</button>
+{#    <div class="animalButtons">#}
+{#        <button onclick="">צ'לסי</button>#}
+{#        <button onclick="">הוספה...</button>#}
+{#    </div>#}
+{##}
+{#    <img src="photos/icon.png" alt="icon" class="icon">#}
+{#</header>#}
+{% block page_body_main %}
+    <div class="profileContent">
+        <h2>
+            אין תורים עתידיים :)
+        </h2>
+
+        <dl>
+            <dt>שם</dt>
+            <dd>צ'לסי</dd>
+            <dt>סוג</dt>
+            <dd>חתול</dd>
+            <dt>מין</dt>
+            <dd>נקבה</dd>
+            <dt>תאריך לידה</dt>
+            <dd>01/07/21</dd>
+            <dt>גיל</dt>
+            <dd>3.5</dd>
+            <dt>משקל</dt>
+            <dd>5.6</dd>
+            <dt>גזע</dt>
+            <dd>רגיל</dd>
+        </dl>
     </div>
 
-    <img src="photos/icon.png" alt="icon" class="icon">
-</header>
+    <img src="{{ url_for('profile.static', filename='media/img/Chelsy baby.jpg') }}" alt="Chelsy" class="Chelsy">
 
-<div class="profileContent">
-    <h2>
-        אין תורים עתידיים :)
-    </h2>
+    <button class="editDetails">ערוך פרטים ></button>
+    <button class="history">היסטוריה רפואית ></button>
+{% endblock %}
 
-    <dl>
-        <dt>שם</dt>
-        <dd>צ'לסי</dd>
-        <dt>סוג</dt>
-        <dd>חתול</dd>
-        <dt>מין</dt>
-        <dd>נקבה</dd>
-        <dt>תאריך לידה</dt>
-        <dd>01/07/21</dd>
-        <dt>גיל</dt>
-        <dd>3.5</dd>
-        <dt>משקל</dt>
-        <dd>5.6</dd>
-        <dt>גזע</dt>
-        <dd>רגיל</dd>
-    </dl>
-</div>
+{% block page_body_js %}
+    <script src="{{ url_for('profile.static' , filename='js/profile.js' ) }}" defer></script>
+{% endblock %}
 
-<img src="{{url_for('profile.static', filename='media/img/Chelsy baby.jpg')}}" alt="Chelsy" class="Chelsy">
-
-<button class="editDetails">ערוך פרטים ></button>
-<button class="history">היסטוריה רפואית ></button>
-
-<script src="{{url_for('profile.static' , filename='js/profile.js' ) }}" defer></script>
-</body>
-</html>
+{#</body>#}
+{#</html>#}
