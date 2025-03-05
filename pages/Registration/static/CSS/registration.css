@@ -1,4 +1,4 @@
-/*Registration and login styling:*/
+/*Registration styling:*/
 .RegistrationForm {
     width: 350px;
     background-color: #E9F3FD;
@@ -8,16 +8,6 @@
     padding: 20px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
-/*.RegistrationPetForm {*/
-/*    width: 350px;*/
-/*    background-color: #E9F3FD;*/
-/*    border: 2px black solid;*/
-/*    border-radius: 60px;*/
-/*    margin: 50px auto;*/
-/*    padding: 20px 30px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
-/*}*/
 
 .RegistrationLine {
     display: flex;
@@ -51,33 +41,20 @@
 
 
 /*לבדוק את ההשפעה של זה על העמוד!!*/
-/*input[type="submit"] {*/
-/*    background-color: #5cbba9;*/
-/*    color: white;*/
-/*    font-size: 16px;*/
-/*    font-weight: bold;*/
-/*    padding: 10px 20px;*/
-/*    border: none;*/
-/*    border-radius: 20px;*/
-/*    cursor: pointer;*/
-/*    margin-top: 30px;*/
-/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
-/*}*/
+input[type="submit"] {
+    background-color: #5cbba9;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-/*input[type="submit"]:hover {*/
-/*    background-color: #4ea597;*/
-/*}*/
+input[type="submit"]:hover {
+    background-color: #4ea597;
+}
 
-/*.LogInForm {*/
-/*    width: 350px;*/
-/*    background-color: #E9F3FD;*/
-/*    border: 2px black solid;*/
-/*    border-radius: 60px;*/
-/*    margin: 50px auto;*/
-/*    padding: 20px 30px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);*/
-/*    position: absolute;*/
-/*    top: 40%;*/
-/*    left: 50%;*/
-/*    transform: translate(-50%, -50%);*/
-/*}*/

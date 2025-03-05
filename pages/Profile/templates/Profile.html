@@ -1,40 +1,13 @@
 {% extends 'base.html' %}
 
-{#{% set page_head_title = 'My profile' %}#}
-
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en" dir="rtl">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>VetRinat</title>#}
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('profile.static' , filename='CSS/profile.css' ) }}">
 {% endblock %}
-{#</head>#}
 
-{#<body class="profile-page">#}
-
-{#<header>#}
-{#    <div class="headerButtons">#}
-{#        <button class="homeButton">עמוד הבית</button>#}
-{#        <button class="loginButton">התחברות</button>#}
-{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
-{#        <button class="regisButton">הרשמה</button>#}
-{#        <button class="infoButton">טיפולים</button>#}
-{#        <button class="logoutButton">התנתקות</button>#}
-{#    </div>#}
 {% block page_body_header_content__headline %}
     <h1>אזור אישי - צ'לסי</h1>
 {% endblock %}
 
-{#    <div class="animalButtons">#}
-{#        <button onclick="">צ'לסי</button>#}
-{#        <button onclick="">הוספה...</button>#}
-{#    </div>#}
-{##}
-{#    <img src="photos/icon.png" alt="icon" class="icon">#}
-{#</header>#}
 {% block page_body_main %}
     <div class="profileContent">
         <h2>
@@ -68,6 +41,3 @@
 {% block page_body_js %}
     <script src="{{ url_for('profile.static' , filename='js/profile.js' ) }}" defer></script>
 {% endblock %}
-
-{#</body>#}
-{#</html>#}

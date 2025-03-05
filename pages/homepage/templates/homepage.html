@@ -1,103 +1,57 @@
 {% extends 'base.html' %}
 
-{#{% set page_head_title = 'Homepage' %}#}
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('homepage.static',filename='CSS/homepage.css') }}">
+{% endblock %}
 
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en" dir="rtl">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>VetRinat</title>#}
-    {% block page_head_css %}
-        <link rel="stylesheet" href="{{ url_for('homepage.static',filename='CSS/homepage.css') }}">
-    {% endblock %}
-
-{#</head>#}
-
-<body class="home-page">
-
-{#<header>#}
-{#    <div class="headerButtons">#}
-{#        <button class="homeButton">עמוד הבית</button>#}
-{#        <button class="loginButton">התחברות</button>#}
-{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
-{#        <button class="regisButton">הרשמה</button>#}
-{#        <button class="infoButton">טיפולים</button>#}
-{#        <button class="logoutButton">התנתקות</button>#}
-{#    </div>#}
 {% block page_body_header_content__headline %}
     <h1>ברוכים הבאים למרפאה הוטרינרית<br> של ד"ר רינת אוהבת-חיות!</h1>
 {% endblock %}
-{#    <div class="animalButtons">#}
-{#        <button onclick="">צ'לסי</button>#}
-{#        <button onclick="">הוספה...</button>#}
-{#    </div>#}
-{##}
-    {#    <img src="photos/icon.png" alt="" class="icon">#}
-{#</header>#}
+
 {% block page_body_main %}
-<div class="welcome">טוב לראות אותך שוב, אוריין!</div>
+    <div class="home-page">
+        <img src="{{ url_for('homepage.static',filename='media/img/dog1.png') }}" id="dog1" alt="">
+        <p id="homePageText">
+            <strong>אצלנו, בריאות החיות שלכם היא מעל הכול. המרפאה שלנו מציעה שילוב ייחודי של מקצועיות רפואית, יחס אישי
+                וחמימות
+                לכל חיה ולכל בעלים.</strong>
+            עם ניסיון רב שנים ברפואה וטרינרית ואהבה אמיתית לבעלי חיים, ד"ר אוהבת-חיות מובילה צוות מסור המתמחה במתן טיפול
+            איכותי
+            ומתקדם לכל חיה. המרפאה מצוידת במכשור חדיש ומתקדם, המאפשר אבחון מדויק וטיפול מהיר ויעיל.
+        </p>
 
-<img src="{{ url_for('homepage.static',filename='media/img/dog1.png') }}" id="dog1" alt="">
+        <img src="{{ url_for('homepage.static', filename='media/img/cat1.png') }}" id="cat1" alt="">
+        <img src="{{ url_for('homepage.static', filename='media/img/dog3.png') }}" id="dog2" alt="">
 
-<p id="homePageText">
-    <strong>אצלנו, בריאות החיות שלכם היא מעל הכול. המרפאה שלנו מציעה שילוב ייחודי של מקצועיות רפואית, יחס אישי וחמימות
-        לכל חיה ולכל בעלים.</strong>
-    עם ניסיון רב שנים ברפואה וטרינרית ואהבה אמיתית לבעלי חיים, ד"ר אוהבת-חיות מובילה צוות מסור המתמחה במתן טיפול איכותי
-    ומתקדם לכל חיה. המרפאה מצוידת במכשור חדיש ומתקדם, המאפשר אבחון מדויק וטיפול מהיר ויעיל.
-</p>
+        <h2>שירותי המרפאה</h2>
 
-<img src="{{ url_for('homepage.static', filename='media/img/cat1.png') }}" id="cat1" alt="">
-<img src="{{ url_for('homepage.static', filename='media/img/dog3.png') }}" id="dog2" alt="">
+        <a href="{{ url_for('info.info_func') }}" class="services">
+            <div class="service">
+                <img src="{{ url_for('homepage.static', filename='media/img/services1.png') }}" alt="">
+                בדיקות רפואיות שגרתיות ואבחון
+            </div>
 
-<h2>שירותי המרפאה</h2>
+            <div class="service">
+                <img src="{{ url_for('homepage.static', filename='media/img/services2.png') }}" alt="">
+                שירותי חירום וטיפול במצבים דחופים
+            </div>
 
-<a href="Info.html" class="services">
-    <div class="service">
-        <img src="{{ url_for('homepage.static', filename='media/img/services1.png') }}" alt="">
-        בדיקות רפואיות שגרתיות ואבחון
+            <div class="service">
+                <img src="{{ url_for('homepage.static', filename='media/img/services3.png') }}" alt="">
+                חיסונים וטיפולים מונעים
+            </div>
+        </a>
+
+        <img src="{{ url_for('homepage.static', filename='media/img/cat2.png') }}" id="cat2" alt="">
+
+        <div id="activityHours">
+            <h3>שעות פעילות המרפאה:</h3>
+            ימי ראשון עד חמישי 8:30-15:30.<br>
+            ימי שישי וערבי חג בתיאום מראש.
+        </div>
     </div>
-
-    <div class="service">
-        <img src="{{ url_for('homepage.static', filename='media/img/services2.png') }}" alt="">
-        שירותי חירום וטיפול במצבים דחופים
-    </div>
-
-    <div class="service">
-        <img src="{{ url_for('homepage.static', filename='media/img/services3.png') }}" alt="">
-        חיסונים וטיפולים מונעים
-    </div>
-</a>
-
-<img src="{{ url_for('homepage.static', filename='media/img/cat2.png') }}" id="cat2" alt="">
-
-<div id="activityHours">
-    <h3>שעות פעילות המרפאה:</h3>
-    ימי ראשון עד חמישי 8:30-15:30.<br>
-    ימי שישי וערבי חג בתיאום מראש.
-</div>
 {% endblock %}
-
-{##}
-{#<div class="contactInfo">#}
-{#    <div class="info">#}
-{#        <img src="photos/whatsapp.png" alt="" style="width: 20px">#}
-{#        טלפון זמין בין הימים א'-ה' בשעות 8:30 ל15:30 - 07-5343065#}
-{#    </div>#}
-{##}
-{#    <div class="info">#}
-{#        <img src="photos/email.png" alt="" style="width: 20px">#}
-{#        מייל לפניות נוספות VetRinat@gmail.com#}
-{#    </div>#}
-{##}
-{#    <div class="info">#}
-{#        <img src="photos/address.png" alt="" style="width: 20px">#}
-{#        כתובת המרפאה: שמעוני 9, באר שבע, ישראל#}
-{#    </div>#}
-{#</div>#}
 
 {% block page_body_js %}
-<script src="{{ url_for('homepage.static',filename='js/homepage.js') }}" defer></script>
+    <script src="{{ url_for('homepage.static',filename='js/homepage.js') }}" defer></script>
 {% endblock %}
-{#</body>#}
-{#</html>#}

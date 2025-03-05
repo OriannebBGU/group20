@@ -1,61 +1,63 @@
-
 /*Homepage styling*/
 .home-page {
     display: grid;
     height: 99vh;
     width: 99.9vw;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 20% 30% 5% 25% 15% 5%;
+    /*grid-template-rows: 20% 30% 5% 25% 15% 5%;*/
+    grid-template-rows: 35% 10% 30% 20% 5%;
 }
 
-.home-page header {
-    grid-column: 1/span 3;
-}
+/* header {*/
+/*    grid-column: 1/span 3;*/
+/*}*/
 
-.home-page img {
+ img {
     width: 100%;
     height: 100%;
 }
-
-.home-page #dog2 {
-    grid-row: 3/span 2;
+ #dog1 {
     align-self: center;
-
 }
 
-.home-page #cat2 {
+ #dog2 {
+    grid-row: 3/span 2;
+    grid-column: 1 /span 1;
+    align-self: center;
+}
+
+ #cat1 {
+    align-self: center;
+}
+
+ #cat2 {
     grid-row: 3/span 2;
     grid-column: 3 /span 1;
     align-self: center;
 }
 
-.home-page #cat1 {
-    align-self: center;
-}
-
-.home-page #dog1 {
-    align-self: center;
-}
-
-.home-page #activityHours {
+ #activityHours {
     grid-column: 1/span 3;
+     grid-row: 4/span 2;
     font-size: calc(0.65rem + 1vw);
 
+
 }
 
-.home-page #activityHours h3 {
+ #activityHours h3 {
     font-weight: bold;
     font-size: calc(0.8rem + 1vw);
 }
 
-.home-page h2 {
+ h2 {
+    grid-column: 1/span 3;
     font-weight: bold;
     font-size: calc(1.2rem + 1vw);
     align-self: start;
     color: black;
 }
 
-.home-page .services {
+ .services {
     grid-column: 2/span 1;
     display: flex;
     justify-content: space-evenly;
@@ -67,18 +69,17 @@
     margin: 30px 10px 40px 10px;
     text-decoration: none;
     color: inherit;
-
 }
 
-.home-page .service {
+ .service {
     height: auto;
 }
 
-.home-page .service img {
+ .service img {
     width: calc(1rem + 1vw);
 }
 
-.home-page #homePageText {
+ #homePageText {
     display: flex;
     flex-direction: column;
     justify-self: end;
@@ -90,6 +91,7 @@
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
+     /*grid-column: 2/span 1;*/
 }
 
 .welcome {
@@ -99,12 +101,12 @@
     font-size: 1em;
 }
 
-/*contactInfo is the formating of the footer!*/
-.contactInfo {
-    grid-column: 1/span 3;
-    display: flex;
-    justify-content: space-around;
-}
+/*!*!*contactInfo is the formating of the footer!*!*!*/
+/*.contactInfo {*/
+/*    grid-column: 1/span 3;*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
 
 
 /*Style according to screen size:   */

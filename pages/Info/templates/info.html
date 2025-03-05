@@ -1,39 +1,12 @@
 {% extends 'base.html' %}
 
-{#{% set page_head_title = 'Information' %}#}
-{##}
-{##}
-{#<!DOCTYPE html>#}
-{#<html lang="en" dir="rtl">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>VetRinat</title>#}
 {% block page_head_css %}
     <link rel="stylesheet" href="{{ url_for('info.static' , filename='CSS/info.css' ) }}">
 {% endblock %}
-{#</head>#}
 
-{#<body class="info-page">#}
-
-{#<header>#}
-{#    <div class="headerButtons">#}
-{#        <button class="homeButton">עמוד הבית</button>#}
-{#        <button class="loginButton">התחברות</button>#}
-{#        <button class="menuButton" onclick="toggleAnimal()">אזור אישי ></button>#}
-{#        <button class="regisButton">הרשמה</button>#}
-{#        <button class="infoButton">טיפולים</button>#}
-{#        <button class="logoutButton">התנתקות</button>#}
-{#    </div>#}
 {% block page_body_header_content__headline %}
     <h1>הטיפולים שלנו</h1>
 {% endblock %}
-{#    <div class="animalButtons">#}
-{#        <button onclick="">צ'לסי</button>#}
-{#        <button onclick="">הוספה...</button>#}
-{#    </div>#}
-{##}
-{#    <img src="{{ url_for('info.static',filename='media/img/icon.png')}}" alt="icon" class="icon">#}
-{#</header>#}
 
 {% block page_body_main %}
     <div class="services">
@@ -79,26 +52,7 @@
     </div>
 
 {% endblock %}
-{##}
-{#<div class="contactInfo">#}
-{#    <div class="info">#}
-{#        <img src="photos/whatsapp.png" alt="" style="width: 20px">#}
-{#        טלפון זמין בין הימים א'-ה' בשעות 8:30 ל15:30 - 07-5343065#}
-{#    </div>#}
-{##}
-{#    <div class="info">#}
-{#        <img src="photos/email.png" alt="" style="width: 20px">#}
-{#        מייל לפניות נוספות VetRinat@gmail.com#}
-{#    </div>#}
-{##}
-{#    <div class="info">#}
-{#        <img src="photos/address.png" alt="" style="width: 20px">#}
-{#        כתובת המרפאה: שמעוני 9, באר שבע, ישראל#}
-{#    </div>#}
-{#</div>#}
 
 {% block page_body_js %}
     <script src="{{ url_for('info.static' , filename='js/info.js' ) }}" defer></script>
 {% endblock %}
-{#</body>#}
-{#</html>#}

@@ -1,85 +1,28 @@
-{#<!DOCTYPE html>#}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="UTF-8">#}
-{#    <title>Base</title>#}
-{#</head>#}
-{##}
-{##}
-{##}
-{#<body>#}
-{##}
-{#{% block header %}#}
-{#    <header>#}
-{#        <h1>********</h1>#}
-{#        <h1>my Base Header</h1>#}
-{#        <h1>********</h1>#}
-{#    </header>#}
-{#{% endblock %}#}
-{##}
-{#{% include ('navigation.html') %}#}
-{##}
-{##}
-{##}
-{##}
-{#{% block main %}#}
-{#    	<h2> his is  main block</h2>#}
-{#{% endblock %}#}
-{##}
-{##}
-{##}
-{##}
-{#{% block footer %}#}
-{#	<footer>#}
-{#        <h1>********</h1>#}
-{#        <h1>my Base Footer</h1>#}
-{#        <h1>********</h1>#}
-{#    </footer>#}
-{#{% endblock %}#}
-{##}
-{#</body>#}
-{#</html>#}
-
-
-{#
-Base page variables:
--- page_lang | default: 'en'
--- page_head_title_author | default: 'Barak Pinchovski'
--- page_head_title | default: 'Flask skeleton project'
-#}
-
 {#
 Base page blocks:
 - head
 -- page_head
 -- page_head_meta
---- page_head_meta_extra
 -- page_head_css
 
 - body
 -- page_body_content
 --- page_body_header
----- page_body_header_content
 ----- page_body_header_content__navbar
 ------ page_body_page_body_header_content__headline
-------- page_body_header_content__main_menu_content_links
 --- page_body_main
----- page_body_main_content
 --- page_body_footer
----- page_body_footer_content
 -- page_body_js
  #}
 <!DOCTYPE html>
-<html lang="{{ page_lang|default("en", true) }}">
+<html lang="{{ page_lang|default("en", true) }}" dir="rtl">
 <head>
     {% block page_head %}
         {# Title #}
-        {# updated!#}
         <title>{{ page_head_title_author|default('VetRinat Clinic', true) }}
             | {{ page_head_title|default('VetRinat', true) }}</title>
 
         {# Meta tags #}
-        {# updated!#}
         {% block page_head_meta %}
             <base href="/"/>
             <meta charset="UTF-8"/>
@@ -92,69 +35,49 @@ Base page blocks:
         {% endblock %}
 
         {# favicon #}
-        {# updated!#}
         <link rel="icon" href="{{ url_for('static', filename='media/img/icon.png') }}"/>
 
         {# Base #}
         <base href="/"/>
 
         {# CSS #}
-        {# updated!#}
-        {% block page_head_css %}
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-        {% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        {% block page_head_css %}   {% endblock %}
     {% endblock %}
 </head>
+
 <body>
 {% block page_body_content %}
 
     {# Header #}
     {% block page_body_header %}
         <header class="page-header">
-            {#            {% block page_body_header_content %}#}
+
             {# navbar#}
             {% block page_body_header_content__navbar %}
                 <nav class="main-menu">
-                    {#                        {% block page_body_header_content__main_menu_content %}#}
-                    {#                            <ul>#}
-                    {#                                {% block page_body_header_content__main_menu_content_links %}#}
                     {% include 'navbar.html' %}
-                    {#                                {% endblock %}#}
-                    {#                            </ul>#}
-                    {#                        {% endblock %}#}
                 </nav>
             {% endblock %}
-            {% block page_body_header_content__headline %}
-{#                {% include 'header.html' %}#}
-            {% endblock %}
-            <img src="{{ url_for('static', filename='media/img/icon.jpg') }}" alt="icon" class="icon">
 
-            {#            {% endblock %}#}
+            {#headline#}
+            {% block page_body_header_content__headline %}
+            {% endblock %}
+
+            <img src="{{ url_for('static', filename='media/img/icon.png') }}" alt="icon" class="icon">
         </header>
     {% endblock %}
 
     {# Main #}
-    {% block page_body_main %}
-        {#        <main class="page-main">#}
-        {#            {% block page_body_main_content %}#}
-        {#            {% endblock %}#}
-        {#        </main>#}
-    {% endblock %}
+    {% block page_body_main %}    {% endblock %}
 
     {# Footer #}
     {% block page_body_footer %}
-        {#        <footer class="page-footer">#}
-        {#            {% block page_body_footer_content %}#}
-        {##}
         {% include 'footer.html' %}
-        {##}
-        {#            {% endblock %}#}
-        {#        </footer>#}
     {% endblock %}
 {% endblock %}
 
 {# JS #}
-{# updated!#}
 {% block page_body_js %}
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 {% endblock %}

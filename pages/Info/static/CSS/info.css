@@ -1,6 +1,5 @@
-
 /*Info styling: */
-.info-page {
+body {
     background-color: white;
     height: 99vh;
     width: 99.9vw;
@@ -15,21 +14,21 @@
     text-align: right;
 }
 
-.info-page .contactInfo {
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-}
+/*.contactInfo {*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
 
-.info-page .services {
+.services {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px 25px;
 }
 
-.info-page .service {
+.service {
     border: 3px solid #59aaf2;
     padding: 0.5em;
     width: 25%;
@@ -62,12 +61,11 @@
 /*Style according to screen size:   */
 @media (max-width: 768px) {
     /*info: */
-    .info-page .infoBoxes {
+    .infoBoxes {
         align-items: flex-start;
-
     }
 
-    .info-page .infoBox {
+    .infoBox {
         font-size: calc(0.7rem + 1vw);
         width: 30%;
         height: auto;
@@ -79,7 +77,7 @@
 
 @media (min-height: 650px) {
     /*info: */
-    .info-page .contactInfo {
+    .contactInfo {
         position: absolute;
         margin: 15px 0;
     }
