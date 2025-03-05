@@ -13,6 +13,7 @@
 {#</head>#}
 
 {#<body>#}
+{% block page_body_header %}	{% endblock %}
 {% block page_body_main %}
     <form action="{{ url_for('registration.registration_func') }}" method="get" class="RegistrationForm">
         <h1>צור משתמש</h1>
@@ -55,6 +56,6 @@
 {% block page_body_js %}
     <script src="{{ url_for('registration.static' , filename='js/registration.js') }}" defer></script>
 {% endblock %}
-
+{% block page_body_footer %}    {% endblock %}
 {#</body>#}
 {#</html>#}
