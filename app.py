@@ -42,3 +42,6 @@ app.register_blueprint(navbar)
 from components.footer.footer import footer
 app.register_blueprint(footer)
 
+if __name__ == '__main__':
+    app.run(debug=True)
+
