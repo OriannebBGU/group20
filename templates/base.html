@@ -41,9 +41,8 @@ Base page blocks:
         <base href="/"/>
 
         {# CSS #}
-        {% block page_head_css %}
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
-        {% endblock %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}"/>
+        {% block page_head_css %}   {% endblock %}
     {% endblock %}
 </head>
 

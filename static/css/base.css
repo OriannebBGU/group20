@@ -7,6 +7,7 @@
 body {
     font-family: Calibri, sans-serif;
     background-color: #cce6ff;
+    /*background-color: red;*/
     margin: 0;
     padding: 0;
     direction: rtl;
@@ -31,6 +32,10 @@ h1, h2 {
     color: #333333;
 }
 
+
+ header {
+    grid-column: 1/span 3;
+}
 .error-message {
     color: red;
     font-size: 14px;
