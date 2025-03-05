@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b8721a3-b337-4b5f-9dc8-a1aeb269ba6d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/group20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/group20.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Registration/registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Registration/registration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/Registration/static/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/Registration/static/js/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/RegistrationPet/registrationpet.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RegistrationPet/registrationpet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/RegistrationPet/static/js/registrationpet.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/RegistrationPet/static/js/registrationpet.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +68,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Flask server.group20.executor": "Run",
     "Python.analyzeDB.executor": "Run",
     "Python.db.executor": "Run",
     "Python.db_connector.executor": "Run",
     "Python.test.executor": "Run",
+    "Python.test2.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/אוריין/Desktop/שנה ג/ווב/group20",
+    "last_opened_file_path": "C:/Users/אוריין/Desktop/שנה ג/ווב/temporary/group20",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -81,7 +91,7 @@
       <recent name="C:\Users\אוריין\Desktop\שנה ג\ווב\group20" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.analyzeDB">
+  <component name="RunManager" selected="Python.test2">
     <configuration name="analyzeDB" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="group20" />
       <option name="ENV_FILES" value="" />
@@ -174,6 +184,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="group20" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="group20" type="Python.FlaskServer">
       <module name="group20" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
@@ -192,9 +225,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test2" />
         <item itemvalue="Python.analyzeDB" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.db_connector" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.db" />
       </list>
     </recent_temporary>
@@ -224,6 +258,7 @@
       <workItem from="1736704628505" duration="27013000" />
       <workItem from="1736931500973" duration="31144000" />
       <workItem from="1741102249079" duration="14517000" />
+      <workItem from="1741188444915" duration="12569000" />
     </task>
     <servers />
   </component>
@@ -250,10 +285,28 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/RegistrationPet/registrationpet.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/RegistrationPet/registrationpet.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/group20$db_connector.coverage" NAME="db_connector Coverage Results" MODIFIED="1741124429976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$db_connector.coverage" NAME="db_connector Coverage Results" MODIFIED="1741189147220" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$group20.coverage" NAME="group20 Coverage Results" MODIFIED="1741204064693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/group20$db.coverage" NAME="db Coverage Results" MODIFIED="1741114851885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/group20$analyzeDB.coverage" NAME="analyzeDB Coverage Results" MODIFIED="1741124711482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/group20$test.coverage" NAME="test Coverage Results" MODIFIED="1741124705930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$analyzeDB.coverage" NAME="analyzeDB Coverage Results" MODIFIED="1741204480466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1741204538718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/group20$test.coverage" NAME="test Coverage Results" MODIFIED="1741189070422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -1,5 +1,3 @@
-
-//Pet registration validation - page 1
 document.addEventListener('DOMContentLoaded', () => {
     const Rform = document.querySelector('.RegistrationForm');
     const RfirstName = Rform.querySelector('input[name="firstName"]');
@@ -9,12 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const RVpassword = Rform.querySelector('input[name="Vpassword"]');
     const RphoneNumber = Rform.querySelector('input[name="phoneNumber"]');
 
-    Rform.addEventListener('submit', (event) => {
+    Rform.addEventListener('submit', async (event) => {
         event.preventDefault();
         const existingErrors = Rform.querySelectorAll('.error-message');
         existingErrors.forEach(error => error.remove());
 
         let isValid = true;
+
         if (!RfirstName.value.trim() || !RlastName.value.trim() || !Remail.value.trim() || !Rpassword.value.trim() || !RVpassword.value.trim() || !RphoneNumber.value.trim()) {
             showError(RfirstName, 'חובה למלא את כל השדות.');
             isValid = false;
@@ -44,15 +43,41 @@ document.addEventListener('DOMContentLoaded', () => {
             showError(RphoneNumber, 'מספר טלפון לא תקין. יש להזין ספרות בלבד ללא מקפים.');
             isValid = false;
         }
+
         if (isValid) {
-            Rform.submit();
+            const formData = {
+                firstName: RfirstName.value.trim(),
+                lastName: RlastName.value.trim(),
+                email: Remail.value.trim(),
+                password: Rpassword.value,
+                phoneNumber: RphoneNumber.value.trim()
+            };
+
+            try {
+                const response = await fetch("/register-user", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    Rform.reset(); // Clear form fields after successful registration
+                    window.location.href = '/registrationpet'; // Redirect to registrationpet page
+                } else {
+                    alert(result.error); // Show error message if email exists
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("שגיאה במהלך ההרשמה, נסה שנית.");
+            }
         }
     });
-
 });
 
-
-//Error message
+//Error message function
 function showError(input, message) {
     const errorContainer = input.parentElement;
     const existingErrors = errorContainer.querySelectorAll('.error-message');
