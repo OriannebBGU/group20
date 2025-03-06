@@ -4,6 +4,7 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from datetime import datetime
 from dotenv import load_dotenv
+from pymongo import ASCENDING
 
 load_dotenv()
 # Get your MongoDB URI from .env file
@@ -119,6 +120,15 @@ def insert_appointment(appointment_dict):
 
 def get_appointment_by_pet_owner(pet_name, owner_email):
     return appointments_col.find_one({"petName": pet_name, "owner": owner_email})
+
+def get_latest_future_appointment(pet_name, owner_email):
+    future_appointments = list(appointments_col.find({
+        "petName": pet_name,
+        "owner": owner_email,
+        "datetime": {"$gte": datetime.now()}  # Get only future appointments
+    }).sort("datetime", ASCENDING).limit(1))
+
+    return future_appointments[0] if future_appointments else None
 
 
 def update_appointment(pet_name, owner_email, update_data):

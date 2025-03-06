@@ -11,10 +11,11 @@
 {% block page_body_main %}
     <div class="profileContent">
         {% if pets %}
-            <h2>
-                אין תורים עתידיים :)
-            </h2>
-
+            {% if upcoming_appointment %}
+                <h2>התור הקרוב: {{ upcoming_appointment["datetime"].strftime('%d/%m/%Y %H:%M') }}</h2>
+            {% else %}
+                <h2>אין תורים עתידיים :)</h2>
+            {% endif %}
             <dl>
                 <dt>שם</dt>
                 <dd>{{ pets[0]["petName"] }}</dd>
