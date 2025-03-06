@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', async () => {
     const homeButton = document.querySelector('.homeButton');
     const menuButton = document.querySelector('.menuButton');
@@ -51,3 +53,43 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("❌ Failed to fetch navbar info:", error);
     }
 });
+
+
+
+
+function setupNavbarListeners() {
+    const buttonRoutes = {
+        infoButton: '/info',
+        homeButton: '/homepage',
+        loginButton: '/login',
+        regisButton: '/registration',
+    };
+
+    Object.entries(buttonRoutes).forEach(([buttonClass, route]) => {
+        const button = document.querySelector(`.${buttonClass}`);
+        if (button) {
+            button.addEventListener('click', () => {
+                window.location.href = route; // Redirect user to the correct page
+            });
+        }
+    });
+
+    // Handle Logout Button Separately-- NEEDS CHECKING!
+    const logoutButton = document.querySelector('.logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', async () => {
+            try {
+                // Send request to change session status
+                await fetch('/logout', { method: 'POST' });
+
+                // Redirect user to login page after logout
+                window.location.href = '/login';
+            } catch (error) {
+                console.error("❌ Logout failed:", error);
+            }
+        });
+    }
+}
+
+// Run the function after the page loads
+document.addEventListener('DOMContentLoaded', setupNavbarListeners);
