@@ -1,6 +1,4 @@
-
-<link rel="stylesheet" href="{{ url_for('navbar.static',filename='navbar.css') }}">
-
+<link rel="stylesheet" href="/components/navbar/static/navbar.css">
 
 <nav class="navbar">
     <div class="headerButtons">
@@ -15,7 +13,8 @@
         <button onclick="">צ'לסי</button>
         <button onclick="">הוספה...</button>
     </div>
-    <div class="welcome">טוב לראות אותך שוב, אוריין!</div>
+    <div class="welcome" style="display: none;">טוב לראות אותך שוב!</div>
 </nav>
 
-<script src="{{ url_for('navbar.static',filename='js/navbar.js') }}" defer></script>
+{#<script src="{{ url_for('navbar.static',filename='js/navbar.js') }}" defer></script>#}
+<script src="/components/navbar/static/navbar.js" defer></script>

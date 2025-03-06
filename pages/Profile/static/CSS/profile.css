@@ -1,6 +1,5 @@
-
 /*profile styling: */
- h2 {
+h2 {
     color: black;
     font-size: calc(0.8rem + 1vw);
     background-color: #B2D6CB;
@@ -12,7 +11,7 @@
     padding: 20px;
 }
 
- dl {
+dl {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 20px;
@@ -21,12 +20,12 @@
     font-size: calc(0.5rem + 1vw);;
 }
 
- dt {
+dt {
     font-weight: bold;
     text-align: start;
 }
 
- dd {
+dd {
     margin: 0;
     color: #333;
     text-align: start;
