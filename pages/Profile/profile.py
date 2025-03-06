@@ -1,16 +1,19 @@
-from flask import Blueprint, render_template, session
-from db_connector import get_pets_by_owner
+from flask import Blueprint, render_template, session, url_for
+from group20.db_connector import get_pets_by_owner
 
 profile = Blueprint(
     'profile',
     __name__,
     static_folder='static',
+    # השורה מתחת היא זו שמחקת :)
+    static_url_path='/profile',
     template_folder='templates'
 )
 
 @profile.route('/profile')
 def profile_func():
     user_email = "Shay@example.com"  # Hardcoded for now; later, use session["user_email"]
-    pets = get_pets_by_owner(user_email)
+    # pets = get_pets_by_owner(user_email)
 
-    return render_template('profile.html', pets=pets)
+    # return render_template('profile.html', pets=pets)
+    return render_template('profile.html')
