@@ -28,7 +28,7 @@ def register_pet():
         data = request.json
         petName = data.get("petName").strip().lower()
         type = data.get("type").strip()
-        ownerEmail = data.get("ownerEmail").strip()
+        ownerEmail = data.get("ownerEmail").strip() ##where???
         gender = data.get("gender").strip()
         print(f"✅ Received pet data: {data}")
 

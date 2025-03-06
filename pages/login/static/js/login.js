@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If form is valid, you can proceed with submission
         if (isValid) {
-            localStorage.setItem('isLoggedIn', 'true');
+            // localStorage.setItem('isLoggedIn', 'true');
             form.submit();
         }
     });
