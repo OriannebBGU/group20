@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, request, jsonify
 from db_connector import insert_pet, get_pet_by_name
 
+# Pet Registration blueprint
 registrationpet = Blueprint(
     'registrationpet',
     __name__,
     static_folder='static',
-
+    static_url_path='/registrationpet',
     template_folder='templates'
 )
 
