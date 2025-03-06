@@ -40,7 +40,7 @@ def register_pet():
         }
         insert_pet(new_pet)
 
-        return jsonify({"message": "Pet successfully registered!"}), 200
+        return jsonify({"message": "ההרשמה בוצעה בהצלחה!"}), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
