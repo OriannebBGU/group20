@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, session, flash, url_for, redirect
-from group20.db_connector import get_customer_by_email
+from db_connector import get_customer_by_email
 
 # login blueprint definition
 login = Blueprint(
