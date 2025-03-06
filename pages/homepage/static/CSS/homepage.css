@@ -94,9 +94,12 @@
 
 .welcome {
     position: absolute;
+    font-weight: bold;
     right: 15px;
+    top: 10px;
     padding: 5px 10px;
-    font-size: 1em;
+    font-size: 1.5em;
+    z-index: 1000;
 }
 
 /*!*!*contactInfo is the formating of the footer!*!*!*/

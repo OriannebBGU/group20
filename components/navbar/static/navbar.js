@@ -1,105 +1,53 @@
-
-// Define initial user state
-
-let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-const welcomeMessage = document.querySelector('.welcome');
-const menuButton = document.querySelector('.menuButton');
-const loginButton = document.querySelector('.loginButton');
-const regisButton = document.querySelector('.regisButton');
-const animalButtons = document.querySelector('.animalButtons');
-const infoButton = document.querySelector('.infoButton');
-const logoutButton = document.querySelector('.logoutButton');
-// Update the homepage based on login state
-function updateHomePage() {
-
-    if (isLoggedIn) {
-        if (welcomeMessage) welcomeMessage.style.display = 'block';
-        if (regisButton) regisButton.style.display = 'none';
-        if (loginButton) loginButton.style.display = 'none';
-    } else {
-        if (welcomeMessage) welcomeMessage.style.display = 'none';
-        if (menuButton) menuButton.style.display = 'none';
-        if (logoutButton) logoutButton.style.display = 'none';
-        if (animalButtons) animalButtons.style.display = 'none';
-    }
-}
-
-// Add button functionality
-function setupButtons() {
-    // Home button
+document.addEventListener('DOMContentLoaded', async () => {
     const homeButton = document.querySelector('.homeButton');
-    if (homeButton) {
-        homeButton.onclick = () => {
-            //updateHomePage()
-            window.location.href = 'homepage.html';
-        };
-    }
-
-    // Info button
-    const infoButton = document.querySelector('.infoButton');
-    if (infoButton) {
-        infoButton.onclick = () => {
-            window.location.href = 'info.html';
-        };
-    }
-
-    const logoutButton = document.querySelector('.logoutButton');
-    if (logoutButton) {
-        logoutButton.onclick = () => {
-            localStorage.setItem('isLoggedIn', 'false');
-            window.location.href = 'homepage.html';
-        };
-    }
-
+    const menuButton = document.querySelector('.menuButton');
     const loginButton = document.querySelector('.loginButton');
-    if (loginButton) {
-        loginButton.onclick = () => {
-            localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'login.html';
-        };
-    }
-
     const regisButton = document.querySelector('.regisButton');
-    if (regisButton) {
-        regisButton.onclick = () => {
-            window.location.href = 'Registration.html';
-        };
+    const infoButton = document.querySelector('.infoButton');
+    const logoutButton = document.querySelector('.logoutButton');
+    const welcomeMessage = document.querySelector('.welcome');
+
+    try {
+        const response = await fetch('/get-navbar-info');
+        const result = await response.json();
+
+        console.log("Navbar API response:", result); // Debugging line
+
+        if (response.ok && result.isLoggedIn) {
+            console.log("User is logged in, updating navbar..."); // Debugging line
+
+            // Show only the required buttons for logged-in users
+            homeButton.style.display = 'inline-block';
+            menuButton.style.display = 'inline-block';
+            infoButton.style.display = 'inline-block';
+            logoutButton.style.display = 'inline-block';
+
+            // Hide buttons for logged-out users
+            loginButton.style.display = 'none';
+            regisButton.style.display = 'none';
+
+            if (welcomeMessage) {
+                welcomeMessage.textContent = `טוב לראות אותך שוב, ${result.firstName}!`;
+                welcomeMessage.style.display = 'block';
+            }
+        } else {
+            console.log("User is logged out, updating navbar..."); // Debugging line
+
+            // Show only the required buttons for logged-out users
+            homeButton.style.display = 'inline-block';
+            loginButton.style.display = 'inline-block';
+            regisButton.style.display = 'inline-block';
+            infoButton.style.display = 'inline-block';
+
+            // Hide buttons for logged-in users
+            menuButton.style.display = 'none';
+            logoutButton.style.display = 'none';
+
+            if (welcomeMessage) {
+                welcomeMessage.style.display = 'none';
+            }
+        }
+    } catch (error) {
+        console.error("❌ Failed to fetch navbar info:", error);
     }
-
-    // Animal buttons
-    const animalButtons = document.querySelectorAll('.animalButtons button');
-    animalButtons[0].onclick = () => {
-        window.location.href = 'Profile.html';
-    };
-    animalButtons[1].onclick = () => {
-        window.location.href = 'RegistrationPet.html';
-    };
-
-
-    // History button
-    const historyButton = document.querySelector('.history');
-    if (historyButton) {
-        historyButton.onclick = () => {
-            localStorage.setItem('isLoggedIn', 'true');
-            window.location.href = 'treatmentsummary.html';
-        };
-    }
-
-    // Edit details button
-    const editDetailsButton = document.querySelector('.editDetails');
-    if (editDetailsButton) {
-        editDetailsButton.onclick = () => {
-            window.location.href = 'RegistrationPet.html';
-        };
-    }
-}
-
-
-//Update display of animal-buttons menu
-function toggleAnimal() {
-    if (animalButtons.style.display === 'flex') {
-        animalButtons.style.display = 'none';
-    } else {
-        animalButtons.style.display = 'flex';
-    }
-}
+});
