@@ -72,6 +72,9 @@ def insert_customer(customer_dict):
 def get_customer_by_email(email):
     return customers_col.find_one({"Email": email})
 
+def get_customer_name_by_email(email):
+    return customers_col.find_one({"Email": email}, {"_id": 0, "firstName": 1})
+
 
 def update_customer(email, update_data):
     customers_col.update_one({"Email": email}, {"$set": update_data})
@@ -92,6 +95,9 @@ def insert_pet(pet_dict):
 
 def get_pet_by_name(pet_name):
     return pets_col.find_one({"petName": pet_name})
+
+def get_pets_by_owner(email):
+    return list(pets_col.find({"owner": email}, {"_id": 0}))
 
 
 def update_pet(pet_name, update_data):

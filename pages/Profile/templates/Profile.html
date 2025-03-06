@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block page_body_header_content__headline %}
-    <h1>אזור אישי - צ'לסי</h1>
+    <h1>אזור אישי - {{ pets[0]["petName"] }}</h1> <!-- Dynamically shows pet name -->
 {% endblock %}
 
 {% block page_body_main %}
@@ -14,25 +14,25 @@
             אין תורים עתידיים :)
         </h2>
 
+        {% if pets %}
         <dl>
             <dt>שם</dt>
-            <dd>צ'לסי</dd>
+            <dd>{{ pets[0]["petName"] }}</dd>
             <dt>סוג</dt>
-            <dd>חתול</dd>
+            <dd>{{ pets[0]["type"] }}</dd>
             <dt>מין</dt>
-            <dd>נקבה</dd>
+            <dd>{{ pets[0]["gender"] }}</dd>
             <dt>תאריך לידה</dt>
-            <dd>01/07/21</dd>
-            <dt>גיל</dt>
-            <dd>3.5</dd>
+            <dd>{{ pets[0].get("birthdate", "לא ידוע") }}</dd>
             <dt>משקל</dt>
-            <dd>5.6</dd>
+            <dd>{{ pets[0].get("weight", "לא ידוע") }}</dd>
             <dt>גזע</dt>
-            <dd>רגיל</dd>
+            <dd>{{ pets[0].get("breed", "לא ידוע") }}</dd>
         </dl>
+        {% else %}
+        <p>לא נמצאו חיות מחמד עבור משתמש זה.</p>
+        {% endif %}
     </div>
-
-    <img src="{{ url_for('profile.static', filename='media/img/Chelsy baby.jpg') }}" alt="Chelsy" class="Chelsy">
 
     <button class="editDetails">ערוך פרטים ></button>
     <button class="history">היסטוריה רפואית ></button>
