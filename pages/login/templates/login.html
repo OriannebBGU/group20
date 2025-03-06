@@ -7,6 +7,16 @@
 {% block page_body_header %} {% endblock %}
 
 {% block page_body_main %}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
     <form action="{{ url_for('login.login_func') }}" method="POST" class="LogInForm">
         <h1>כניסה לחשבון</h1><br>
 

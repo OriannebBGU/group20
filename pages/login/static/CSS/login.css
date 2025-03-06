@@ -12,6 +12,28 @@ input[type="submit"] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.flash-messages {
+    background-color: #ffcccc; /* Light red background */
+    color: #d8000c; /* Dark red text */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #d8000c;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 200px;
+}
+
+.flash-message {
+    margin: 0;
+}
+
+
 input[type="submit"]:hover {
     background-color: #4ea597;
 }

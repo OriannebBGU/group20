@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let isValid = true;
 
+        // Function to show error messages
+        function showError(input, message) {
+            const errorContainer = input.parentElement;
+            let error = errorContainer.querySelector('.error-message');
+
+            if (!error) {
+                error = document.createElement('div');
+                error.className = 'error-message';
+                error.textContent = message;
+                errorContainer.appendChild(error);
+            }
+        }
+
         // Email Validation
         if (!emailInput.value.trim()) {
             showError(emailInput, 'יש להזין כתובת דואר אלקטרוני.');

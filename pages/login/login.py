@@ -25,9 +25,10 @@ def login_func():
         if user and user.get('Password') == password:
             session['logged_in'] = True
             session['user_email'] = email
+            session["first_name"] = user["firstName"]
             session['user_role'] = user.get('Role')
             return redirect(url_for('homepage.homepage_func'))
         else:
-            flash('Invalid email or password.')
+            flash('דואר אלקטרוני או סיסמה שגויים.')
             return redirect(url_for('login.login_func'))
     return render_template('login.html')
