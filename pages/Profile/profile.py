@@ -1,16 +1,16 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, session
+from db_connector import get_pets_by_owner
 
-# profile blueprint definition
 profile = Blueprint(
     'profile',
     __name__,
     static_folder='static',
-    static_url_path='/profile',
     template_folder='templates'
 )
 
-
-# Routes
 @profile.route('/profile')
 def profile_func():
-    return render_template('profile.html')
+    user_email = "Shay@example.com"  # Hardcoded for now; later, use session["user_email"]
+    pets = get_pets_by_owner(user_email)
+
+    return render_template('profile.html', pets=pets)
