@@ -11,16 +11,31 @@ class Treatment {
     }
 }
 
-const treatments = [];
-treatments.push(
-    {clientName: 'אוריין שקולניק', petName: 'צלסי', date: '05.5.23', type: 'בדיקה', summary: 'הכל תקין'},
-    {
-        clientName: 'אוריין שקולניק',
-        petName: 'צלסי',
-        date: '06.5.23',
-        type: 'חיסון',
-        summary: 'ניתן חיסון לכלבת ללא תופעות לוואי'
-    },)
+document.addEventListener('DOMContentLoaded', async () => {
+    const petName = "שטות";  // Hardcoded for now, make dynamic later
+    const historyTable = document.querySelector('#treatment-history');
+
+    try {
+        const response = await fetch(`/get-treatments/${petName}`);
+        const treatments = await response.json();
+
+        historyTable.innerHTML = "";  // Clear existing table rows
+
+        treatments.forEach(treatment => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td><input type="radio" class="select-row" name="select-treatment"></td>
+                <td>${new Date(treatment.datetime).toLocaleDateString('he-IL')}</td>
+                <td>${treatment.treatment}</td>
+            `;
+            historyTable.appendChild(row);
+        });
+
+    } catch (error) {
+        console.error("❌ Error fetching treatments:", error);
+    }
+});
+
 
 //Update page view according to user type:
 function updateViewBasedOnUser() {

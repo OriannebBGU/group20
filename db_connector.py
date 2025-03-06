@@ -5,6 +5,8 @@ from pymongo.server_api import ServerApi
 from datetime import datetime
 from dotenv import load_dotenv
 from pymongo import ASCENDING
+from pymongo import DESCENDING
+from bson.objectid import ObjectId
 
 load_dotenv()
 # Get your MongoDB URI from .env file
@@ -127,9 +129,29 @@ def get_latest_future_appointment(pet_name, owner_email):
         "owner": owner_email,
         "datetime": {"$gte": datetime.now()}  # Get only future appointments
     }).sort("datetime", ASCENDING).limit(1))
-
     return future_appointments[0] if future_appointments else None
 
+
+def get_treatments_for_pet(pet_name):
+    treatments = list(appointments_col.find(
+        {"petName": pet_name}, {"_id": 0, "datetime": 1, "treatment": 1}
+    ).sort("datetime", DESCENDING))  # Sort latest → oldest
+    return treatments
+
+def get_treatment_details(appointment_id):
+    try:
+        appointment = appointments_col.find_one({"_id": ObjectId(appointment_id)}, {"_id": 0})
+        if not appointment:
+            return None
+        customer = customers_col.find_one({"Email": appointment["owner"]}, {"_id": 0, "firstName": 1, "lastName": 1})
+        if customer:
+            appointment["customerName"] = f"{customer['firstName']} {customer['lastName']}"
+        else:
+            appointment["customerName"] = "לא ידוע"
+        return appointment
+    except Exception as e:
+        print(f"❌ Error fetching treatment details: {e}")
+        return None
 
 def update_appointment(pet_name, owner_email, update_data):
     appointments_col.update_one({"petName": pet_name, "owner": owner_email}, {"$set": update_data})

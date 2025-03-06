@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
+from db_connector import get_treatments_for_pet
 
-# treatmentsummary blueprint definition
 treatmentsummary = Blueprint(
     'treatmentsummary',
     __name__,
@@ -9,8 +9,14 @@ treatmentsummary = Blueprint(
     template_folder='templates'
 )
 
-
-# Routes
 @treatmentsummary.route('/treatmentsummary')
 def treatmentsummary_func():
-    return render_template('treatmentsummmary.html')
+    pet_name = "שטות"  # Hardcoded for now, will be dynamic later
+    treatments = get_treatments_for_pet(pet_name)
+
+    return render_template('treatmentsummmary.html', treatments=treatments)
+
+@treatmentsummary.route('/get-treatments/<pet_name>', methods=['GET'])
+def get_treatments(pet_name):
+    treatments = get_treatments_for_pet(pet_name)
+    return jsonify(treatments)
