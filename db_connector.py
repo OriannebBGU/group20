@@ -6,6 +6,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from pymongo import ASCENDING
 from pymongo import DESCENDING
+from datetime import datetime
 from bson.objectid import ObjectId
 
 load_dotenv()
@@ -134,24 +135,38 @@ def get_latest_future_appointment(pet_name, owner_email):
 
 def get_treatments_for_pet(pet_name):
     treatments = list(appointments_col.find(
-        {"petName": pet_name}, {"_id": 0, "datetime": 1, "treatment": 1}
-    ).sort("datetime", DESCENDING))  # Sort latest → oldest
+        {"petName": pet_name}, {"_id": 1, "petName": 1, "datetime": 1, "treatment": 1}
+    ).sort("datetime", DESCENDING))
+    # ✅ Convert ObjectId to string before returning JSON
+    for treatment in treatments:
+        treatment["_id"] = str(treatment["_id"])
+    print(f"📌 Returning treatments for {pet_name}: {treatments}")  # ✅ Debugging line
     return treatments
 
-def get_treatment_details(appointment_id):
-    try:
-        appointment = appointments_col.find_one({"_id": ObjectId(appointment_id)}, {"_id": 0})
-        if not appointment:
-            return None
-        customer = customers_col.find_one({"Email": appointment["owner"]}, {"_id": 0, "firstName": 1, "lastName": 1})
-        if customer:
-            appointment["customerName"] = f"{customer['firstName']} {customer['lastName']}"
-        else:
-            appointment["customerName"] = "לא ידוע"
-        return appointment
-    except Exception as e:
-        print(f"❌ Error fetching treatment details: {e}")
+
+def get_treatment_details(pet_name, treatment_datetime):
+    print(f"📌 Searching for treatment: petName={pet_name}, datetime={treatment_datetime}")
+    appointment = appointments_col.find_one({
+        "petName": pet_name,
+        "datetime": {
+            "$gte": datetime.combine(treatment_datetime.date(), datetime.min.time()),
+            "$lt": datetime.combine(treatment_datetime.date(), datetime.max.time())
+        }
+    })
+    if not appointment:
+        print(f"❌ No treatment found for {pet_name} on {treatment_datetime.date()}")
         return None
+    owner_email = appointment.get("owner")
+    owner = customers_col.find_one({"Email": owner_email}, {"firstName": 1, "lastName": 1, "_id": 0})
+    if owner:
+        appointment["ownerFullName"] = f"{owner.get('firstName', '')} {owner.get('lastName', '')}"
+    else:
+        appointment["ownerFullName"] = "Unknown Owner"
+    # ✅ Convert `_id` to a string before returning JSON
+    appointment["_id"] = str(appointment["_id"])
+    print(f"✅ Returning treatment details: {appointment}")
+    return appointment
+
 
 def update_appointment(pet_name, owner_email, update_data):
     appointments_col.update_one({"petName": pet_name, "owner": owner_email}, {"$set": update_data})
