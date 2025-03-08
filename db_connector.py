@@ -42,7 +42,7 @@ def insert_first_users():
 def insert_first_pets():
     pets_data = [
         {"petName": "צ'לסי", "type": "חתול", "gender": "נקבה", "birthdate": datetime(2021, 7, 1),
-         "weight": 5, "owner": "oriane@post.bgu.ac.il"},
+         "weight": 5, "owner": "orianne@post.bgu.ac.il"},
         {"petName": "שטות", "type": "כלב", "gender": "נקבה", "birthdate": datetime(2015, 5, 13),
          "breed": "מעורב", "weight": 10, "owner": "Shay@example.com"}
     ]
@@ -52,9 +52,9 @@ def insert_first_pets():
 
 def insert_first_appointments():
     appointments_data = [
-        {"petName": "צ'לסי", "owner": "oriane@post.bgu.ac.il", "datetime": datetime(2024, 3, 10, 10, 0),
+        {"petName": "צ'לסי", "owner": "orianne@post.bgu.ac.il", "datetime": datetime(2024, 3, 10, 10, 0),
          "treatment": "חיסון", "summary": "חיסון שגרתי", "doctor": "rinat@vetrinat.com"},
-        {"petName": "צ'לסי", "owner": "oriane@post.bgu.ac.il", "datetime": datetime(2024, 4, 5, 14, 30),
+        {"petName": "צ'לסי", "owner": "orianne@post.bgu.ac.il", "datetime": datetime(2024, 4, 5, 14, 30),
          "treatment": "בדיקה כללית", "summary": "בדיקה רפואית שנתית", "doctor": "rinat@vetrinat.com"},
         {"petName": "שטות", "owner": "Shay@example.com", "datetime": datetime(2024, 5, 20, 9, 45),
          "treatment": "ניקוי שיניים", "summary": "ניקוי שיניים יסודי", "doctor": "rinat@vetrinat.com"}
