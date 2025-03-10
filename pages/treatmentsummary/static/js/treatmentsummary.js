@@ -1,35 +1,83 @@
 let USER_TYPE = localStorage.getItem('userType') || 'patient';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const petName = "שטות";  // Hardcoded for now, make dynamic later
+    // Add event listener to pet selector dropdown
+    const petSelector = document.querySelector('#pet-selector');
+    if (petSelector) {
+        petSelector.addEventListener('change', async () => {
+            const selectedPetName = petSelector.value;
+            await loadTreatmentsForPet(selectedPetName);
+        });
+
+        // Load treatments for the initially selected pet
+        if (petSelector.value) {
+            await loadTreatmentsForPet(petSelector.value);
+        }
+    } else {
+        // If no dropdown (user is not Role 2), get the selected pet from the displayed text
+        const selectedPetInfo = document.querySelector('.selected-pet-info');
+        if (selectedPetInfo) {
+            const petName = selectedPetInfo.textContent.split(':')[1].trim();
+            if (petName) {
+                await loadTreatmentsForPet(petName);
+            }
+        }
+    }
+});
+
+async function loadTreatmentsForPet(petId) {
     const historyTable = document.querySelector('#treatment-history');
+    if (!historyTable) return;
 
     try {
-        const response = await fetch(`/get-treatments/${petName}`);
+        const response = await fetch(`/get-treatments/${petId}`);
         const treatments = await response.json();
 
         historyTable.innerHTML = "";  // Clear existing table rows
 
-        treatments.forEach(treatment => {
-            const row = document.createElement('tr');
-            // Store the full treatment data in data attributes for later use
-            console.log("📌 Setting row data:", treatment.petName, treatment.datetime);
-            row.setAttribute('data-pet-name', treatment.petName || "MISSING");
-            row.setAttribute('data-datetime', treatment.datetime || "MISSING");
+        if (treatments.length === 0) {
+            // If no treatments, show a message
+            const tableContainer = historyTable.closest('table');
+            const noTreatmentsMessage = document.createElement('p');
+            noTreatmentsMessage.className = 'no-treatments';
+            noTreatmentsMessage.textContent = 'אין היסטוריית טיפולים לחיית מחמד זו';
 
-            
-            row.innerHTML = `
-                <td><input type="radio" class="select-row" name="select-treatment"></td>
-                <td>${new Date(treatment.datetime).toLocaleDateString('he-IL')}</td>
-                <td>${treatment.treatment}</td>
-            `;
-            historyTable.appendChild(row);
-        });
+            tableContainer.parentNode.insertBefore(noTreatmentsMessage, tableContainer);
+            tableContainer.style.display = 'none';
+            document.querySelector('.open-record-button').style.display = 'none';
+        } else {
+            // Show the table and hide any previous "no treatments" message
+            const tableContainer = historyTable.closest('table');
+            tableContainer.style.display = 'table';
+            document.querySelector('.open-record-button').style.display = 'block';
 
+            const noTreatmentsMessage = document.querySelector('.no-treatments');
+            if (noTreatmentsMessage) {
+                noTreatmentsMessage.remove();
+            }
+
+            // Add treatment rows
+            treatments.forEach(treatment => {
+                const row = document.createElement('tr');
+
+                // Store the treatment data in data attributes
+                row.setAttribute('data-pet-id', treatment.petName || "MISSING");  // ✅ Fix: Use petName
+                row.setAttribute('data-datetime', treatment.datetime || "MISSING");
+
+                const treatmentDate = new Date(treatment.datetime);
+
+                row.innerHTML = `
+                    <td><input type="radio" class="select-row" name="select-treatment"></td>
+                    <td>${treatmentDate.toLocaleDateString('he-IL')}</td>
+                    <td>${treatment.treatment}</td>
+                `;
+                historyTable.appendChild(row);
+            });
+        }
     } catch (error) {
         console.error("❌ Error fetching treatments:", error);
     }
-});
+}
 
 // Update page view according to user type:
 function updateViewBasedOnUser() {
@@ -180,13 +228,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const row = selectedRow.closest('tr');
-        const petName = row.getAttribute('data-pet-name') || "UNKNOWN";
-        console.log("📌 Sending petName:", petName);  // ✅ Debugging log
-        const datetime = new Date(row.getAttribute('data-datetime')).toISOString();
+        const petId = row.getAttribute('data-pet-id') || "UNKNOWN";
+        console.log("📌 Sending petId:", petId);  // ✅ Debugging log
+        const datetimeAttr = row.getAttribute('data-datetime');
+        const datetime = datetimeAttr ? new Date(datetimeAttr).toISOString() : null;
+        console.log("📌 Debug: Formatted datetime:", datetime);
         console.log("📌 Sending datetime:", datetime);  // ✅ Debugging log
 
 
-        if (!petName || !datetime) {
+        if (!petId || !datetime) {
             alert('מידע חסר בשורה הנבחרת.');
             return;
         }
@@ -198,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    petName: petName,
+                    petId: petId,
                     datetime: datetime
                 }),
             });
@@ -211,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Update the form with treatment details
             if (USER_TYPE === 'doctor') {
-                PclientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
+                clientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
                 petNameInput.value = treatmentDetails.petName;
                 
                 // Find and select the matching treatment type in the dropdown

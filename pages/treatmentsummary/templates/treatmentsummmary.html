@@ -11,12 +11,42 @@
 {#</div>#}
 
 {% block page_body_header_content__headline %}
-    <h1>סיכום טיפול</h1>
+    <h1>היסטוריית טיפולים</h1>
 {% endblock %}
 
 {% block page_body_main %}
     <main class="select_container">
         <form action="" method="post" class="treatment-summary-form">
+            {% if not session.get('user_id') %}
+                <div class="alert alert-warning">
+                    יש להתחבר למערכת כדי לצפות בהיסטוריית הטיפולים
+                </div>
+            {% else %}
+                {% if pets %}
+    <div class="form-group" id="animalDropdown">
+        {% if user_role == 2 %}
+            <label for="pet-selector">בחר חיית מחמד:</label>
+            <select id="pet-selector" name="pet-selector" class="pet-selector">
+                {% for pet in pets %}
+                    <option value="{{ pet.petName }}" {% if pet.petName == selected_pet %}selected{% endif %}>
+                        {{ pet.petName }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% else %}
+            <!-- For non-role 2 users, just display the selected pet name without dropdown -->
+            <div class="selected-pet-info">
+                <p>חיית מחמד: {{ selected_pet }}</p>
+            </div>
+        {% endif %}
+    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        אין חיות מחמד רשומות במערכת עבור המשתמש הזה
+                    </div>
+                {% endif %}
+            {% endif %}
+
             <div class="doctor-only">
                 <div class="horizontal-group">
                     <div class="form-group">
@@ -80,6 +110,7 @@
 
         <section class="history-section">
             <h2>היסטוריית טיפולים</h2>
+            {% if treatments %}
             <table>
                 <thead>
                 <tr>
@@ -90,9 +121,9 @@
                 </thead>
                 <tbody id="treatment-history">
                 {% for treatment in treatments %}
-                    <tr>
+                    <tr data-pet-id="{{ treatment.petId }}" data-datetime="{{ treatment.datetime }}">
                         <td><input type="radio" class="select-row" name="select-treatment"></td>
-                        <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') if treatment.datetime is defined else 'N/A' }}</td>
                         <td>{{ treatment.treatment }}</td>
                     </tr>
                 {% endfor %}
@@ -100,6 +131,9 @@
             </table>
 
             <button type="button" class="open-record-button">פתיחה</button>
+            {% else %}
+                <p class="no-treatments">אין היסטוריית טיפולים זמינה</p>
+            {% endif %}
         </section>
     </main>
 {% endblock %}
@@ -109,6 +143,3 @@
 {% block page_body_js %}
     <script src="{{ url_for('treatmentsummary.static' , filename='js/treatmentsummary.js' ) }}" defer></script>
 {% endblock %}
-
-
-

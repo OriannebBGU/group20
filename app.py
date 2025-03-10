@@ -1,4 +1,7 @@
-from flask import Flask
+from flask import Flask, session
+from flask_session import Session
+
+
 # from db import db  # Import the db connection
 
 ###### App setup
@@ -41,6 +44,12 @@ app.register_blueprint(navbar)
 ## Footer
 from components.footer.footer import footer
 app.register_blueprint(footer)
+
+app.config['SESSION_TYPE'] = 'filesystem'  # Stores session data on the server
+app.config['SESSION_PERMANENT'] = True
+app.config['SESSION_COOKIE_NAME'] = 'session'  # This should be the default
+app.config['SECRET_KEY'] = 'your_secret_key'  # Important for session encryption
+Session(app)
 
 if __name__ == '__main__':
     app.run(debug=True)
