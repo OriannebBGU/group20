@@ -72,7 +72,9 @@ function setupNavbarListeners() {
         loginButton: '/login',
         regisButton: '/registration',
         infoButton: '/info',
-        treatmentSummaryButton: '/treatmentsummary'
+        treatmentSummaryButton: '/treatmentsummary',
+        myAnimalButton: '/profile',
+        addPetButton:'/registrationpet'
     };
 //add event listener to every button
     Object.entries(buttonRoutes).forEach(([buttonClass, route]) => {
