@@ -88,17 +88,14 @@
                     <th>סוג טיפול</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td><input type="radio" class="select-row" name="select-treatment"></td>
-                    <td>05.5.23</td>
-                    <td>בדיקה</td>
-                </tr>
-                <tr>
-                    <td><input type="radio" class="select-row" name="select-treatment"></td>
-                    <td>06.5.23</td>
-                    <td>חיסון</td>
-                </tr>
+                <tbody id="treatment-history">
+                {% for treatment in treatments %}
+                    <tr>
+                        <td><input type="radio" class="select-row" name="select-treatment"></td>
+                        <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') }}</td>
+                        <td>{{ treatment.treatment }}</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
 

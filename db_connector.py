@@ -4,6 +4,10 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from datetime import datetime
 from dotenv import load_dotenv
+from pymongo import ASCENDING
+from pymongo import DESCENDING
+from datetime import datetime
+from bson.objectid import ObjectId
 
 load_dotenv()
 # Get your MongoDB URI from .env file
@@ -38,7 +42,7 @@ def insert_first_users():
 def insert_first_pets():
     pets_data = [
         {"petName": "צ'לסי", "type": "חתול", "gender": "נקבה", "birthdate": datetime(2021, 7, 1),
-         "weight": 5, "owner": "oriane@post.bgu.ac.il"},
+         "weight": 5, "owner": "orianne@post.bgu.ac.il"},
         {"petName": "שטות", "type": "כלב", "gender": "נקבה", "birthdate": datetime(2015, 5, 13),
          "breed": "מעורב", "weight": 10, "owner": "Shay@example.com"}
     ]
@@ -48,9 +52,9 @@ def insert_first_pets():
 
 def insert_first_appointments():
     appointments_data = [
-        {"petName": "צ'לסי", "owner": "oriane@post.bgu.ac.il", "datetime": datetime(2024, 3, 10, 10, 0),
+        {"petName": "צ'לסי", "owner": "orianne@post.bgu.ac.il", "datetime": datetime(2024, 3, 10, 10, 0),
          "treatment": "חיסון", "summary": "חיסון שגרתי", "doctor": "rinat@vetrinat.com"},
-        {"petName": "צ'לסי", "owner": "oriane@post.bgu.ac.il", "datetime": datetime(2024, 4, 5, 14, 30),
+        {"petName": "צ'לסי", "owner": "orianne@post.bgu.ac.il", "datetime": datetime(2024, 4, 5, 14, 30),
          "treatment": "בדיקה כללית", "summary": "בדיקה רפואית שנתית", "doctor": "rinat@vetrinat.com"},
         {"petName": "שטות", "owner": "Shay@example.com", "datetime": datetime(2024, 5, 20, 9, 45),
          "treatment": "ניקוי שיניים", "summary": "ניקוי שיניים יסודי", "doctor": "rinat@vetrinat.com"}
@@ -119,6 +123,49 @@ def insert_appointment(appointment_dict):
 
 def get_appointment_by_pet_owner(pet_name, owner_email):
     return appointments_col.find_one({"petName": pet_name, "owner": owner_email})
+
+def get_latest_future_appointment(pet_name, owner_email):
+    future_appointments = list(appointments_col.find({
+        "petName": pet_name,
+        "owner": owner_email,
+        "datetime": {"$gte": datetime.now()}  # Get only future appointments
+    }).sort("datetime", ASCENDING).limit(1))
+    return future_appointments[0] if future_appointments else None
+
+
+def get_treatments_for_pet(pet_name):
+    treatments = list(appointments_col.find(
+        {"petName": pet_name}, {"_id": 1, "petName": 1, "datetime": 1, "treatment": 1}
+    ).sort("datetime", DESCENDING))
+    # ✅ Convert ObjectId to string before returning JSON
+    for treatment in treatments:
+        treatment["_id"] = str(treatment["_id"])
+    print(f"📌 Returning treatments for {pet_name}: {treatments}")  # ✅ Debugging line
+    return treatments
+
+
+def get_treatment_details(pet_name, treatment_datetime):
+    print(f"📌 Searching for treatment: petName={pet_name}, datetime={treatment_datetime}")
+    appointment = appointments_col.find_one({
+        "petName": pet_name,
+        "datetime": {
+            "$gte": datetime.combine(treatment_datetime.date(), datetime.min.time()),
+            "$lt": datetime.combine(treatment_datetime.date(), datetime.max.time())
+        }
+    })
+    if not appointment:
+        print(f"❌ No treatment found for {pet_name} on {treatment_datetime.date()}")
+        return None
+    owner_email = appointment.get("owner")
+    owner = customers_col.find_one({"Email": owner_email}, {"firstName": 1, "lastName": 1, "_id": 0})
+    if owner:
+        appointment["ownerFullName"] = f"{owner.get('firstName', '')} {owner.get('lastName', '')}"
+    else:
+        appointment["ownerFullName"] = "Unknown Owner"
+    # ✅ Convert `_id` to a string before returning JSON
+    appointment["_id"] = str(appointment["_id"])
+    print(f"✅ Returning treatment details: {appointment}")
+    return appointment
 
 
 def update_appointment(pet_name, owner_email, update_data):

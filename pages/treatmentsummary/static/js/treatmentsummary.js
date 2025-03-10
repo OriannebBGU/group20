@@ -1,45 +1,53 @@
+let USER_TYPE = localStorage.getItem('userType') || 'patient';
 
-let UESER_Type = localStorage.getItem('userType') || 'patient';
+document.addEventListener('DOMContentLoaded', async () => {
+    const petName = "שטות";  // Hardcoded for now, make dynamic later
+    const historyTable = document.querySelector('#treatment-history');
 
-class Treatment {
-    constructor(clientName, petName, date, type, summary) {
-        this.clientName = clientName;
-        this.petName = petName;
-        this.date = date;
-        this.type = type;
-        this.summary = summary;
+    try {
+        const response = await fetch(`/get-treatments/${petName}`);
+        const treatments = await response.json();
+
+        historyTable.innerHTML = "";  // Clear existing table rows
+
+        treatments.forEach(treatment => {
+            const row = document.createElement('tr');
+            // Store the full treatment data in data attributes for later use
+            console.log("📌 Setting row data:", treatment.petName, treatment.datetime);
+            row.setAttribute('data-pet-name', treatment.petName || "MISSING");
+            row.setAttribute('data-datetime', treatment.datetime || "MISSING");
+
+            
+            row.innerHTML = `
+                <td><input type="radio" class="select-row" name="select-treatment"></td>
+                <td>${new Date(treatment.datetime).toLocaleDateString('he-IL')}</td>
+                <td>${treatment.treatment}</td>
+            `;
+            historyTable.appendChild(row);
+        });
+
+    } catch (error) {
+        console.error("❌ Error fetching treatments:", error);
     }
-}
+});
 
-const treatments = [];
-treatments.push(
-    {clientName: 'אוריין שקולניק', petName: 'צלסי', date: '05.5.23', type: 'בדיקה', summary: 'הכל תקין'},
-    {
-        clientName: 'אוריין שקולניק',
-        petName: 'צלסי',
-        date: '06.5.23',
-        type: 'חיסון',
-        summary: 'ניתן חיסון לכלבת ללא תופעות לוואי'
-    },)
-
-//Update page view according to user type:
+// Update page view according to user type:
 function updateViewBasedOnUser() {
-    if (UESER_Type === 'patient') {
+    if (USER_TYPE === 'patient') {
         document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'none');
         document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'block');
-    } else if (UESER_Type === 'doctor') {
+    } else if (USER_TYPE === 'doctor') {
         document.querySelectorAll('.doctor-only').forEach(el => el.style.display = 'block');
         document.querySelectorAll('.patient-only').forEach(el => el.style.display = 'none');
     }
 }
 
-
-//Initialize display according to user
+// Initialize display according to user
 updateViewBasedOnUser();
 
-//Set view by user type:
+// Set view by user type:
 function setUserType(userType) {
-    UESER_Type = userType;
+    USER_TYPE = userType;
     localStorage.setItem('userType', userType);
     updateViewBasedOnUser();
 }
@@ -56,12 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-//Add treatment to table by doctor:
+// Add treatment to table by doctor:
 document.addEventListener('DOMContentLoaded', () => {
     const saveAndSignButton = document.querySelector('.save-button');
     const historyTable = document.querySelector('.history-section table tbody');
 
-    //validate form input :
+    // Validate form input:
     function validateForm() {
         const clientName = document.querySelector('#client-name').value.trim();
         const petName = document.querySelector('#pet-name').value.trim();
@@ -91,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    //add record to table :
+    // Add record to table:
     function addRowToHistory(event) {
         event.preventDefault();
 
@@ -107,9 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const currentDate = new Date();
         const dateString = currentDate.toLocaleDateString('he-IL');
-
-        const newTreatment = new Treatment(clientName, petName, dateString, selectedTreatmentType, summary);
-        treatments.push(newTreatment);
 
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -127,26 +132,28 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('#pet-name').value = '';
         document.querySelector('#treatment-type').selectedIndex = 0;
         document.querySelector('#summary').value = '';
-        document.querySelector('#summary').readOnly = none;
+        document.querySelector('#summary').readOnly = false;
     }
 
-    saveAndSignButton.addEventListener('click', addRowToHistory);
+    if (saveAndSignButton) {
+        saveAndSignButton.addEventListener('click', addRowToHistory);
+    }
 });
 
-//Set default view and open treatment summary record
+// Set default view and open treatment summary record
 document.addEventListener('DOMContentLoaded', () => {
     const summaryTextarea = document.querySelector('#summary');
     const clientNameInput = document.querySelector('#client-name');
     const petNameInput = document.querySelector('#pet-name');
     const treatmentTypeSelect = document.querySelector('#treatment-type');
     const PclientNameInput = document.querySelector('#p-client-name');
-    const PpetNameInput = document.querySelector('#p-pet-name');
-    const PtreatmentTypeSelect = document.querySelector('#p-treatment-type');
+    const PpetNameInput = document.querySelector('#P-pet-name');
+    const PtreatmentTypeInput = document.querySelector('#P-treatment-type');
     const openRecordButton = document.querySelector('.open-record-button');
 
-    //Reset form display to default setting :
+    // Reset form display to default setting:
     function displayDefaultSummary() {
-        if (UESER_Type === 'doctor') {
+        if (USER_TYPE === 'doctor') {
             summaryTextarea.value = '';
             summaryTextarea.placeholder = 'הכנס סיכום טיפול...';
             clientNameInput.value = '';
@@ -155,20 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
             petNameInput.placeholder = 'הכנס שם חיית מחמד';
             treatmentTypeSelect.selectedIndex = 0;
             summaryTextarea.readOnly = false;
-        } else if (UESER_Type === 'patient') {
-            if (treatments.length > 0) {
-                const lastTreatment = treatments[treatments.length - 1];
-                summaryTextarea.value = `תאריך: ${lastTreatment.date}\nסוג טיפול: ${lastTreatment.type}\n\n${lastTreatment.summary}`;
-                PclientNameInput.value = lastTreatment.clientName;
-                PpetNameInput.value = lastTreatment.petName;
-            } else {
-                summaryTextarea.value = 'אין טיפולים להצגה.';
-            }
+        } else if (USER_TYPE === 'patient') {
+            summaryTextarea.value = 'בחר טיפול מההיסטוריה כדי לראות את פרטי הטיפול.';
+            summaryTextarea.readOnly = true;
+            PclientNameInput.value = '';
+            PpetNameInput.value = '';
+            PtreatmentTypeInput.value = '';
         }
     }
 
-    //Display chosen record from treatment table
-    function openSelectedRecord() {
+    // Display chosen record from treatment table
+    async function openSelectedRecord() {
         const selectedRow = document.querySelector('input[name="select-treatment"]:checked');
         if (!selectedRow) {
             alert('יש לבחור שורה בטבלה כדי לפתוח סיכום טיפול.');
@@ -176,25 +180,78 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const row = selectedRow.closest('tr');
-        const date = row.cells[1].textContent.trim();
-        const type = row.cells[2].textContent.trim();
+        const petName = row.getAttribute('data-pet-name') || "UNKNOWN";
+        console.log("📌 Sending petName:", petName);  // ✅ Debugging log
+        const datetime = new Date(row.getAttribute('data-datetime')).toISOString();
+        console.log("📌 Sending datetime:", datetime);  // ✅ Debugging log
 
-        const treatment = treatments.find(t => t.date === date && t.type === type);
-        if (!treatment) {
-            alert('לא נמצא סיכום לטיפול זה.');
+
+        if (!petName || !datetime) {
+            alert('מידע חסר בשורה הנבחרת.');
             return;
         }
 
-        clientNameInput.value = treatment.clientName;
-        petNameInput.value = treatment.petName;
-        treatmentTypeSelect.value = treatment.selectedIndex;
-        summaryTextarea.value = `תאריך: ${treatment.date}\nסוג טיפול: ${treatment.type}\n\n${treatment.summary}`;
-        summaryTextarea.readOnly = UESER_Type === 'patient';
+        try {
+            const response = await fetch('/get-treatment-details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    petName: petName,
+                    datetime: datetime
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const treatmentDetails = await response.json();
+
+            // Update the form with treatment details
+            if (USER_TYPE === 'doctor') {
+                PclientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
+                petNameInput.value = treatmentDetails.petName;
+                
+                // Find and select the matching treatment type in the dropdown
+                const options = Array.from(treatmentTypeSelect.options);
+                const matchingOption = options.find(option => 
+                    option.text === treatmentDetails.treatment || 
+                    option.value === treatmentDetails.treatment
+                );
+                
+                if (matchingOption) {
+                    treatmentTypeSelect.value = matchingOption.value;
+                } else {
+                    treatmentTypeSelect.value = 'other'; // Default to 'other' if not found
+                }
+                
+                summaryTextarea.value = treatmentDetails.summary;
+                summaryTextarea.readOnly = true; // Make read-only for past treatments
+            } else {
+                PclientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
+                PpetNameInput.value = treatmentDetails.petName;
+                PtreatmentTypeInput.value = treatmentDetails.treatment;
+                
+                // Format date for display
+                const treatmentDate = new Date(treatmentDetails.datetime);
+                const formattedDate = treatmentDate.toLocaleDateString('he-IL');
+                
+                summaryTextarea.value = `תאריך: ${formattedDate}\nסוג טיפול: ${treatmentDetails.treatment}\n\n${treatmentDetails.summary}`;
+                summaryTextarea.readOnly = true;
+            }
+        } catch (error) {
+            console.error('❌ Error fetching treatment details:', error);
+            alert('אירעה שגיאה בטעינת פרטי הטיפול.');
+        }
     }
 
-    openRecordButton.addEventListener('click', openSelectedRecord);
+    if (openRecordButton) {
+        openRecordButton.addEventListener('click', openSelectedRecord);
+    }
 
-    //Reset user type display :
+    // Reset user type display:
     const patientButton = document.querySelector('#patientButton');
     const doctorButton = document.querySelector('#doctorButton');
     if (patientButton) {
