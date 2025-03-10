@@ -5,14 +5,20 @@
         <button class="homeButton">עמוד הבית</button>
         <button class="loginButton">התחברות</button>
         <button class="regisButton">הרשמה</button>
-        <button class="menuButton" onclick="toggleAnimal()">אזור אישי</button>
+        <button class="menuButton" >אזור אישי</button>
         <button class="treatmentSummaryButton">סיכום טיפול</button>
         <button class="infoButton">טיפולים</button>
         <button class="logoutButton">התנתקות</button>
     </div>
     <div class="animalButtons">
-        <button onclick="">צ'לסי</button>
-        <button onclick="">הוספה...</button>
+        {% for animal in user_animals %}
+            <button onclick="window.location.href='/profile/{{ animal.name | urlencode }}'">
+                {{ animal.name }}
+            </button>
+        {% endfor %}
+        <button onclick="window.location.href='/registration-pet'">הוספה...</button>
+        {#        <button onclick="">צ'לסי</button>#}
+        {#        <button onclick="">הוספה...</button>#}
     </div>
     <div class="welcome" style="display: none;">טוב לראות אותך שוב!</div>
 </nav>

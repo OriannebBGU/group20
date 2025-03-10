@@ -78,7 +78,7 @@ def get_customer_by_email(email):
     return customers_col.find_one({"Email": email})
 
 def get_customer_name_by_email(email):
-    return customers_col.find_one({"Email": email}, {"_id": 0, "firstName": 1})
+    return customers_col.find_one({"Email": email}, {"_id": 0, "firstName": 1, "Role": 1})
 
 
 def update_customer(email, update_data):
