@@ -34,8 +34,9 @@
                 {% endfor %}
             </select>
         {% else %}
-            <!-- For non-role 2 users, don't display dropdown -->
+            <!-- For non-role 2 users, just display the selected pet name without dropdown -->
             <div class="selected-pet-info">
+                <p>חיית מחמד: {{ selected_pet }}</p>
             </div>
         {% endif %}
     </div>
