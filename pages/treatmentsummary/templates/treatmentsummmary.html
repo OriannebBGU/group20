@@ -11,7 +11,7 @@
 {#</div>#}
 
 {% block page_body_header_content__headline %}
-    <h1>סיכום טיפול</h1>
+    <h1>היסטוריית טיפולים</h1>
 {% endblock %}
 
 {% block page_body_main %}
@@ -23,7 +23,7 @@
                 </div>
             {% else %}
                 {% if pets %}
-                    <div class="form-group">
+                    <div class="form-group" id="animalDropdown">
                         <label for="pet-selector">בחר חיית מחמד:</label>
                         <select id="pet-selector" name="pet-selector" class="pet-selector">
                             {% for pet in pets %}

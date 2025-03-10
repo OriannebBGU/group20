@@ -178,13 +178,20 @@ def get_treatment_details(pet_id, treatment_datetime):
         if 'doctorId' in treatment:
             treatment['doctorId'] = str(treatment['doctorId'])
         # Get pet name
-        pet = pets_col.find_one({"petName": treatment["petName"]})  # ✅ Correct
+        print(
+            f"📌 Debug: Looking for pet with petName = {treatment.get('petName', 'MISSING')} and owner = {treatment.get('owner', 'MISSING')}")
+        pet = pets_col.find_one({"petName": treatment["petName"], "owner": treatment["owner"]})  # ✅ Search by owner too
         if pet:
-            treatment['petName'] = pet.get('name', 'Unknown Pet')
+            print(f"✅ Debug: Found pet = {pet}")
+        else:
+            print(f"❌ Debug: No pet found")
+        if pet:
+            treatment['petName'] = pet.get('petName')  # ✅ Fix: No default "Unknown Pet"
             # Get owner details if available
-            owner_id = pet.get('ownerId')
-            if owner_id:
-                owner = customers_col.find_one({"_id": owner_id})  # ✅ Use customers_col instead
+            print(f"📌 Debug: ownerFullName = {treatment.get('ownerFullName', 'MISSING')}")
+            owner_email = treatment.get("owner")  # ✅ Get the owner from treatment data
+            if owner_email:
+                owner = customers_col.find_one({"Email": owner_email})  # ✅ Search by Email instead of _id
                 if owner:
                     treatment['ownerFullName'] = f"{owner.get('firstName', '')} {owner.get('lastName', '')}"
         return treatment

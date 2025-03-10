@@ -7,11 +7,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         petSelector.addEventListener('change', async () => {
             const selectedPetName = petSelector.value; // ✅ Use petName instead of _id
             await loadTreatmentsForPet(selectedPetName);
+            console.log("Dropdown change triggered, checking extra elements...");
+            console.log("Current dropdown parent:", petSelector.parentNode);
+            console.log("Child elements:", petSelector.parentNode.children);
         });
 
         // Load treatments for the initially selected pet
         if (petSelector.value) {
             await loadTreatmentsForPet(petSelector.value);
+            console.log("Dropdown change triggered, checking extra elements...");
+            console.log("Current dropdown parent:", petSelector.parentNode);
+            console.log("Child elements:", petSelector.parentNode.children);
         }
     }
 });
