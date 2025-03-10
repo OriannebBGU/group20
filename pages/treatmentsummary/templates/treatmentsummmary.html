@@ -23,16 +23,23 @@
                 </div>
             {% else %}
                 {% if pets %}
-                    <div class="form-group" id="animalDropdown">
-                        <label for="pet-selector">בחר חיית מחמד:</label>
-                        <select id="pet-selector" name="pet-selector" class="pet-selector">
-                            {% for pet in pets %}
-                                <option value="{{ pet.petName }}" {% if pet.petName == selected_pet %}selected{% endif %}>
-                                    {{ pet.petName }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
+    <div class="form-group" id="animalDropdown">
+        {% if user_role == 2 %}
+            <label for="pet-selector">בחר חיית מחמד:</label>
+            <select id="pet-selector" name="pet-selector" class="pet-selector">
+                {% for pet in pets %}
+                    <option value="{{ pet.petName }}" {% if pet.petName == selected_pet %}selected{% endif %}>
+                        {{ pet.petName }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% else %}
+            <!-- For non-role 2 users, just display the selected pet name without dropdown -->
+            <div class="selected-pet-info">
+                <p>חיית מחמד: {{ selected_pet }}</p>
+            </div>
+        {% endif %}
+    </div>
                 {% else %}
                     <div class="alert alert-info">
                         אין חיות מחמד רשומות במערכת עבור המשתמש הזה

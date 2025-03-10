@@ -15,29 +15,31 @@ treatmentsummary = Blueprint(
 def treatmentsummary_func():
     # Get the current user's information from session
     user_id = session.get('user_id')
-    print(f"📌 Debug: Session user_id = {session.get('user_id')}")
-    print(f"📌 Debug: Session content = {dict(session)}")  # Check full session data
+    user_email = session.get('user_email')
+
+    # Get user role from database
+    from db_connector import get_customer_by_email
+    user_data = get_customer_by_email(user_email) if user_email else None
+    user_role = user_data.get('Role') if user_data else None
+
     # Default to empty list if no treatments or user not logged in
     treatments = []
     pets = []
     selected_pet = None
-    print(f"📌 Debug: Current session user_id = {session.get('user_id')}")
 
     if user_id:
         # Get all pets for the current user
-        pets = get_pets_for_owner(session.get('user_email'))  # ✅ FIXED: Search by email
-        print(f"📌 Debug: Pets for user {user_id} = {pets}")
+        pets = get_pets_for_owner(session.get('user_email'))
         # If user has pets, get treatments for the first pet by default
         if pets:
-            selected_pet = request.args.get('pet_id', pets[0]['petName'])  # ✅ Use petName
-            print(f"📌 Debug: Corrected selected_pet = {selected_pet}")  # Debugging
+            selected_pet = request.args.get('pet_id', pets[0]['petName'])
             treatments = get_treatments_for_pet(selected_pet)
-        print(f"📌 Debug: Sending pets to template = {pets}")
-        print(f"📌 Debug: Treatments retrieved = {treatments}")
+
     return render_template('treatmentsummmary.html',
                            treatments=treatments,
                            pets=pets,
-                           selected_pet=selected_pet)
+                           selected_pet=selected_pet,
+                           user_role=user_role)  # Pass user_role to template
 
 
 @treatmentsummary.route('/get-treatments/<pet_id>', methods=['GET'])

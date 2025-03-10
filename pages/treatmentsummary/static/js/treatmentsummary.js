@@ -5,19 +5,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     const petSelector = document.querySelector('#pet-selector');
     if (petSelector) {
         petSelector.addEventListener('change', async () => {
-            const selectedPetName = petSelector.value; // ✅ Use petName instead of _id
+            const selectedPetName = petSelector.value;
             await loadTreatmentsForPet(selectedPetName);
-            console.log("Dropdown change triggered, checking extra elements...");
-            console.log("Current dropdown parent:", petSelector.parentNode);
-            console.log("Child elements:", petSelector.parentNode.children);
         });
 
         // Load treatments for the initially selected pet
         if (petSelector.value) {
             await loadTreatmentsForPet(petSelector.value);
-            console.log("Dropdown change triggered, checking extra elements...");
-            console.log("Current dropdown parent:", petSelector.parentNode);
-            console.log("Child elements:", petSelector.parentNode.children);
+        }
+    } else {
+        // If no dropdown (user is not Role 2), get the selected pet from the displayed text
+        const selectedPetInfo = document.querySelector('.selected-pet-info');
+        if (selectedPetInfo) {
+            const petName = selectedPetInfo.textContent.split(':')[1].trim();
+            if (petName) {
+                await loadTreatmentsForPet(petName);
+            }
         }
     }
 });
