@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (petSelector.value) {
             await loadTreatmentsForPet(petSelector.value);
         }
-    } else {
+    }
+    else {
         // If no dropdown (user is not Role 2), get the selected pet from the displayed text
         const selectedPetInfo = document.querySelector('.selected-pet-info');
         if (selectedPetInfo) {
