@@ -22,11 +22,15 @@ def login_func():
         user = get_customer_by_email(email)
 
         # Check if the user exists and if the password matches
+        # Check if the user exists and if the password matches
         if user and user.get('Password') == password:
             session['logged_in'] = True
             session['user_email'] = email
             session["first_name"] = user["firstName"]
             session['user_role'] = user.get('Role')
+            # ✅ Store user_id in session (assuming user['_id'] exists)
+            session['user_id'] = str(user['_id'])  # Convert ObjectId to string if needed
+            print(f"✅ Session set: user_id = {session.get('user_id')}")  # Debugging
             return redirect(url_for('homepage.homepage_func'))
         else:
             flash('דואר אלקטרוני או סיסמה שגויים.')

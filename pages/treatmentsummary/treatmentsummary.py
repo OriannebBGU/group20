@@ -1,5 +1,5 @@
-from flask import Blueprint, render_template, jsonify, request
-from db_connector import get_treatments_for_pet, get_treatment_details
+from flask import Blueprint, render_template, jsonify, request, session
+from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner
 from datetime import datetime
 
 treatmentsummary = Blueprint(
@@ -13,15 +13,37 @@ treatmentsummary = Blueprint(
 
 @treatmentsummary.route('/treatmentsummary')
 def treatmentsummary_func():
-    pet_name = "שטות"  # Hardcoded for now, will be dynamic later
-    treatments = get_treatments_for_pet(pet_name)
+    # Get the current user's information from session
+    user_id = session.get('user_id')
+    print(f"📌 Debug: Session user_id = {session.get('user_id')}")
+    print(f"📌 Debug: Session content = {dict(session)}")  # Check full session data
+    # Default to empty list if no treatments or user not logged in
+    treatments = []
+    pets = []
+    selected_pet = None
+    print(f"📌 Debug: Current session user_id = {session.get('user_id')}")
 
-    return render_template('treatmentsummmary.html', treatments=treatments)
+    if user_id:
+        # Get all pets for the current user
+        pets = get_pets_for_owner(session.get('user_email'))  # ✅ FIXED: Search by email
+        print(f"📌 Debug: Pets for user {user_id} = {pets}")
+        # If user has pets, get treatments for the first pet by default
+        if pets:
+            selected_pet = request.args.get('pet_id', pets[0]['petName'])  # ✅ Use petName
+            print(f"📌 Debug: Corrected selected_pet = {selected_pet}")  # Debugging
+            treatments = get_treatments_for_pet(selected_pet)
+        print(f"📌 Debug: Sending pets to template = {pets}")
+        print(f"📌 Debug: Treatments retrieved = {treatments}")
+    return render_template('treatmentsummmary.html',
+                           treatments=treatments,
+                           pets=pets,
+                           selected_pet=selected_pet)
 
 
-@treatmentsummary.route('/get-treatments/<pet_name>', methods=['GET'])
-def get_treatments(pet_name):
-    treatments = get_treatments_for_pet(pet_name)
+@treatmentsummary.route('/get-treatments/<pet_id>', methods=['GET'])
+def get_treatments(pet_id):
+    treatments = get_treatments_for_pet(pet_id)
+    print(f"📌 Debug: Treatments for pet {pet_id} = {treatments}")
     return jsonify(treatments)
 
 
@@ -31,12 +53,12 @@ def get_treatment_details_func():
         data = request.get_json()
         print(f"📌 Received request data: {data}")  # ✅ Debugging line
 
-        pet_name = data.get('petName')
+        pet_id = data.get('petId')
         treatment_datetime_str = data.get('datetime')
 
-        if not pet_name or not treatment_datetime_str:
-            print("❌ Error: Missing petName or datetime in request")
-            return jsonify({"error": "Missing petName or datetime"}), 400
+        if not pet_id or not treatment_datetime_str:
+            print("❌ Error: Missing petId or datetime in request")
+            return jsonify({"error": "Missing petId or datetime"}), 400
 
         # Debug datetime conversion
         try:
@@ -46,10 +68,10 @@ def get_treatment_details_func():
             print(f"❌ Error converting datetime: {ve}")
             return jsonify({"error": "Invalid datetime format"}), 400
 
-        treatment_details = get_treatment_details(pet_name, treatment_datetime)
+        treatment_details = get_treatment_details(pet_id, treatment_datetime)  # ✅ Correct
 
         if not treatment_details:
-            print(f"❌ Error: No treatment found for {pet_name} at {treatment_datetime}")
+            print(f"❌ Error: No treatment found for pet ID {pet_id} at {treatment_datetime}")
             return jsonify({"error": "Treatment not found"}), 404
 
         print(f"✅ Found treatment details: {treatment_details}")
@@ -58,3 +80,15 @@ def get_treatment_details_func():
     except Exception as e:
         print(f"❌ Fatal Error in get-treatment-details: {e}")
         return jsonify({"error": "Internal server error"}), 500
+
+
+@treatmentsummary.route('/debug-session')
+def debug_session():
+    session['test_value'] = 'working'  # Force setting a session key
+    print(f"📌 Debug: Incoming cookies = {request.cookies}")
+    return jsonify({
+        "session_user_id": session.get('user_id'),
+        "test_value": session.get('test_value'),  # Should be 'working' on refresh
+        "cookies": request.cookies.get('session')
+    })
+
