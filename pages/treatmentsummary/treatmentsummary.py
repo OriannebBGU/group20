@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request, session
-from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner
+from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner, get_customer_by_email
 from datetime import datetime
 
 treatmentsummary = Blueprint(
@@ -18,7 +18,6 @@ def treatmentsummary_func():
     user_email = session.get('user_email')
 
     # Get user role from database
-    from db_connector import get_customer_by_email
     user_data = get_customer_by_email(user_email) if user_email else None
     user_role = user_data.get('Role') if user_data else None
 
@@ -30,6 +29,17 @@ def treatmentsummary_func():
     if user_id:
         # Get all pets for the current user
         pets = get_pets_for_owner(session.get('user_email'))
+
+        # Add owner full name to each pet object
+        for pet in pets:
+            owner_email = pet.get('owner')
+            if owner_email:
+                owner_data = get_customer_by_email(owner_email)
+                if owner_data:
+                    pet['ownerFullName'] = f"{owner_data.get('firstName', '')} {owner_data.get('lastName', '')}"
+                else:
+                    pet['ownerFullName'] = "משתמש לא ידוע"
+
         # If user has pets, get treatments for the first pet by default
         if pets:
             selected_pet = request.args.get('pet_id', pets[0]['petName'])
@@ -93,4 +103,3 @@ def debug_session():
         "test_value": session.get('test_value'),  # Should be 'working' on refresh
         "cookies": request.cookies.get('session')
     })
-
