@@ -6,22 +6,11 @@
         <button class="loginButton">התחברות</button>
         <button class="regisButton">הרשמה</button>
         <button class="menuButton">אזור אישי</button>
-        <button class="treatmentSummaryButton">סיכום טיפול</button>
+        <button class="treatmentSummaryButton">סיכומי טיפול</button>
         <button class="infoButton">טיפולים</button>
         <button class="logoutButton">התנתקות</button>
     </div>
-    <div class="animalButtons">
-        {% for animal in user_animals %}
-            <button class="myAnimalButton"
-                    {#                    onclick="window.location.href='/profile/{{ animal.name | urlencode }}'"#}
-            > {{ animal.name }}
-            </button>
-        {% endfor %}
-        <button class="addPetButton"
-                {#                onclick="window.location.href='/registration-pet'"#}
-        >הוספה...
-        </button>
-    </div>
+    <div class="animalButtons"></div>
     <div class="welcome" style="display: none;">טוב לראות אותך שוב!</div>
 </nav>
 

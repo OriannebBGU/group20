@@ -1,6 +1,4 @@
 //Setting the button display according to user type
-
-
 async function setNavbarDisplay() {
 // document.addEventListener('DOMContentLoaded', async () => {
     const homeButton = document.querySelector('.homeButton');
@@ -11,7 +9,6 @@ async function setNavbarDisplay() {
     const infoButton = document.querySelector('.infoButton');
     const logoutButton = document.querySelector('.logoutButton');
     const welcomeMessage = document.querySelector('.welcome');
-
 
     try {
         const response = await fetch('/get-navbar-info');
@@ -72,11 +69,10 @@ function setupNavbarListeners() {
         loginButton: '/login',
         regisButton: '/registration',
         infoButton: '/info',
-        treatmentSummaryButton: '/treatmentsummary',
-        myAnimalButton: '/profile',
-        addPetButton:'/registrationpet'
+        treatmentSummaryButton: '/treatmentsummary'
     };
-//add event listener to every button
+
+    //add event listener to every button
     Object.entries(buttonRoutes).forEach(([buttonClass, route]) => {
         const button = document.querySelector(`.${buttonClass}`);
         if (button) {
@@ -113,11 +109,56 @@ function setupNavbarListeners() {
             ? 'flex'
             : 'none';
 
+        // If now visible and not yet populated, fetch animal names from backend
+        if (animalButtonsContainer.style.display === 'flex' && animalButtonsContainer.children.length === 0) {
+            try {
+                const response = await fetch('/get-user-animals');
+                //לוודא שיש את הפונקצויואליות והתאמה של שם הנתיב לקבלת הנתונים הרצויים! - get-user-animals
+
+                if (!response.ok) {// Debugging line
+                    console.error('Error: Response status', response.status);// Debugging line
+                    return;// Debugging line
+                }// Debugging line
+
+                const result = await response.json();
+
+                console.log("Fetched pet names:", result.animals); // Debugging line
+                if (!Array.isArray(result.animals)) {// Debugging line
+                    console.error("Error: animals is not an array", result.animals);// Debugging line
+                    return;// Debugging line
+                }// Debugging line
+
+                if (response.ok && result.animals) {
+                    // Clear any existing content
+                    animalButtonsContainer.innerHTML = '';
+
+                    // Create a button for each pet returned
+                    result.animals.forEach(animal => {
+                        const btn = document.createElement('button');
+                        btn.textContent = animal.name;
+                        btn.addEventListener('click', () => {
+                            window.location.href = '/profile';
+                        });
+                        animalButtonsContainer.appendChild(btn);
+                    });
+
+                    // Add an "Add" button for new pets
+                    const addBtn = document.createElement('button');
+                    addBtn.textContent = 'הוספה...';
+                    addBtn.addEventListener('click', () => {
+                        window.location.href = '/registrationpet';
+                    });
+                    animalButtonsContainer.appendChild(addBtn);
+                }
+            } catch (error) {
+                console.error('Error fetching animal names:', error);
+            }
+        }
+
     });
 }
 
 // Run the functions after the page loads
-// document.addEventListener('DOMContentLoaded', setupNavbarListeners);
 document.addEventListener('DOMContentLoaded', async () => {
     await setNavbarDisplay();
     setupNavbarListeners();

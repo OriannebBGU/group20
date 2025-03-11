@@ -15,7 +15,6 @@ navbar = Blueprint(
 def serve_navbar_static(filename):
     return send_from_directory(os.path.join('components', 'navbar', 'static'), filename)
 
-
 @navbar.route('/get-navbar-info', methods=['GET'])
 def get_navbar_info():
     # # FORCE A FAKE LOGIN FOR TESTING
@@ -34,7 +33,6 @@ def get_navbar_info():
         })
     return jsonify({"isLoggedIn": False})
 
-
 @navbar.route('/logout', methods=['POST'])
 def logout():
     if "user_email" in session:
@@ -43,14 +41,22 @@ def logout():
         session.pop("first_name", None)
         return jsonify({"message": 'Logged out successfully'})
 
-
-
-@navbar.context_processor
-def inject_user_animals():
+@navbar.route('/get-user-animals', methods=['GET'])
+def get_user_animals():
     if "user_email" in session:
-        # Retrieve the pets for the current user
-        pets = get_pets_for_owner(session["user_email"])
-        # Keep the pet names only
-        pet_names = [{"name": pet.get("petName", "Unknown")} for pet in pets]
-        return {"user_animals": pet_names}
-    return {"user_animals": []}
+        pets=get_pets_for_owner(session["user_email"])
+        pet_names=[{"name":pet.get("petName", "Unknown")} for pet in pets]
+        return jsonify({"animals": pet_names})
+    return jsonify({"animals": []})
+
+
+# get user animal insted?
+# @navbar.context_processor
+# def inject_user_animals():
+#     if "user_email" in session:
+#         # Retrieve the pets for the current user
+#         pets = get_pets_for_owner(session["user_email"])
+#         # Keep the pet names only
+#         pet_names = [{"name": pet.get("petName", "Unknown")} for pet in pets]
+#         return {"user_animals": pet_names}
+#     return {"user_animals": []}
