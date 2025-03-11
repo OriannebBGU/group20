@@ -33,8 +33,12 @@ async function setNavbarDisplay() {
                 if (menuButton) menuButton.style.display = 'none';
             }
             if (welcomeMessage) {
-                welcomeMessage.textContent = `טוב לראות אותך שוב, ${result.firstName}!`;
-                welcomeMessage.style.display = 'block';
+                if (window.showWelcome) {
+                    welcomeMessage.textContent = `טוב לראות אותך שוב, ${result.firstName}!`;
+                    welcomeMessage.style.display = 'block';
+                } else {
+                    welcomeMessage.style.display = 'none';
+                }
             }
 
             // Hide buttons for logged-out users
@@ -55,7 +59,6 @@ async function setNavbarDisplay() {
             if (menuButton) menuButton.style.display = 'none';
             if (treatmentSummaryButton) treatmentSummaryButton.style.display = 'none';
             if (welcomeMessage) welcomeMessage.style.display = 'none';
-
         }
     } catch (error) {
         console.error("❌ Failed to fetch navbar info:", error);

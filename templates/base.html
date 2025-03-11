@@ -79,6 +79,7 @@ Base page blocks:
 
 {# JS #}
 {% block page_body_js %}
+    <script> window.showWelcome = true; </script>
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 {% endblock %}
 
