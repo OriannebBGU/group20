@@ -36,8 +36,13 @@ def register_pet():
 
         print(f"✅ Received pet data: {data}")
 
-        birthdate_str = data.get("birthdate", "").strip()
-        breed = data.get("breed", "").strip()
+        birthdate_str = data.get("birthdate")
+        breed = data.get("breed")
+
+        # Ensure birthdate_str and breed are strings before calling .strip()
+        birthdate_str = birthdate_str.strip() if isinstance(birthdate_str, str) else ""
+        breed = breed.strip() if isinstance(breed, str) else ""
+
         weight_raw = data.get("weight", None)  # ✅ Ensure we get None if weight is missing
         weight = None
         if weight_raw not in (None, "", "null"):  # ✅ Handle empty or null values properly
