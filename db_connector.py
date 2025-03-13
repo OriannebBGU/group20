@@ -96,6 +96,19 @@ def delete_customer(email):
 def get_list_of_pets():
     return list(pets_col.find())
 
+def get_pet_by_id(pet_id):
+    try:
+        print(f"📌 Debug: Searching for pet with ID {pet_id}")
+        pet = pets_col.find_one({"_id": pet_id})
+        print(f"📌 Debug: Found pet: {pet}")
+        if pet:
+            pet["_id"] = str(pet["_id"])  # Convert ObjectId to string
+        return pet
+    except Exception as e:
+        print(f"❌ Error in get_pet_by_id: {e}")
+        return None
+
+
 
 def insert_pet(pet_dict):
     pets_col.insert_one(pet_dict)

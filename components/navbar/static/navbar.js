@@ -139,11 +139,15 @@ function setupNavbarListeners() {
                     result.animals.forEach(animal => {
                         const btn = document.createElement('button');
                         btn.textContent = animal.name;
+
+                        // ✅ Redirect to the correct pet profile using its ID
                         btn.addEventListener('click', () => {
-                            window.location.href = '/profile';
+                            window.location.href = `/profile/${animal.id}`;
                         });
+
                         animalButtonsContainer.appendChild(btn);
                     });
+
 
                     // Add an "Add" button for new pets
                     const addBtn = document.createElement('button');

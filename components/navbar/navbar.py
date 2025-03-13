@@ -44,7 +44,7 @@ def logout():
 def get_user_animals():
     if "user_email" in session:
         pets=get_pets_for_owner(session["user_email"])
-        pet_names=[{"name":pet.get("petName", "Unknown")} for pet in pets]
+        pet_names=[{"name": pet.get("petName", "Unknown"), "id": str(pet.get("_id", ""))} for pet in pets]
         return jsonify({"animals": pet_names})
     return jsonify({"animals": []})
 

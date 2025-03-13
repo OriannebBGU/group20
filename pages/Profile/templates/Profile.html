@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block page_body_header_content__headline %}
-        <h1>אזור אישי - {{ pets[0]["petName"] }}</h1> <!-- Dynamically shows pet name -->
+        <h1>אזור אישי - {{ pet["petName"] }}</h1>
 {% endblock %}
 
 {% block page_body_main %}
     <div class="profileContent">
-        {% if pets %}
+        {% if pet %}
             {% if upcoming_appointment %}
                 <h2>התור הקרוב: {{ upcoming_appointment["datetime"].strftime('%d/%m/%Y %H:%M') }}</h2>
             {% else %}
@@ -18,17 +18,17 @@
             {% endif %}
             <dl>
                 <dt>שם</dt>
-                <dd>{{ pets[0]["petName"] }}</dd>
+                <dd>{{ pet["petName"] }}</dd>
                 <dt>סוג</dt>
-                <dd>{{ pets[0]["type"] }}</dd>
+                <dd>{{ pet["type"] }}</dd>
                 <dt>מין</dt>
-                <dd>{{ pets[0]["gender"] }}</dd>
+                <dd>{{ pet["gender"] }}</dd>
                 <dt>תאריך לידה</dt>
-                <dd>{{ pets[0].get("birthdate", "לא ידוע") }}</dd>
+                <dd>{{ pet.get("birthdate", "לא ידוע") }}</dd>
                 <dt>משקל</dt>
-                <dd>{{ pets[0]["weight"] }}</dd>
+                <dd>{{ pet["weight"] }}</dd>
                 <dt>גזע</dt>
-                <dd>{{ pets[0].get("breed", "לא ידוע") }}</dd>
+                <dd>{{ pet.get("breed", "לא ידוע") }}</dd>
             </dl>
             <button class="editDetails">ערוך פרטים ></button>
             <button class="history">היסטוריה רפואית ></button>
