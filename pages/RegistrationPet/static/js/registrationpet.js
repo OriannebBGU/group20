@@ -1,69 +1,72 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const Pform = document.querySelector('.RegistrationPetForm');
     const PpetName = Pform.querySelector('input[name="petName"]');
     const Ptype = Pform.querySelector('select[name="type"]');
     const Pgender = Pform.querySelector('select[name="gender"]');
     const photoInput = Pform.querySelector('input[name="photo"]');
 
+    let userEmail = null;
+
+    try {
+        const userResponse = await fetch('/get-navbar-info');
+        const userData = await userResponse.json();
+        if (userData.isLoggedIn) {
+            userEmail = userData.email;
+            console.log("✅ Logged-in user email:", userEmail);
+        } else {
+            console.error("❌ User not logged in.");
+        }
+    } catch (error) {
+        console.error("❌ Error fetching user info:", error);
+    }
+
     Pform.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const existingErrors = Pform.querySelectorAll('.error-message');
-        existingErrors.forEach(error => error.remove());
+
+        if (!userEmail) {
+            alert("שגיאה: אין משתמש מחובר.");
+            return;
+        }
 
         let isValid = true;
         if (!PpetName.value.trim() || Ptype.value === 'unpicked' || Pgender.value === 'unpicked') {
-            showError(PpetName, 'חובה למלא שם, סוג ומין.');
-            isValid = false;
+            alert("חובה למלא שם, סוג ומין.");
             return;
         }
-        if (PpetName.value.trim().length < 2) {
-            showError(PpetName, 'שם חייב להכיל 2 תווים ומעלה.');
-            isValid = false;
-        }
-        if (photoInput.files.length > 0 && !photoInput.files[0].type.startsWith('image/')) {
-            showError(photoInput, 'יש להעלות קובץ תמונה בלבד.');
-            isValid = false;
-        }
 
-        if (isValid) {
-            const formData = {
-                petName: PpetName.value.trim(),
-                type: Ptype.value,
-                gender: Pgender.value,
-                photo: photoInput.files[0] ? photoInput.files[0].name : null,
-                ownerEmail: 'user@example.com' // TODO: Replace with the actual logged-in user's email
-            };
+        const formData = {
+            petName: PpetName.value.trim(),
+            type: Ptype.value,
+            gender: Pgender.value,
+            photo: photoInput.files[0] ? photoInput.files[0].name : null,
+            ownerEmail: userEmail // ✅ Set correct owner email
+        };
 
-            console.log("📤 Sending pet registration data:", formData);
+        console.log("📤 Sending pet registration data:", formData);
 
-            try {
-                const response = await fetch('/register-pet', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                });
+        try {
+            const response = await fetch('/register-pet', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
 
-                console.log("📥 Server response:", response);
+            const result = await response.json();
+            console.log("📥 JSON response:", result);
 
-                // Ensure response is valid JSON before parsing
-                const result = await response.json();
-                console.log("📥 JSON response:", result);
-
-                if (response.ok) {
-                    alert(result.message); // Success message
-                    window.location.href = '/'; // Redirect to homepage
-                } else {
-                    alert(result.error); // Show error message
-                }
-            } catch (error) {
-                console.error("❌ Fetch error:", error);
-                alert("שגיאה במהלך הרישום, נסה שנית.");
+            if (response.ok) {
+                alert(result.message);
+                window.location.href = '/'; // Redirect to homepage
+            } else {
+                alert(result.error);
             }
+        } catch (error) {
+            console.error("❌ Fetch error:", error);
+            alert("שגיאה במהלך הרישום, נסה שנית.");
         }
     });
 });
+
 
 //Error message function
 function showError(input, message) {

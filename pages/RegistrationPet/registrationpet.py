@@ -17,24 +17,27 @@ def registrationpet_func():
 @registrationpet.route('/register-pet', methods=['POST'])
 def register_pet():
     try:
-        print("Module name:", __name__)
         print("✅ Received a POST request to register a pet.")
 
-        # Ensure JSON data exists
         if not request.is_json:
             print("❌ Error: Request does not contain JSON data")
             return jsonify({"error": "Invalid request format. Expected JSON."}), 400
 
         data = request.json
-        petName = data.get("petName").strip().lower()
-        type = data.get("type").strip()
-        ownerEmail = data.get("ownerEmail").strip() ##where???
-        gender = data.get("gender").strip()
+        petName = data.get("petName", "").strip().lower()
+        type = data.get("type", "").strip()
+        gender = data.get("gender", "").strip()
+        ownerEmail = data.get("ownerEmail", "").strip()
+
+        if not ownerEmail:
+            print("❌ Error: Missing owner email")
+            return jsonify({"error": "No owner email provided."}), 400
+
         print(f"✅ Received pet data: {data}")
 
         new_pet = {
             "petName": petName,
-            "ownerEmail": ownerEmail,
+            "owner": ownerEmail,  # ✅ Save the actual user email
             "type": type,
             "gender": gender
         }

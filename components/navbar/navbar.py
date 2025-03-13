@@ -17,9 +17,6 @@ def serve_navbar_static(filename):
 
 @navbar.route('/get-navbar-info', methods=['GET'])
 def get_navbar_info():
-    # # FORCE A FAKE LOGIN FOR TESTING
-    # session["user_email"] = "shay@example.com"
-    # session["first_name"] = "Shay"0++*-
     print("🛠️ DEBUG: Session Data:", session)  # Debugging line
     if "user_email" in session:
         user_data = get_customer_name_by_email(session["user_email"])
@@ -29,9 +26,11 @@ def get_navbar_info():
         return jsonify({
             "isLoggedIn": True,
             "firstName": session.get("first_name", ""),
-            "role":session.get("Role", "")
+            "role": session.get("Role", ""),
+            "email": session["user_email"]  # ✅ Include email
         })
     return jsonify({"isLoggedIn": False})
+
 
 @navbar.route('/logout', methods=['POST'])
 def logout():
