@@ -177,6 +177,24 @@ def get_treatments_for_pet(pet_name):
         return []
 
 
+def update_pet_in_db(pet_id, update_data):
+    """Updates an existing pet's details in the database."""
+    try:
+        pet_obj_id = ObjectId(pet_id)  # Convert string ID to ObjectId for MongoDB query
+        result = pets_col.update_one({"_id": pet_obj_id}, {"$set": update_data})
+
+        if result.matched_count == 1:
+            print(f"✅ Pet {pet_id} updated successfully.")
+            return result
+        else:
+            print(f"❌ No pet found with ID {pet_id} to update.")
+            return None
+    except Exception as e:
+        print(f"❌ Error updating pet {pet_id}: {e}")
+        return None
+
+
+
 def get_treatment_details(pet_id, treatment_datetime):
     try:
         pet_name = pet_id  # ✅ Rename for clarity

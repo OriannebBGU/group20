@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const historyBtn = document.querySelector('.history');
 
     if (editDetailsBtn) {
-        editDetailsBtn.addEventListener('click', function() {
-            window.location.href = '/registrationpet';
+        editDetailsBtn.addEventListener('click', function () {
+            const petId = window.location.pathname.split('/profile/')[1]; // Extract pet ID
+            window.location.href = `/registrationpet?pet_id=${petId}`;
         });
     }
+
 
     if (historyBtn) {
         historyBtn.addEventListener('click', function() {
