@@ -40,15 +40,31 @@ async function loadTreatmentsForPet(petId) {
         historyTable.innerHTML = "";  // Clear existing table rows
 
         if (treatments.length === 0) {
-            // If no treatments, show a message
             const tableContainer = historyTable.closest('table');
-            const noTreatmentsMessage = document.createElement('p');
-            noTreatmentsMessage.className = 'no-treatments';
-            noTreatmentsMessage.textContent = 'אין היסטוריית טיפולים לחיית מחמד זו';
 
-            tableContainer.parentNode.insertBefore(noTreatmentsMessage, tableContainer);
+            // Check if message already exists
+            let noTreatmentsMessage = document.querySelector('.no-treatments');
+            if (!noTreatmentsMessage) {
+                noTreatmentsMessage = document.createElement('p');
+                noTreatmentsMessage.className = 'no-treatments';
+                tableContainer.parentNode.insertBefore(noTreatmentsMessage, tableContainer);
+            }
+
+            // Update text and make sure it only appears once
+            noTreatmentsMessage.textContent = 'אין היסטוריית טיפולים לחיית מחמד זו';
+            noTreatmentsMessage.style.display = 'block';
+            noTreatmentsMessage.style.opacity = 1;
+
+            // Hide table and button
             tableContainer.style.display = 'none';
             document.querySelector('.open-record-button').style.display = 'none';
+
+            // Blinking effect: Hide and show with a delay
+            noTreatmentsMessage.style.opacity = 0; // Instantly disappear
+            setTimeout(() => {
+                noTreatmentsMessage.style.opacity = 1; // Reappear after a short delay
+            }, 150); // Adjust delay for a sharp blink effect
+
         } else {
             // Show the table and hide any previous "no treatments" message
             const tableContainer = historyTable.closest('table');
@@ -56,8 +72,25 @@ async function loadTreatmentsForPet(petId) {
             document.querySelector('.open-record-button').style.display = 'block';
 
             const noTreatmentsMessage = document.querySelector('.no-treatments');
-            if (noTreatmentsMessage) {
-                noTreatmentsMessage.remove();
+            if (treatments.length > 0 && noTreatmentsMessage) {
+                noTreatmentsMessage.remove();  // ✅ Remove message if treatments exist
+            } else if (treatments.length === 0) {
+                if (noTreatmentsMessage) {
+                    noTreatmentsMessage.style.opacity = 0;
+                    setTimeout(() => {
+                        noTreatmentsMessage.style.opacity = 1;
+                    }, 50);
+                } else {
+                    const newMessage = document.createElement('p');
+                    newMessage.className = 'no-treatments';
+                    newMessage.textContent = 'אין היסטוריית טיפולים לחיית מחמד זו';
+                    tableContainer.parentNode.insertBefore(newMessage, tableContainer);
+
+                    newMessage.style.opacity = 0;
+                    setTimeout(() => {
+                        newMessage.style.opacity = 1;
+                    }, 50);
+                }
             }
 
             // Add treatment rows

@@ -21,8 +21,10 @@ def login_func():
         # Query the database for the customer by email
         user = get_customer_by_email(email)
 
-        # Check if the user exists and if the password matches
-        # Check if the user exists and if the password matches
+        if not user:  # ✅ If no user is found, treat it like a wrong password
+            flash('דואר אלקטרוני או סיסמה שגויים.')
+            return redirect(url_for('login.login_func'))
+
         stored_password = user.get('Password') or user.get('password')  # ✅ Check both variations
 
         if user and stored_password == password:
