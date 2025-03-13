@@ -35,7 +35,7 @@ def register_user():
             "firstName": first_name,
             "lastName": last_name,
             "Email": email,  # ✅ Store it as "Email" to match MongoDB
-            "password": password,
+            "Password": password,
             "phoneNumber": phone,
             "role": 1
         }

@@ -23,7 +23,10 @@ def login_func():
 
         # Check if the user exists and if the password matches
         # Check if the user exists and if the password matches
-        if user and user.get('Password') == password:
+        stored_password = user.get('Password') or user.get('password')  # ✅ Check both variations
+
+        if user and stored_password == password:
+
             session['logged_in'] = True
             session['user_email'] = email
             session["first_name"] = user["firstName"]

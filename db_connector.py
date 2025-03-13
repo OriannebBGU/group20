@@ -75,7 +75,10 @@ def insert_customer(customer_dict):
 
 
 def get_customer_by_email(email):
-    return customers_col.find_one({"Email": email})
+    user = customers_col.find_one({"Email": email})
+    print(f"📌 Debug: Retrieved user for email '{email}': {user}")
+    return user
+
 
 def get_customer_name_by_email(email):
     return customers_col.find_one({"Email": email}, {"_id": 0, "firstName": 1, "Role": 1})
