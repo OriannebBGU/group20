@@ -33,7 +33,8 @@ async function setNavbarDisplay() {
                 if (menuButton) menuButton.style.display = 'none';
             }
             if (welcomeMessage) {
-                if (window.showWelcome) {
+                const isHomepage = window.location.pathname === '/' || window.location.pathname === '/homepage';
+                if (isHomepage && result.isLoggedIn) {
                     welcomeMessage.textContent = `טוב לראות אותך שוב, ${result.firstName}!`;
                     welcomeMessage.style.display = 'block';
                 } else {
