@@ -64,9 +64,8 @@ def register_pet():
             "weight": weight  # ✅ Store weight as a float
         }
 
-        insert_pet(new_pet)
-
-        return jsonify({"message": "ההרשמה בוצעה בהצלחה!"}), 200
+        new_pet_id = insert_pet(new_pet)
+        return jsonify({"message": "חיית המחמד נרשמה בהצלחה!", "petId": str(new_pet_id)}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500

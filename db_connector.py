@@ -110,9 +110,10 @@ def get_pet_by_id(pet_id):
 
 
 
-def insert_pet(pet_dict):
-    pets_col.insert_one(pet_dict)
-    print(f"✅ Inserted pet: {pet_dict}")  # ✅ Debugging print
+def insert_pet(pet_data):
+    result = pets_col.insert_one(pet_data)  # Insert into DB
+    return str(result.inserted_id)  # Return the new pet's ID
+
 
 
 def get_pet_by_name(pet_name):
