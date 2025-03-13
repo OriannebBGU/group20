@@ -22,7 +22,7 @@ def get_navbar_info():
         user_data = get_customer_name_by_email(session["user_email"])
         if user_data:
             session["first_name"] = user_data.get("firstName", "")  # Store first name in session
-            session["Role"] = user_data.get("Role", "")
+            session["Role"] = user_data.get("Role", user_data.get("role", ""))
         return jsonify({
             "isLoggedIn": True,
             "firstName": session.get("first_name", ""),
