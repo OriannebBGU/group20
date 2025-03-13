@@ -34,13 +34,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        const Pbreed = Pform.querySelector('input[name="breed"]');
+        const Pbirthdate = Pform.querySelector('input[name="age"]');
+        const Pweight = Pform.querySelector('input[name="weight"]');
+
         const formData = {
             petName: PpetName.value.trim(),
             type: Ptype.value,
             gender: Pgender.value,
+            birthdate: Pbirthdate.value ? Pbirthdate.value : null,
+            breed: Pbreed.value.trim() || null,
+            weight: Pweight.value.trim() !== "" ? parseFloat(Pweight.value) : null,  // ✅ Ensure null is sent for empty input
             photo: photoInput.files[0] ? photoInput.files[0].name : null,
-            ownerEmail: userEmail // ✅ Set correct owner email
+            ownerEmail: userEmail
         };
+
+
 
         console.log("📤 Sending pet registration data:", formData);
 

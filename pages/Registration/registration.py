@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, session
 from db_connector import insert_customer, get_customer_by_email
 
 # Registration blueprint
@@ -15,7 +15,9 @@ registration = Blueprint(
 def registration_func():
     return render_template('registration.html')
 
-# Handle user registration (POST)
+
+import time  # Import time for delay
+
 @registration.route('/register-user', methods=['POST'])
 def register_user():
     try:
@@ -26,22 +28,39 @@ def register_user():
         password = data.get("password").strip()
         phone = data.get("phoneNumber").strip()
 
-        # Check if the email already exists using the CRUD function
         if get_customer_by_email(email):
             return jsonify({"error": "Email already registered"}), 400
 
-        # Insert the new user using the existing insert_customer function
         new_user = {
             "firstName": first_name,
             "lastName": last_name,
-            "email": email,
-            "password": password,  # 🔴 Hash passwords in a real app!
+            "Email": email,  # ✅ Store it as "Email" to match MongoDB
+            "password": password,
             "phoneNumber": phone,
-            "role": 1  # Default role
+            "role": 1
         }
         insert_customer(new_user)
+
+        import time
+        time.sleep(0.5)  # Ensure MongoDB has time to commit
+
+        user_data = get_customer_by_email(email)  # ✅ Now it should match
+        print(f"📌 Debug: Retrieved user data after insert = {user_data}")
+
+        if not user_data:
+            print("❌ Error: Newly inserted user not found in the database!")
+            return jsonify({"error": "User registration failed. Please try again."}), 500
+
+        session["user_email"] = email
+        session["user_id"] = str(user_data["_id"])
+        session["first_name"] = first_name
+        session["role"] = 1
 
         return jsonify({"message": "User registered successfully"}), 201
 
     except Exception as e:
+        print(f"❌ Fatal Error in register_user: {e}")
         return jsonify({"error": str(e)}), 500
+
+
+

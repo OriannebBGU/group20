@@ -96,6 +96,7 @@ def get_list_of_pets():
 
 def insert_pet(pet_dict):
     pets_col.insert_one(pet_dict)
+    print(f"✅ Inserted pet: {pet_dict}")  # ✅ Debugging print
 
 
 def get_pet_by_name(pet_name):

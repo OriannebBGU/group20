@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request, jsonify
 from db_connector import insert_pet, get_pet_by_name
+from datetime import datetime
 
 # Pet Registration blueprint
 registrationpet = Blueprint(
@@ -35,12 +36,36 @@ def register_pet():
 
         print(f"✅ Received pet data: {data}")
 
+        birthdate_str = data.get("birthdate", "").strip()
+        breed = data.get("breed", "").strip()
+        weight_raw = data.get("weight", None)  # ✅ Ensure we get None if weight is missing
+        weight = None
+        if weight_raw not in (None, "", "null"):  # ✅ Handle empty or null values properly
+            try:
+                weight = float(weight_raw)  # ✅ Convert to float safely
+            except (ValueError, TypeError):
+                print(f"❌ Invalid weight format received: {weight_raw}")
+                return jsonify({"error": "Invalid weight format"}), 400
+
+        # Convert birthdate to datetime object if provided
+        birthdate = None
+        if birthdate_str:
+            try:
+                birthdate = datetime.strptime(birthdate_str, "%Y-%m-%d")
+            except ValueError:
+                print(f"❌ Invalid birthdate format received: {birthdate_str}")
+                return jsonify({"error": "Invalid birthdate format"}), 400
+
         new_pet = {
             "petName": petName,
-            "owner": ownerEmail,  # ✅ Save the actual user email
+            "owner": ownerEmail,
             "type": type,
-            "gender": gender
+            "gender": gender,
+            "birthdate": birthdate,
+            "breed": breed if breed else None,
+            "weight": weight  # ✅ Store weight as a float
         }
+
         insert_pet(new_pet)
 
         return jsonify({"message": "ההרשמה בוצעה בהצלחה!"}), 200
