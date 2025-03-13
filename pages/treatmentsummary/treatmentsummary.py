@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, jsonify, request, session
-from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner, get_customer_by_email
+from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner, get_customer_by_email, get_all_treatments, get_all_pets
 from datetime import datetime
 
 treatmentsummary = Blueprint(
@@ -27,8 +27,15 @@ def treatmentsummary_func():
     selected_pet = None
 
     if user_id:
-        # Get all pets for the current user
-        pets = get_pets_for_owner(session.get('user_email'))
+        # For Role 2 users (vets/doctors), get all pets
+        if user_role == 2:
+            # Get all treatments from the database
+            treatments = get_all_treatments()  # We need to create this function
+            # Get all pets for display in the dropdown
+            pets = get_all_pets()  # We need to create this function
+        else:
+            # For regular users, get only their pets
+            pets = get_pets_for_owner(session.get('user_email'))
 
         # Add owner full name to each pet object
         for pet in pets:
@@ -40,10 +47,15 @@ def treatmentsummary_func():
                 else:
                     pet['ownerFullName'] = "משתמש לא ידוע"
 
-        # If user has pets, get treatments for the first pet by default
-        if pets:
+        # If user has pets and is not Role 2, get treatments for the first pet by default
+        if pets and user_role != 2:
             selected_pet = request.args.get('pet_id', pets[0]['petName'])
             treatments = get_treatments_for_pet(selected_pet)
+        elif pets and user_role == 2:
+            # For Role 2, use the selected pet if specified, otherwise show all
+            selected_pet = request.args.get('pet_id')
+            if selected_pet:
+                treatments = get_treatments_for_pet(selected_pet)
 
     return render_template('treatmentsummmary.html',
                            treatments=treatments,
@@ -92,6 +104,21 @@ def get_treatment_details_func():
     except Exception as e:
         print(f"❌ Fatal Error in get-treatment-details: {e}")
         return jsonify({"error": "Internal server error"}), 500
+
+
+@treatmentsummary.route('/get-all-treatments', methods=['GET'])
+def get_all_treatments_route():
+    # Only allow Role 2 users to access this endpoint
+    user_email = session.get('user_email')
+    user_data = get_customer_by_email(user_email) if user_email else None
+    user_role = user_data.get('Role') if user_data else None
+
+    if user_role != 2:
+        return jsonify({"error": "Unauthorized"}), 403
+
+    treatments = get_all_treatments()
+    print(f"📌 Debug: All treatments = {len(treatments)}")
+    return jsonify(treatments)
 
 
 @treatmentsummary.route('/debug-session')

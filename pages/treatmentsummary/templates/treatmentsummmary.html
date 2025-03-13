@@ -116,14 +116,21 @@
                 <tr>
                     <th></th>
                     <th>תאריך</th>
+                    {% if user_role == 2 %}
+                        <th>חיית מחמד</th>
+                    {% endif %}
                     <th>סוג טיפול</th>
                 </tr>
                 </thead>
                 <tbody id="treatment-history">
                 {% for treatment in treatments %}
-                    <tr data-pet-id="{{ treatment.petId }}" data-datetime="{{ treatment.datetime }}">
+                    <tr data-pet-id="{{ treatment.petName }}" data-datetime="{{ treatment.datetime }}">
                         <td><input type="radio" class="select-row" name="select-treatment"></td>
                         <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') if treatment.datetime is defined else 'N/A' }}</td>
+                        {% if user_role == 2 %}
+                            <td>{{ treatment.ownerFullName if treatment.ownerFullName is defined else 'לא ידוע' }}</td>
+                            <td>{{ treatment.petName }}</td>
+                        {% endif %}
                         <td>{{ treatment.treatment }}</td>
                     </tr>
                 {% endfor %}

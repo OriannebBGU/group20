@@ -26,12 +26,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// Update the loadTreatmentsForPet function to handle different roles
 async function loadTreatmentsForPet(petId) {
     const historyTable = document.querySelector('#treatment-history');
     if (!historyTable) return;
 
     try {
-        const response = await fetch(`/get-treatments/${petId}`);
+        // For Role 2 users with no pet selected, get all treatments
+        const endpoint = petId ? `/get-treatments/${petId}` : '/get-all-treatments';
+        const response = await fetch(endpoint);
         const treatments = await response.json();
 
         historyTable.innerHTML = "";  // Clear existing table rows
@@ -62,14 +65,20 @@ async function loadTreatmentsForPet(petId) {
                 const row = document.createElement('tr');
 
                 // Store the treatment data in data attributes
-                row.setAttribute('data-pet-id', treatment.petName || "MISSING");  // ✅ Fix: Use petName
+                row.setAttribute('data-pet-id', treatment.petName || "MISSING");
                 row.setAttribute('data-datetime', treatment.datetime || "MISSING");
 
                 const treatmentDate = new Date(treatment.datetime);
 
+                // For Role 2 users, show owner name as well
+                const ownerInfo = USER_TYPE === 'doctor' && treatment.ownerFullName ?
+                    `<td>${treatment.ownerFullName}</td>` : '';
+
                 row.innerHTML = `
                     <td><input type="radio" class="select-row" name="select-treatment"></td>
                     <td>${treatmentDate.toLocaleDateString('he-IL')}</td>
+                    ${ownerInfo}
+                    <td>${treatment.petName}</td>
                     <td>${treatment.treatment}</td>
                 `;
                 historyTable.appendChild(row);

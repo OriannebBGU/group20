@@ -208,6 +208,43 @@ def delete_appointment(pet_name, owner_email):
     appointments_col.delete_one({"petName": pet_name, "owner": owner_email})
 
 
+def get_all_treatments():
+    """Get all treatments in the database, sorted by date descending"""
+    try:
+        treatments = list(appointments_col.find().sort("datetime", DESCENDING))
+        for treatment in treatments:
+            treatment['_id'] = str(treatment['_id'])
+            # Add owner and pet info
+            owner_email = treatment.get("owner")
+            if owner_email:
+                owner = customers_col.find_one({"Email": owner_email})
+                if owner:
+                    treatment['ownerFullName'] = f"{owner.get('firstName', '')} {owner.get('lastName', '')}"
+        return treatments
+    except Exception as e:
+        print(f"❌ Error in get_all_treatments: {e}")
+        return []
+
+def get_all_pets():
+    """Get all pets in the database"""
+    try:
+        pets = list(pets_col.find())
+        for pet in pets:
+            pet['_id'] = str(pet['_id'])
+            # Add owner full name
+            owner_email = pet.get('owner')
+            if owner_email:
+                owner_data = get_customer_by_email(owner_email)
+                if owner_data:
+                    pet['ownerFullName'] = f"{owner_data.get('firstName', '')} {owner_data.get('lastName', '')}"
+                else:
+                    pet['ownerFullName'] = "משתמש לא ידוע"
+        return pets
+    except Exception as e:
+        print(f"❌ Error in get_all_pets: {e}")
+        return []
+
+
 # ----------------- INITIAL DATA INSERTION ----------------- #
 if __name__ == "__main__":
     insert_first_users()
