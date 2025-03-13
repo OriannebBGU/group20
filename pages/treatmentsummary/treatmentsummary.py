@@ -1,6 +1,8 @@
 from flask import Blueprint, render_template, jsonify, request, session
-from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner, get_customer_by_email, get_all_treatments, get_all_pets
+from db_connector import get_treatments_for_pet, get_treatment_details, get_pets_for_owner, get_customer_by_email, \
+    get_all_treatments, get_all_pets, get_pet_by_id
 from datetime import datetime
+from bson.objectid import ObjectId
 
 treatmentsummary = Blueprint(
     'treatmentsummary',
@@ -30,9 +32,9 @@ def treatmentsummary_func():
         # For Role 2 users (vets/doctors), get all pets
         if user_role == 2:
             # Get all treatments from the database
-            treatments = get_all_treatments()  # We need to create this function
+            treatments = get_all_treatments()
             # Get all pets for display in the dropdown
-            pets = get_all_pets()  # We need to create this function
+            pets = get_all_pets()
         else:
             # For regular users, get only their pets
             pets = get_pets_for_owner(session.get('user_email'))
@@ -47,9 +49,30 @@ def treatmentsummary_func():
                 else:
                     pet['ownerFullName'] = "משתמש לא ידוע"
 
-        # If user has pets and is not Role 2, get treatments for the first pet by default
-        if pets and user_role != 2:
-            selected_pet = request.args.get('pet_id', pets[0]['petName'])
+        # Check if a specific pet_id was provided in the URL
+        pet_id_param = request.args.get('pet_id')
+
+        if pet_id_param and user_role == 1:
+            # Try to get the pet by ID
+            try:
+                pet = get_pet_by_id(ObjectId(pet_id_param))
+                if pet and pet.get('owner') == user_email:
+                    # If the pet belongs to the current user, use its name
+                    selected_pet = pet.get('petName')
+                    treatments = get_treatments_for_pet(selected_pet)
+                else:
+                    # If pet doesn't exist or doesn't belong to user, fall back to default
+                    if pets:
+                        selected_pet = pets[0]['petName']
+                        treatments = get_treatments_for_pet(selected_pet)
+            except:
+                # If there's an error (e.g., invalid ObjectId), fall back to default
+                if pets:
+                    selected_pet = pets[0]['petName']
+                    treatments = get_treatments_for_pet(selected_pet)
+        # If no pet_id parameter or error, use default behavior
+        elif pets and user_role == 1:
+            selected_pet = pets[0]['petName']
             treatments = get_treatments_for_pet(selected_pet)
         elif pets and user_role == 2:
             # For Role 2, use the selected pet if specified, otherwise show all
