@@ -2,13 +2,11 @@ import os
 import pymongo
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-from datetime import datetime
 from dotenv import load_dotenv
 from pymongo import ASCENDING
 from pymongo import DESCENDING
 from datetime import datetime
 from bson.objectid import ObjectId
-
 
 load_dotenv()
 # Get your MongoDB URI from .env file
@@ -96,6 +94,7 @@ def delete_customer(email):
 def get_list_of_pets():
     return list(pets_col.find())
 
+
 def get_pet_by_id(pet_id):
     try:
         print(f"📌 Debug: Searching for pet with ID {pet_id}")
@@ -109,15 +108,14 @@ def get_pet_by_id(pet_id):
         return None
 
 
-
 def insert_pet(pet_data):
     result = pets_col.insert_one(pet_data)  # Insert into DB
     return str(result.inserted_id)  # Return the new pet's ID
 
 
-
 def get_pet_by_name(pet_name):
     return pets_col.find_one({"petName": pet_name})
+
 
 def get_pets_by_owner(email):
     return list(pets_col.find({"owner": email}, {"_id": 0}))
@@ -132,8 +130,6 @@ def get_pets_for_owner(owner_email):
     except Exception as e:
         print(f"❌ Error in get_pets_for_owner: {e}")
         return []
-
-
 
 
 def update_pet(pet_name, update_data):
@@ -155,6 +151,7 @@ def insert_appointment(appointment_dict):
 
 def get_appointment_by_pet_owner(pet_name, owner_email):
     return appointments_col.find_one({"petName": pet_name, "owner": owner_email})
+
 
 def get_latest_future_appointment(pet_name, owner_email):
     future_appointments = list(appointments_col.find({
@@ -193,7 +190,6 @@ def update_pet_in_db(pet_id, update_data):
     except Exception as e:
         print(f"❌ Error updating pet {pet_id}: {e}")
         return None
-
 
 
 def get_treatment_details(pet_id, treatment_datetime):
@@ -260,6 +256,7 @@ def get_all_treatments():
     except Exception as e:
         print(f"❌ Error in get_all_treatments: {e}")
         return []
+
 
 def get_all_pets():
     """Get all pets in the database"""

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const editDetailsBtn = document.querySelector('.editDetails');
     const historyBtn = document.querySelector('.history');
 
@@ -9,9 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-
     if (historyBtn) {
-        historyBtn.addEventListener('click', function() {
+        historyBtn.addEventListener('click', function () {
             // Get the current pet ID from the URL
             const currentPath = window.location.pathname;
             const petId = currentPath.split('/profile/')[1];

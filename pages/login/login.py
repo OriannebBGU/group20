@@ -21,11 +21,11 @@ def login_func():
         # Query the database for the customer by email
         user = get_customer_by_email(email)
 
-        if not user:  # ✅ If no user is found, treat it like a wrong password
+        if not user:  # If no user is found, treat it like a wrong password
             flash('דואר אלקטרוני או סיסמה שגויים.')
             return redirect(url_for('login.login_func'))
 
-        stored_password = user.get('Password') or user.get('password')  # ✅ Check both variations
+        stored_password = user.get('Password') or user.get('password')  # Check both variations
 
         if user and stored_password == password:
 
@@ -33,9 +33,8 @@ def login_func():
             session['user_email'] = email
             session["first_name"] = user["firstName"]
             session['user_role'] = user.get('Role')
-            # ✅ Store user_id in session (assuming user['_id'] exists)
+            #  Store user_id in session (assuming user['_id'] exists)
             session['user_id'] = str(user['_id'])  # Convert ObjectId to string if needed
-            print(f"✅ Session set: user_id = {session.get('user_id')}")  # Debugging
             return redirect(url_for('homepage.homepage_func'))
         else:
             flash('דואר אלקטרוני או סיסמה שגויים.')

@@ -9,13 +9,9 @@ homepage = Blueprint(
     template_folder='templates'
 )
 
+
 # Routes
 @homepage.route('/homepage')
 @homepage.route('/')
 def homepage_func():
     return render_template('homepage.html')
-
-# @homepage.route('/homepage')
-# def homepage_func():
-#     return render_template('homepage.html')
-

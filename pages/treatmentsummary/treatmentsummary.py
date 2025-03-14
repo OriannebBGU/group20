@@ -90,7 +90,6 @@ def treatmentsummary_func():
 @treatmentsummary.route('/get-treatments/<pet_id>', methods=['GET'])
 def get_treatments(pet_id):
     treatments = get_treatments_for_pet(pet_id)
-    print(f"📌 Debug: Treatments for pet {pet_id} = {treatments}")
     return jsonify(treatments)
 
 
@@ -98,34 +97,31 @@ def get_treatments(pet_id):
 def get_treatment_details_func():
     try:
         data = request.get_json()
-        print(f"📌 Received request data: {data}")  # ✅ Debugging line
 
         pet_id = data.get('petId')
         treatment_datetime_str = data.get('datetime')
 
         if not pet_id or not treatment_datetime_str:
-            print("❌ Error: Missing petId or datetime in request")
             return jsonify({"error": "Missing petId or datetime"}), 400
 
         # Debug datetime conversion
         try:
             treatment_datetime = datetime.fromisoformat(treatment_datetime_str.replace('Z', '+00:00'))
-            print(f"✅ Parsed datetime: {treatment_datetime}")  # ✅ Debugging line
         except ValueError as ve:
             print(f"❌ Error converting datetime: {ve}")
             return jsonify({"error": "Invalid datetime format"}), 400
 
-        treatment_details = get_treatment_details(pet_id, treatment_datetime)  # ✅ Correct
+        treatment_details = get_treatment_details(pet_id, treatment_datetime)  # Correct
 
         if not treatment_details:
-            print(f"❌ Error: No treatment found for pet ID {pet_id} at {treatment_datetime}")
+            print(f" Error: No treatment found for pet ID {pet_id} at {treatment_datetime}")
             return jsonify({"error": "Treatment not found"}), 404
 
-        print(f"✅ Found treatment details: {treatment_details}")
+        print(f" Found treatment details: {treatment_details}")
         return jsonify(treatment_details)
 
     except Exception as e:
-        print(f"❌ Fatal Error in get-treatment-details: {e}")
+        print(f" Fatal Error in get-treatment-details: {e}")
         return jsonify({"error": "Internal server error"}), 500
 
 
@@ -140,7 +136,6 @@ def get_all_treatments_route():
         return jsonify({"error": "Unauthorized"}), 403
 
     treatments = get_all_treatments()
-    print(f"📌 Debug: All treatments = {len(treatments)}")
     return jsonify(treatments)
 
 

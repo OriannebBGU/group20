@@ -13,8 +13,8 @@ input[type="submit"] {
 }
 
 .flash-messages {
-    background-color: #ffcccc; /* Light red background */
-    color: #d8000c; /* Dark red text */
+    background-color: #ffcccc;
+    color: #d8000c;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;

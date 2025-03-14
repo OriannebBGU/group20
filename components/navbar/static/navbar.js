@@ -15,11 +15,7 @@ async function setNavbarDisplay() {
         const result = await response.json();
         const role = result.role;
 
-        console.log("Navbar API response:", result); // Debugging line
-        console.log("Navbar role response:", role); // Debugging line
-
         if (response.ok && result.isLoggedIn) {
-            console.log("User is logged in, updating navbar..."); // Debugging line
 
             // Show only the required buttons for logged-in users
             homeButton.style.display = 'inline-block';
@@ -47,7 +43,6 @@ async function setNavbarDisplay() {
             regisButton.style.display = 'none';
 
         } else {
-            console.log("User is logged out, updating navbar..."); // Debugging line
 
             // Show only the required buttons for logged-out users
             homeButton.style.display = 'inline-block';
@@ -125,12 +120,6 @@ function setupNavbarListeners() {
                 }// Debugging line
 
                 const result = await response.json();
-
-                console.log("Fetched pet names:", result.animals); // Debugging line
-                if (!Array.isArray(result.animals)) {// Debugging line
-                    console.error("Error: animals is not an array", result.animals);// Debugging line
-                    return;// Debugging line
-                }// Debugging line
 
                 if (response.ok && result.animals) {
                     // Clear any existing content

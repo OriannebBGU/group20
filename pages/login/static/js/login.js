@@ -1,5 +1,3 @@
-
-
 //Login validation
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.LogInForm');
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If form is valid, you can proceed with submission
         if (isValid) {
-            // localStorage.setItem('isLoggedIn', 'true');
             form.submit();
         }
     });

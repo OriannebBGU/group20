@@ -1,4 +1,3 @@
-
 /*!*Header styling: *!*/
 header button {
     background-color: #88BDAE;
@@ -15,6 +14,7 @@ header button {
     box-sizing: border-box;
     border-color: lightblue;
 }
+
 .headerButtons {
     display: flex;
     flex-direction: column;
@@ -51,6 +51,7 @@ header button {
         display: none;
     }
 }
+
 @media (min-height: 650px) {
     /*header: */
     .headerButtons {

@@ -19,5 +19,3 @@ test_appointment = {
 # Insert appointment into DB
 insert_appointment(test_appointment)
 print(f"✅ Inserted appointment for {pet_name} on {future_date.strftime('%d/%m/%Y %H:%M')}")
-
-

@@ -10,8 +10,6 @@ h2 {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    /*background-color: #333333;*/
-
 }
 
 dl {
@@ -54,7 +52,7 @@ dd {
     padding-right: 15px;
 }
 
- .history {
+.history {
     position: absolute;
     font-family: Calibri, sans-serif;
     font-weight: bold;

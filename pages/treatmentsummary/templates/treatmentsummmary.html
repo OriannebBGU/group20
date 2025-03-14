@@ -1,14 +1,8 @@
 {% extends 'base.html' %}
 
 {% block page_head_css %}
-<link rel="stylesheet" href="{{ url_for('treatmentsummary.static' , filename='CSS/treatmentsummary.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('treatmentsummary.static' , filename='CSS/treatmentsummary.css' ) }}">
 {% endblock %}
-
-{#!!לא למחוק#}
-{#<div class="userTypeButtons">#}
-{#    <button id="patientButton" class="header-buttons header-bnt">Switch to Patient View</button>#}
-{#    <button id="doctorButton" class="header-buttons header-bnt">Switch to Doctor View</button>#}
-{#</div>#}
 
 {% block page_body_header_content__headline %}
     <h1>היסטוריית טיפולים</h1>
@@ -23,23 +17,24 @@
                 </div>
             {% else %}
                 {% if pets %}
-    <div class="form-group" id="animalDropdown">
-        {% if user_role == 2 %}
-            <label for="pet-selector">בחר חיית מחמד:</label>
-            <select id="pet-selector" name="pet-selector" class="pet-selector">
-                {% for pet in pets %}
-                    <option value="{{ pet.petName }}" {% if pet.petName == selected_pet %}selected{% endif %}>
-                        {{ pet.ownerFullName }}: {{ pet.petName }}
-                    </option>
-                {% endfor %}
-            </select>
-        {% else %}
-            <!-- For non-role 2 users, just display the selected pet name without dropdown -->
-            <div class="selected-pet-info">
-                <p>חיית מחמד: {{ selected_pet }}</p>
-            </div>
-        {% endif %}
-    </div>
+                    <div class="form-group" id="animalDropdown">
+                        {% if user_role == 2 %}
+                            <label for="pet-selector">בחר חיית מחמד:</label>
+                            <select id="pet-selector" name="pet-selector" class="pet-selector">
+                                {% for pet in pets %}
+                                    <option value="{{ pet.petName }}"
+                                            {% if pet.petName == selected_pet %}selected{% endif %}>
+                                        {{ pet.ownerFullName }}: {{ pet.petName }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        {% else %}
+                            <!-- For non-role 2 users, just display the selected pet name without dropdown -->
+                            <div class="selected-pet-info">
+                                <p>חיית מחמד: {{ selected_pet }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
                 {% else %}
                     <div class="alert alert-info">
                         אין חיות מחמד רשומות במערכת עבור המשתמש הזה
@@ -111,33 +106,31 @@
         <section class="history-section">
             <h2>היסטוריית טיפולים</h2>
             {% if treatments %}
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>תאריך</th>
-{#                    {% if user_role == 2 %}#}
+                <table>
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>תאריך</th>
                         <th>חיית מחמד</th>
-{#                    {% endif %}#}
-                    <th>סוג טיפול</th>
-                </tr>
-                </thead>
-                <tbody id="treatment-history">
-                {% for treatment in treatments %}
-                    <tr data-pet-id="{{ treatment.petName }}" data-datetime="{{ treatment.datetime }}">
-                        <td><input type="radio" class="select-row" name="select-treatment"></td>
-                        <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') if treatment.datetime is defined else 'N/A' }}</td>
-                        {% if user_role == 2 %}
-                            <td>{{ treatment.ownerFullName if treatment.ownerFullName is defined else 'לא ידוע' }}</td>
-                            <td>{{ treatment.petName }}</td>
-                        {% endif %}
-                        <td>{{ treatment.treatment }}</td>
+                        <th>סוג טיפול</th>
                     </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="treatment-history">
+                    {% for treatment in treatments %}
+                        <tr data-pet-id="{{ treatment.petName }}" data-datetime="{{ treatment.datetime }}">
+                            <td><input type="radio" class="select-row" name="select-treatment"></td>
+                            <td>{{ treatment.datetime.strftime('%d/%m/%Y %H:%M') if treatment.datetime is defined else 'N/A' }}</td>
+                            {% if user_role == 2 %}
+                                <td>{{ treatment.ownerFullName if treatment.ownerFullName is defined else 'לא ידוע' }}</td>
+                                <td>{{ treatment.petName }}</td>
+                            {% endif %}
+                            <td>{{ treatment.treatment }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
 
-            <button type="button" class="open-record-button">פתיחה</button>
+                <button type="button" class="open-record-button">פתיחה</button>
             {% else %}
                 <p class="no-treatments">אין היסטוריית טיפולים זמינה</p>
             {% endif %}

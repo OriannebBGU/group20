@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log("✅ User session should be set. Redirecting...");
                     setTimeout(() => {
                         window.location.href = '/registrationpet';
-                        }, 500);  // ✅ Give the backend a moment to set the session
-                    } else {
+                    }, 500);  // ✅ Give the backend a moment to set the session
+                } else {
                     alert(result.error); // Show error message if email exists
                 }
             } catch (error) {

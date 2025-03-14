@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (petSelector.value) {
             await loadTreatmentsForPet(petSelector.value);
         }
-    }
-    else {
+    } else {
         // If no dropdown (user is not Role 2), get the selected pet from the displayed text
         const selectedPetInfo = document.querySelector('.selected-pet-info');
         if (selectedPetInfo) {
@@ -118,7 +117,7 @@ async function loadTreatmentsForPet(petId) {
             });
         }
     } catch (error) {
-        console.error("❌ Error fetching treatments:", error);
+        console.error("Error fetching treatments:", error);
     }
 }
 
@@ -272,12 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const row = selectedRow.closest('tr');
         const petId = row.getAttribute('data-pet-id') || "UNKNOWN";
-        console.log("📌 Sending petId:", petId);  // ✅ Debugging log
         const datetimeAttr = row.getAttribute('data-datetime');
         const datetime = datetimeAttr ? new Date(datetimeAttr).toISOString() : null;
-        console.log("📌 Debug: Formatted datetime:", datetime);
-        console.log("📌 Sending datetime:", datetime);  // ✅ Debugging log
-
 
         if (!petId || !datetime) {
             alert('מידע חסר בשורה הנבחרת.');
@@ -306,36 +301,36 @@ document.addEventListener('DOMContentLoaded', () => {
             if (USER_TYPE === 'doctor') {
                 clientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
                 petNameInput.value = treatmentDetails.petName;
-                
+
                 // Find and select the matching treatment type in the dropdown
                 const options = Array.from(treatmentTypeSelect.options);
-                const matchingOption = options.find(option => 
-                    option.text === treatmentDetails.treatment || 
+                const matchingOption = options.find(option =>
+                    option.text === treatmentDetails.treatment ||
                     option.value === treatmentDetails.treatment
                 );
-                
+
                 if (matchingOption) {
                     treatmentTypeSelect.value = matchingOption.value;
                 } else {
                     treatmentTypeSelect.value = 'other'; // Default to 'other' if not found
                 }
-                
+
                 summaryTextarea.value = treatmentDetails.summary;
                 summaryTextarea.readOnly = true; // Make read-only for past treatments
             } else {
                 PclientNameInput.value = treatmentDetails.ownerFullName || "לא ידוע";
                 PpetNameInput.value = treatmentDetails.petName;
                 PtreatmentTypeInput.value = treatmentDetails.treatment;
-                
+
                 // Format date for display
                 const treatmentDate = new Date(treatmentDetails.datetime);
                 const formattedDate = treatmentDate.toLocaleDateString('he-IL');
-                
+
                 summaryTextarea.value = `תאריך: ${formattedDate}\nסוג טיפול: ${treatmentDetails.treatment}\n\n${treatmentDetails.summary}`;
                 summaryTextarea.readOnly = true;
             }
         } catch (error) {
-            console.error('❌ Error fetching treatment details:', error);
+            console.error('Error fetching treatment details:', error);
             alert('אירעה שגיאה בטעינת פרטי הטיפול.');
         }
     }

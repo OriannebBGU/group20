@@ -1,4 +1,3 @@
-
 /*TreatmentSummary styling:   */
 .select_container {
     display: flex;
@@ -15,8 +14,8 @@
 }
 
 #animalDropdown {
-    flex-grow: 0.1 !important;  /* Prevents it from expanding */
-    height: auto !important;  /* Ensures it only takes necessary space */
+    flex-grow: 0.1 !important;
+    height: auto !important;
     min-height: 2px !important;
 }
 
@@ -190,7 +189,6 @@
 .userTypeButtons button {
     background-color: #5CA48F;
 }
-
 
 /*Style according to screen size:   */
 @media (max-width: 768px) {

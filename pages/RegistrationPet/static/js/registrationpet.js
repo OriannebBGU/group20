@@ -13,28 +13,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let userEmail = null;
 
-    // ✅ Fetch logged-in user info
+    // Fetch logged-in user info
     try {
         const userResponse = await fetch('/get-navbar-info');
         const userData = await userResponse.json();
         if (userData.isLoggedIn) {
             userEmail = userData.email;
-            console.log("✅ Logged-in user email:", userEmail);
+            console.log(" Logged-in user email:", userEmail);
         } else {
-            console.error("❌ User not logged in.");
+            console.error(" User not logged in.");
         }
     } catch (error) {
-        console.error("❌ Error fetching user info:", error);
+        console.error(" Error fetching user info:", error);
     }
 
-    // ✅ If editing an existing pet, load pet details
+    //  If editing an existing pet, load pet details
     if (petId) {
         try {
             const petResponse = await fetch(`/get-pet-details/${petId}`);
             const petData = await petResponse.json();
 
             if (petResponse.ok) {
-                console.log("📥 Loaded existing pet data:", petData);
                 PpetName.value = petData.petName;
                 Ptype.value = petData.type;
                 Pgender.value = petData.gender;
@@ -42,14 +41,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 Pbirthdate.value = petData.birthdate || "";
                 Pweight.value = petData.weight || "";
             } else {
-                console.error("❌ Error loading pet details:", petData.error);
+                console.error(" Error loading pet details:", petData.error);
             }
         } catch (error) {
-            console.error("❌ Fetch error:", error);
+            console.error("Fetch error:", error);
         }
     }
 
-    // ✅ Handle form submission (new registration or update)
+    // Handle form submission (new registration or update)
     Pform.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -75,36 +74,36 @@ document.addEventListener('DOMContentLoaded', async () => {
             ownerEmail: userEmail
         };
 
-        console.log("📤 Sending pet data:", formData);
+        console.log("Sending pet data:", formData);
 
         try {
             const endpoint = petId ? `/update-pet/${petId}` : '/register-pet';
-            const method = petId ? 'PUT' : 'POST'; // ✅ Use PUT for updates, POST for new pets
+            const method = petId ? 'PUT' : 'POST'; // Use PUT for updates, POST for new pets
 
             const response = await fetch(endpoint, {
                 method: method,
-                headers: { 'Content-Type': 'application/json' },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formData),
             });
 
             const result = await response.json();
-            console.log("📥 JSON response:", result);
+            console.log(" JSON response:", result);
 
             if (response.ok) {
                 alert(result.message);
-                window.location.href = `/profile/${petId || result.petId}`; // ✅ Redirect to correct profile
+                window.location.href = `/profile/${petId || result.petId}`; // Redirect to correct profile
             } else {
                 alert(result.error);
             }
         } catch (error) {
-            console.error("❌ Fetch error:", error);
+            console.error(" Fetch error:", error);
             alert("שגיאה במהלך העדכון, נסה שנית.");
         }
     });
 });
 
-// ✅ Existing error message function (unchanged)
-function showError(input, message) {
+//Existing error message function
+function showError (input, message) {
     const errorContainer = input.parentElement;
     const existingErrors = errorContainer.querySelectorAll('.error-message');
     existingErrors.forEach(error => error.remove());

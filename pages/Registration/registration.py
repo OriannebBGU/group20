@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, render_template, session
 from db_connector import insert_customer, get_customer_by_email
+import time
 
 # Registration blueprint
 registration = Blueprint(
@@ -10,13 +11,12 @@ registration = Blueprint(
     template_folder='templates'
 )
 
+
 # Render the registration page
 @registration.route('/registration')
 def registration_func():
     return render_template('registration.html')
 
-
-import time  # Import time for delay
 
 @registration.route('/register-user', methods=['POST'])
 def register_user():
@@ -34,21 +34,18 @@ def register_user():
         new_user = {
             "firstName": first_name,
             "lastName": last_name,
-            "Email": email,  # ✅ Store it as "Email" to match MongoDB
+            "Email": email,  # Store it as "Email" to match MongoDB
             "Password": password,
             "phoneNumber": phone,
             "Role": 1
         }
         insert_customer(new_user)
 
-        import time
         time.sleep(0.5)  # Ensure MongoDB has time to commit
 
-        user_data = get_customer_by_email(email)  # ✅ Now it should match
-        print(f"📌 Debug: Retrieved user data after insert = {user_data}")
+        user_data = get_customer_by_email(email)  # Now it should match
 
         if not user_data:
-            print("❌ Error: Newly inserted user not found in the database!")
             return jsonify({"error": "User registration failed. Please try again."}), 500
 
         session["user_email"] = email
@@ -59,8 +56,4 @@ def register_user():
         return jsonify({"message": "User registered successfully"}), 201
 
     except Exception as e:
-        print(f"❌ Fatal Error in register_user: {e}")
         return jsonify({"error": str(e)}), 500
-
-
-

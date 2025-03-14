@@ -2,7 +2,7 @@
 
 ## Part 3
 
-### Project Overview
+## Project Overview
 
 VetRinat is a website for managing Dr.Rinat's veterinary clinic, which is designed for both pet owners and
 veterinarians. On the site, pet owners can manage personal profiles and track their pets' medical history, as well as
@@ -25,7 +25,7 @@ treatment records, allowing her to manage treatment documentation efficiently an
 
 --- 
 
-### Guided Experience:
+## Guided Experience:
 
 The system offers a comprehensive user experience with a guided tour that introduces you to all functionalities using
 three different points of view:
@@ -41,7 +41,7 @@ After submitting each form you will be redirected to the homepage.
 
 --- 
 
-### **shay's point of view:**
+## **shay's point of view:**
 
 Please select "Login" and enter the following user to experience:
 
@@ -70,10 +70,9 @@ To see this function implemented, we will ask you at this point to run the "[cre
 
 ![profile_yes.png](static/media/img/Readme_images/profile_yes.png)
 
-On this page you can also choose between two buttons:
-
-- Edit the pet's details. The edit button which will navigate you to the data editing page.
-- Navigate to the medical history viewing page.
+On this page, you have two available buttons:
+- **Edit Pet Details:** Takes you to the data editing page.
+- **View Medical History:** Takes you to the medical history page.
 
 For the next step please press the **medical history** button.
 On this page you may choose between the different appointments to view DR. Rinat's summary.
@@ -89,7 +88,7 @@ Please log out by clicking the button in the navbar.
 
 ---
 
-### **you're point of view**
+## **you're point of view**
 
 Please select "Registration" and go through a 2-step registration process.    
 **step 1**: Register a new user. After submitting the first form you will be redirected to **step 2**; Register a new
@@ -111,7 +110,7 @@ completing the form, you'll be returned to the profile page.
 
 --- 
 
-### **Dr.Rinat's point of view**
+## **Dr.Rinat's point of view**
 
 Please select "Login" and enter the following user to experience:
 
@@ -144,7 +143,7 @@ Please log out by clicking the button in the navbar
 
 ---
 
-### Technologies Used
+## Technologies Used
 
 - HTML
 - Vanilla JavaScript
@@ -153,7 +152,7 @@ Please log out by clicking the button in the navbar
 
 --- 
 
-### Contributors
+## Contributors
 
 - Orianne Shcolnik
 - Shai Tsfaty

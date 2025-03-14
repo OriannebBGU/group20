@@ -1,8 +1,7 @@
-from flask import Blueprint, render_template, session, url_for, redirect, request
+from flask import Blueprint, render_template, session, url_for, redirect
 from db_connector import get_pets_by_owner, get_latest_future_appointment, get_pet_by_id
 from datetime import datetime
 from bson import ObjectId
-
 
 profile = Blueprint(
     'profile',
@@ -12,6 +11,7 @@ profile = Blueprint(
     template_folder='templates'
 )
 
+
 @profile.route('/profile/<pet_id>')
 def profile_func(pet_id):
     # Check if user is logged in
@@ -19,12 +19,10 @@ def profile_func(pet_id):
         return redirect(url_for('login'))
 
     user_email = session["user_email"]
-    print(f"📌 Debug: Received pet_id = {pet_id}")
     try:
         pet = get_pet_by_id(ObjectId(pet_id))  # Fetch pet using its ID
-        print(f"📌 Debug: Retrieved pet from DB = {pet}")
     except Exception as e:
-        print(f"❌ Error fetching pet: {e}")
+        print(f" Error fetching pet: {e}")
         pet = None
 
     if not pet or pet.get("owner") != user_email:
@@ -57,6 +55,4 @@ def profile_func(pet_id):
 
     upcoming_appointment = get_latest_future_appointment(pet["petName"], user_email)
 
-    print(f"📌 Debug: Sending pet data to profile.html: {pet}")
     return render_template('profile.html', pet=pet, upcoming_appointment=upcoming_appointment)
-

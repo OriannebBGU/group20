@@ -9,7 +9,6 @@ info = Blueprint(
     template_folder='templates'
 )
 
-
 # Routes
 @info.route('/info')
 def info_func():

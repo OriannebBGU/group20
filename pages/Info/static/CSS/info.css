@@ -14,13 +14,6 @@ body {
     text-align: right;
 }
 
-/*.contactInfo {*/
-/*    bottom: 0;*/
-/*    width: 100%;*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*}*/
-
 .services {
     display: flex;
     justify-content: space-between;
