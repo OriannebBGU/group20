@@ -1,105 +1,131 @@
 # Vetrinat - A Veterinary Website
 
-## Part A
+## Part 3
 
 ### Project Overview
-VetRinat is a platform designed to assist Dr. Rinat PetLover customers in managing their pets' appointments and medical history. Our mission is to provide easy access to treatment summaries, personalized pet profiles and information about the clinic treatments, fostering a healthier and more organized life for pets and their owners.
 
-### Key Features
-1. **User Accounts** - 2-step registration process, focusing on the owner and the pet respectively.
-2. **Detailed Pet Profiles** - Information on breed, gender, age, weight and more.
-3. **Medical Summaries** - Comprehensive treatment history and summaries for each pet.
-4. **General Information** - Regarding the user's next appointment, the clinic availability, and popular treatments.
+VetRinat is a website for managing Dr.Rinat's veterinary clinic, which is designed for both pet owners and
+veterinarians. On the site, pet owners can manage personal profiles and track their pets' medical history, as well as
+view the upcoming appointment date set by the clinic. At the same time, the veterinarian receives tools for updating
+treatment records, allowing her to manage treatment documentation efficiently and transparently.
 
-## Part B
+### Core Functionalities
 
-### Main Flows on the Site
-
-#### Customers Flows:
-
-- **Registration:** Users can register their pets via a two-step process, providing details like name, breed and gender.
-- **Medical History Access:** Pet owners can view their pet's treatment history and summaries directly on the site.
-
-#### Vet Flows:
-
-- **Treatment Updates:** Vet users can add or modify medical records through a dedicated interface, containing treatment type, date, pet and summary.
-- **Profile Management:** Logged-in veterinary staff can manage pet profiles and schedule appointments.
+1. **User Authentication**
+2. **User Accounts** – A 2-step registration process focusing on the owner and then the pet.
+3. **Detailed Pet Profiles** – Information on breed, gender, age, weight, and more, including the ability to view
+   upcoming appointments for the pet and to edit the pet’s details.
+4. **Medical Summaries** – For pet owners, the Medical Summary page displays detailed treatment summaries for every
+   treatment the pet has undergone in the past. For the veterinarian, the interface allows switching between clients to
+   review the treatment summaries, as well as adding or modifying these records.
+5. **Navigation Bar** – Provides intuitive access to the main sections of the website, including a sub-menu that leads
+   to the profile of each pet.
 
 ---
 
-### Assumptions Regarding Use
+--- 
 
-- The personalized parts that are currently shown are placeholders for this part of the project only. In P3, these parts will be updated to be read from the DB. The placeholders: 
-  - Name in welcome message (אוריין)
-  - Shown profile (צ'לסי)
-    - Upcoming appointment message ("אין תורים עתידיים")
-  - Shown treatment history
-- Doctor view and Patient view buttons in Treatment History page will not exist in P3 - they were only created for the purposes of P2, to show the course staff how will each view look.
-  - Similarly, the existing functions that allow adding and modifying treatments under Doctor View are placeholders for the functions that will be implemented in P3.
-- Every new user receives customer's permissions by default. Defining a user as staff is done manually in the database.
-- Adding an upcoming appointment for a pet will be done straight through the database in P3.
+### Guided Experience:
 
----
+The system offers a comprehensive user experience with a guided tour that introduces you to all functionalities using
+three different pints of view:
 
-### Repeating Elements
+1. shay's point of view
+2. Dr.Rinat's point of view
+3. you're point of view
 
-- **Header:** 
-  - Contains navigation buttons (homeButton, infoButton, etc.).
-  - Includes the site logo (class icon).
-  - Repeating style.
-- **Form Layouts:** 
-  - RegistrationLine divs with labels and inputs (used in forms for Login, Registration, RegistrationPet, and Treatment Summary).
+In the upper right corner, you may choose whether to register or log in.     
+After submitting each forme you will be redirected to the homepage.
 
----
+## תמונה של הלוגין
 
-### Responsive Design
+--- 
 
-The site uses CSS Media queries to ensure responsive design and a good user experience from different screens. There are 3 definitions using Media queries:
-- Screens narrower than 768 px
-- Screens shorter than 650 px
-- Screens longer than 650 px
+### **shay's point of view:**
 
----
 
-### CSS Animation
-The code uses @keyframes to make the Vetrinat icon rotate whenever the user hovers over it, in all the pages it appears (homepage, treatment history, info, profile).
+Please select "Login" and enter the following user to experience:
 
- ---
-### Event Functions
-1. The code uses addEventListener('DOMContentLoaded', ...) to ensure the DOM is fully loaded before running the attached initialization functions.
-2. The code uses addEventListener('click', ...) to respond to button clicks. This function is used in various sections, like toggling views (e.g., setUserType), logging in, or navigating between pages.
+**Username**: Shay@example.com    
+**User Password**: Secret123
 
----
+You can observe a change in the navbar—it now displays a "Personal Area" button that opens a sub-menu listing the pets
+you have registered on the site. Additionally, you have the option to add another pet for treatment via this sub-menu.
 
-### Forms and Validations
+## כאן יש להכניס שתי תמונות השוואה של הNAVBAR אחד פתוח ואחד סגור
 
-There are 3 forms in the site, each one with a different validation.
-- LogInForm:
-  - Email - validates the user inputs a valid email address using regex  
-  (/^[a-zA-Z0-9]+@[a-zA-Z]+(\.[a-zA-Z]+)+$/).
-  - Password - validates the password is at least 6 characters long.  
-In P3, this form will read straight from the database and ensure that the user enters existing credentials.
-- RegistrationForm:
-  - A general validation that all the fields are filled.
-  - First name - validates that the input is at least 2 characters long.
-  - Last name - validates that the input is at least 2 characters long.
-  - Email - validates the user inputs a valid email address using regex  
-  (/^[a-zA-Z0-9]+@[a-zA-Z]+(\.[a-zA-Z]+)+$/).
-  - Password - validates the password is at least 6 characters long.
-  - VPassword (verify password) - validates that the entered password is identical to the one input in the password field.
-  - Phone number - validates that the input is between 9-10 characters long, and:
-    - if it's 9 characters long, it starts with 0.
-    - if it's 10 characters long, it starts with 05 or 07.
-- RegistrationPetForm  
-  Unlike the registration form, not all fields are necessary to fill in order to register a pet.
-  - A general validation that name, type and gender are filled.
-  - Pet name - validates that the input is at least 2 characters long.
-  - Photo input - validates that the file uploaded is of type photo.
+Please press the **"Personal Area"** button and then choose the profile for **"שטות"** to see the matching profile.  
+The pet’s profile is displayed with all the details entered during registration.
+Additionally, information about an upcoming meeting (if available) is displayed; if there are no meetings, an
+appropriate message will be displayed (the database query will be updated if there is an upcoming meeting).
 
+To see this function implemented, we will ask you at this point to run the "[create_a_future_appointment.py](
+)" file and then refresh your internet browser.
+
+## תמונה של ההודעה לפני ואחרי?
+
+On this page you can also choose between two buttons:
+
+- Edit the pet's details. The edit button which will navigate you to the data editing page.
+- Navigate to the medical history viewing page.
+
+For the next step please press the medical history button.
+On this page you may choose between the different appointments to view DR. Rinat's summary.
+
+## הוספת תמונה של עמוד היסטוריית טיפולים עבור משתמש
+
+**Note:** Although you may see the up-coming meetings on this page as well, you can't choose to view an up-coming
+meeting summary.
+
+Please log out by clicking the button in the navbar
 
 ---
-### Submitted by:
-- אוריין שקולניק
-- שי צפתי
+
+### **you're point of view**
+
+Please select "Registration" and go through a 2-step registration process.    
+**step 1**: Register a new user. After submitting the first form you will be redirected to **step 2**; Register a new
+pet.
+
+## יש להכניס תמונה של שני מסכי ההרשמה.
+
+You can add another pet by clicking on the "Personal Area" and then selecting the "Add" button in the navbar. This will
+direct you to the pet registration page. After completing the form, you'll be redirected to the home page, where the new
+pet will appear in the navbar.
+
+Alternatively, follow the steps outlined in Shay's perspective until you reach the pet’s profile page. Once there, click
+the “Edit” button to update the pet’s information. The “Edit” button directs you to the pet registration page, and after
+completing the form, you'll be returned to the profile page.   
+(Note: During the initial registration, users are redirected to the home page.)
+
+
+--- 
+
+### **Dr.Rinat's point of view**
+
+Please select "Login" and enter the following user to experience:
+
+**Username**: rinat@vetrinat.com  
+**User Password**: Password456
+
+Another change can be seen in the navbar do to the role defined for the doctor, it is now showing a "treatment
+summaries" button that guides you to the treatment summary page.
+
+### הוספת תמונה של ה- NAVBAR של הרופאה
+
+On this page you can select from a scrolling list of the registered clients and pets for whom you would like to view
+past summaries or write a new summary.    
+You are welcome to experiment on "אוריין- צ'לסי " or  "שי- שטות".
+
+If you've registered you're oun pet you should be able to see yoe and him there too. However, due to the lack of
+appointments, you won't be able to submit a treatment summary.
+
+### הוספת תמונה עמוד היסטוריית טיפולים רופאה
+
+Please log out by clicking the button in the navbar
+
+--- 
+
+
 
 
