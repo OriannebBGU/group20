@@ -53,9 +53,10 @@ Please select "Login" and enter the following user to experience:
 You can observe a change in the navbar—it now displays a "Personal Area" button that opens a sub-menu listing the pets
 you have registered on the site. Additionally, you have the option to add another pet for treatment via this sub-menu.
 
-![home_logedin.png](static/media/img/Readme_images/home_logedin.png)
-
-![pet_navbar.png](static/media/img/Readme_images/pet_navbar.png)
+<div>
+  <img src="static/media/img/Readme_images/home_logedin.png" alt="Home Logged In" width=70% style="display:inline-block; margin-right:10px;">
+  <img src="static/media/img/Readme_images/pet_navbar.png" alt="Pet Navbar" width=25% style="display:inline-block;">
+</div>
 
 Please press the **"Personal Area"** button and then choose the button for **"שטות"** to see the matching profile.  
 The pet’s profile is displayed with all the details entered during registration.
