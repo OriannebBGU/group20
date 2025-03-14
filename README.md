@@ -34,7 +34,7 @@ three different points of view:
 2. Dr.Rinat's point of view
 3. your point of view
 
-![hompage_Logedout.png](static/media/img/Readme_images/hompage_Logedout.png)
+![hompage_Logedout.png](static/media/img/Readme_images/hompage_logedout.png)
 
 In the upper right corner, you may choose whether to register or log in.     
 After submitting each form you will be redirected to the homepage.
