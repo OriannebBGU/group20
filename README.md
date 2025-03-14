@@ -28,14 +28,14 @@ treatment records, allowing her to manage treatment documentation efficiently an
 ### Guided Experience:
 
 The system offers a comprehensive user experience with a guided tour that introduces you to all functionalities using
-three different pints of view:
+three different points of view:
 
 1. shay's point of view
 2. Dr.Rinat's point of view
-3. you're point of view
+3. your point of view
 
 In the upper right corner, you may choose whether to register or log in.     
-After submitting each forme you will be redirected to the homepage.
+After submitting each form you will be redirected to the homepage.
 
 ## תמונה של הלוגין
 
@@ -108,7 +108,7 @@ Please select "Login" and enter the following user to experience:
 **Username**: rinat@vetrinat.com  
 **User Password**: Password456
 
-Another change can be seen in the navbar do to the role defined for the doctor, it is now showing a "treatment
+Another change can be seen in the navbar due to the role defined for the doctor, it is now showing a "treatment
 summaries" button that guides you to the treatment summary page.
 
 ### הוספת תמונה של ה- NAVBAR של הרופאה
@@ -117,14 +117,19 @@ On this page you can select from a scrolling list of the registered clients and 
 past summaries or write a new summary.    
 You are welcome to experiment on "אוריין- צ'לסי " or  "שי- שטות".
 
-If you've registered you're oun pet you should be able to see yoe and him there too. However, due to the lack of
-appointments, you won't be able to submit a treatment summary.
+If you've registered your own pet, you should be able to see both your pet and you there.       
+However, due to the lack of appointments, you won't be able to submit a treatment summary.
 
 ### הוספת תמונה עמוד היסטוריית טיפולים רופאה
 
 Please log out by clicking the button in the navbar
 
 --- 
+
+---
+
+
+
 
 
 
