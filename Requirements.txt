@@ -1,0 +1,9 @@
+os
+datetime
+time
+python-dotenv
+pymongo
+flask
+flask_session
+Vanilla JavaScript
+Custom CSS
